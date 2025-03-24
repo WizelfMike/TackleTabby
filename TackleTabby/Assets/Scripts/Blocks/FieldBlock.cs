@@ -59,19 +59,19 @@ public class FieldBlock : MonoBehaviour
 
         if (validateHorizontal && validateVertical)
         {
-            MatchMediator.Instance.NotifyOfMatch(this, horizontalProgress.Concat(verticalProgress).ToArray());
+            MatchMediator.Instance.NotifyOfMatch(this, horizontalProgress.Concat(verticalProgress));
             return;
         }
 
         if (validateHorizontal)
         {
-            MatchMediator.Instance.NotifyOfMatch(this, horizontalProgress.ToArray());
+            MatchMediator.Instance.NotifyOfMatch(this, horizontalProgress);
             return;
         }
 
         if (validateVertical)
         {
-            MatchMediator.Instance.NotifyOfMatch(this, verticalProgress.ToArray());
+            MatchMediator.Instance.NotifyOfMatch(this, verticalProgress);
         }
     }
 
@@ -170,7 +170,7 @@ public class FieldBlock : MonoBehaviour
         BlockUpdate(Directions.Horizontal);
     }
 
-    [ContextMenu("BlockUpdate/AllDirection")]
+    [ContextMenu("BlockUpdate/All Directions")]
     private void BlockUpdateAllDirections()
     {
         // Will call the block-update, and ignores no directions; calling all
