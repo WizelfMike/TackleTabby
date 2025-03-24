@@ -145,7 +145,7 @@ public class FieldBlock : MonoBehaviour
 
     private RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
     {
-        Debug.DrawRay(origin, direction * RaycastDistance, Color.red, 1f);
+        Debug.DrawRay(origin, direction * RaycastDistance, Color.red, 3f);
             
         _collider.enabled = false;
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance);
