@@ -12,4 +12,5 @@ public enum Directions
     
     Horizontal = Right | Left,
     Vertical = Up | Down,
+    All = Up | Right | Down | Left
 }
