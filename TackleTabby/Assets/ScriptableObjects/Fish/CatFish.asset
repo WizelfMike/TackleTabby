@@ -17,3 +17,6 @@ MonoBehaviour:
   MinSizeInches: 14.4
   MaxSizeInches: 19.2
   MaxSizeDeviationInch: 1
+  RequiredBaitCombination:
+  - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
+  - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
