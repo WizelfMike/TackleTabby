@@ -12,7 +12,6 @@ public class FieldMatchValidator : GenericSingleton<FieldMatchValidator>
     {
         int size = match.Count;
         
-        // We check the size assuming that the caller is not present in the match-list
         if (size < MinimalRequiredMatchSize - 1)
             return false;
 

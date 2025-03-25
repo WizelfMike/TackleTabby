@@ -11,9 +11,6 @@ public class FieldBlock : MonoBehaviour
     private SpriteRenderer SpriteRenderer;
     [SerializeField]
     private float RaycastDistance = 1f;
-
-    private LayerMask _defaultLayerMask = -1;
-    private BoxCollider2D _collider;
     
     public BaitDefinition BaitDefinitionReference
     {
@@ -25,6 +22,8 @@ public class FieldBlock : MonoBehaviour
         }
     }
 
+    private BoxCollider2D _collider;
+
     private void OnValidate()
     {
         SpriteRenderer.sprite = BaitReference.BaitSprite;
@@ -33,7 +32,6 @@ public class FieldBlock : MonoBehaviour
     private void Start()
     {
         SpriteRenderer.sprite = BaitReference.BaitSprite;
-        _defaultLayerMask = gameObject.layer;
         _collider = GetComponent<BoxCollider2D>();
     }
 
@@ -159,21 +157,18 @@ public class FieldBlock : MonoBehaviour
     [ContextMenu("BlockUpdate/Update Horizontal")]
     private void BlockUpdateHorizontal()
     {
-        // Will call the block-update, and ignores vertical directions
         BlockUpdate(Directions.Vertical);
     }
     
     [ContextMenu("BlockUpdate/Update Vertical")]
     private void BlockUpdateVertical()
     {
-        // Will call the block-update, and ignores horizontal directions
         BlockUpdate(Directions.Horizontal);
     }
 
     [ContextMenu("BlockUpdate/All Directions")]
     private void BlockUpdateAllDirections()
     {
-        // Will call the block-update, and ignores no directions; calling all
         BlockUpdate(Directions.None);
     }
     
