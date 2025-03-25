@@ -1,39 +1,44 @@
-using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
-using TMPro;
+using System.Linq;
+using UnityEngine.Events;
 
 public class ComboTracker : MonoBehaviour
 {
     [SerializeField]
-    private List<TextMeshProUGUI> ComboSlots = new();
-
+    private int ComboLength = 2;
     [SerializeField]
-    private combo _endingCombo = new combo();
+    private Combo _endingCombo;
 
-    private int _comboIndex = 1;
+    public UnityEvent<Combo> OnComboFinished;
+    public UnityEvent<ComboEntry> OnComboUpdated;
 
-    public void SetNextComboText(string combo)
+    private List<BaitDefinition> _baitList = new();
+
+    public void UpdateCombo(BaitDefinition match)
     {
-        if (_comboIndex == 3)
-            ResetComboText();
+        _baitList.Add(match);
+        OnComboUpdated?.Invoke(new ComboEntry { BaitType = match });
 
-        ComboSlots[_comboIndex-1].SetText(combo);
-        _comboIndex++;
-
-        if (_comboIndex == 3)
+        if (_baitList.Count >=  ComboLength)
+        {
             SetGivenCombo();
+            ResetCombo();
+        }
     }
 
-    public void ResetComboText()
+    public void ResetCombo()
     {
-        ComboSlots[0].text = null;
-        ComboSlots[1].text = null;
-        _comboIndex = 1;
+        _baitList.Clear();
     }
 
     public void SetGivenCombo()
     {
-        _endingCombo.FillSlots(ComboSlots[0].text.ToString(), ComboSlots[1].text.ToString());
+        _endingCombo = new Combo()
+        {
+            Entries = _baitList.Select(match => new ComboEntry() { BaitType = match }).ToArray()
+        };
+
+        OnComboFinished?.Invoke(_endingCombo);
     }
 }
