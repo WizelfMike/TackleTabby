@@ -11,7 +11,7 @@ public class BaitDefinition : ScriptableObject, IEquatable<BaitDefinition>, ICom
     {
         if (ReferenceEquals(null, other)) return false;
         if (ReferenceEquals(this, other)) return true;
-        return base.Equals(other) && DisplayName == other.DisplayName && Equals(BaitSprite, other.BaitSprite);
+        return DisplayName == other.DisplayName;
     }
 
     public override bool Equals(object obj)
@@ -24,7 +24,7 @@ public class BaitDefinition : ScriptableObject, IEquatable<BaitDefinition>, ICom
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(base.GetHashCode(), DisplayName, BaitSprite);
+        return HashCode.Combine(base.GetHashCode(), DisplayName);
     }
 
     public int CompareTo(BaitDefinition other)
