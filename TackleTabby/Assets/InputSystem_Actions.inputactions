@@ -2,22 +2,13 @@
     "name": "InputSystem_Actions",
     "maps": [
         {
-            "name": "UI",
-            "id": "272f6d14-89ba-496f-b7ff-215263d3219f",
+            "name": "Input",
+            "id": "77c7af06-98b1-4208-a7a0-1f959224d4ef",
             "actions": [
                 {
-                    "name": "Click",
-                    "type": "PassThrough",
-                    "id": "3c7022bf-7922-4f7c-a998-c437916075ad",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Swipe",
+                    "name": "press",
                     "type": "Value",
-                    "id": "71d51d82-d4cf-4354-af60-c49192aa8c16",
+                    "id": "44b8bc78-774b-48ae-bf49-8f973ac9ef37",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -27,34 +18,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "8d66d5ba-88d7-48e6-b1cd-198bbfef7ace",
-                    "path": "<Pen>/tip",
+                    "id": "c6718b47-0dd6-4915-abd6-b03911cf438d",
+                    "path": "<Touchscreen>/primaryTouch",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "47c2a644-3ebc-4dae-a106-589b7ca75b59",
-                    "path": "<Touchscreen>/touch*/press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Touch",
-                    "action": "Click",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c4a12639-95c8-4678-883c-0049b279a729",
-                    "path": "<Touchscreen>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Touch;Keyboard&Mouse",
-                    "action": "Swipe",
+                    "groups": ";Keyboard&Mouse;Touch",
+                    "action": "press",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

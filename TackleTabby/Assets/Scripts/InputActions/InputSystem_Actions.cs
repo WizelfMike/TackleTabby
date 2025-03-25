@@ -90,22 +90,13 @@ namespace PlayerMovementActions
     ""name"": ""InputSystem_Actions"",
     ""maps"": [
         {
-            ""name"": ""UI"",
-            ""id"": ""272f6d14-89ba-496f-b7ff-215263d3219f"",
+            ""name"": ""Input"",
+            ""id"": ""77c7af06-98b1-4208-a7a0-1f959224d4ef"",
             ""actions"": [
                 {
-                    ""name"": ""Click"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""3c7022bf-7922-4f7c-a998-c437916075ad"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Swipe"",
+                    ""name"": ""press"",
                     ""type"": ""Value"",
-                    ""id"": ""71d51d82-d4cf-4354-af60-c49192aa8c16"",
+                    ""id"": ""44b8bc78-774b-48ae-bf49-8f973ac9ef37"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -115,34 +106,12 @@ namespace PlayerMovementActions
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8d66d5ba-88d7-48e6-b1cd-198bbfef7ace"",
-                    ""path"": ""<Pen>/tip"",
+                    ""id"": ""c6718b47-0dd6-4915-abd6-b03911cf438d"",
+                    ""path"": ""<Touchscreen>/primaryTouch"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""47c2a644-3ebc-4dae-a106-589b7ca75b59"",
-                    ""path"": ""<Touchscreen>/touch*/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Touch"",
-                    ""action"": ""Click"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c4a12639-95c8-4678-883c-0049b279a729"",
-                    ""path"": ""<Touchscreen>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch;Keyboard&Mouse"",
-                    ""action"": ""Swipe"",
+                    ""groups"": "";Keyboard&Mouse;Touch"",
+                    ""action"": ""press"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -212,15 +181,14 @@ namespace PlayerMovementActions
         }
     ]
 }");
-            // UI
-            m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-            m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
-            m_UI_Swipe = m_UI.FindAction("Swipe", throwIfNotFound: true);
+            // Input
+            m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
+            m_Input_press = m_Input.FindAction("press", throwIfNotFound: true);
         }
 
         ~@PlayerMovementActions()
         {
-            UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerMovementActions.UI.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Input.enabled, "This will cause a leak and performance issues, PlayerMovementActions.Input.Disable() has not been called.");
         }
 
         /// <summary>
@@ -293,34 +261,29 @@ namespace PlayerMovementActions
             return asset.FindBinding(bindingMask, out action);
         }
 
-        // UI
-        private readonly InputActionMap m_UI;
-        private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
-        private readonly InputAction m_UI_Click;
-        private readonly InputAction m_UI_Swipe;
+        // Input
+        private readonly InputActionMap m_Input;
+        private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
+        private readonly InputAction m_Input_press;
         /// <summary>
-        /// Provides access to input actions defined in input action map "UI".
+        /// Provides access to input actions defined in input action map "Input".
         /// </summary>
-        public struct UIActions
+        public struct InputActions
         {
             private @PlayerMovementActions m_Wrapper;
 
             /// <summary>
             /// Construct a new instance of the input action map wrapper class.
             /// </summary>
-            public UIActions(@PlayerMovementActions wrapper) { m_Wrapper = wrapper; }
+            public InputActions(@PlayerMovementActions wrapper) { m_Wrapper = wrapper; }
             /// <summary>
-            /// Provides access to the underlying input action "UI/Click".
+            /// Provides access to the underlying input action "Input/press".
             /// </summary>
-            public InputAction @Click => m_Wrapper.m_UI_Click;
-            /// <summary>
-            /// Provides access to the underlying input action "UI/Swipe".
-            /// </summary>
-            public InputAction @Swipe => m_Wrapper.m_UI_Swipe;
+            public InputAction @press => m_Wrapper.m_Input_press;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
-            public InputActionMap Get() { return m_Wrapper.m_UI; }
+            public InputActionMap Get() { return m_Wrapper.m_Input; }
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
             public void Enable() { Get().Enable(); }
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -328,9 +291,9 @@ namespace PlayerMovementActions
             /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
             public bool enabled => Get().enabled;
             /// <summary>
-            /// Implicitly converts an <see ref="UIActions" /> to an <see ref="InputActionMap" /> instance.
+            /// Implicitly converts an <see ref="InputActions" /> to an <see ref="InputActionMap" /> instance.
             /// </summary>
-            public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+            public static implicit operator InputActionMap(InputActions set) { return set.Get(); }
             /// <summary>
             /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
             /// </summary>
@@ -338,17 +301,14 @@ namespace PlayerMovementActions
             /// <remarks>
             /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
             /// </remarks>
-            /// <seealso cref="UIActions" />
-            public void AddCallbacks(IUIActions instance)
+            /// <seealso cref="InputActions" />
+            public void AddCallbacks(IInputActions instance)
             {
-                if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
-                m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
-                @Click.started += instance.OnClick;
-                @Click.performed += instance.OnClick;
-                @Click.canceled += instance.OnClick;
-                @Swipe.started += instance.OnSwipe;
-                @Swipe.performed += instance.OnSwipe;
-                @Swipe.canceled += instance.OnSwipe;
+                if (instance == null || m_Wrapper.m_InputActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_InputActionsCallbackInterfaces.Add(instance);
+                @press.started += instance.OnPress;
+                @press.performed += instance.OnPress;
+                @press.canceled += instance.OnPress;
             }
 
             /// <summary>
@@ -357,24 +317,21 @@ namespace PlayerMovementActions
             /// <remarks>
             /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
             /// </remarks>
-            /// <seealso cref="UIActions" />
-            private void UnregisterCallbacks(IUIActions instance)
+            /// <seealso cref="InputActions" />
+            private void UnregisterCallbacks(IInputActions instance)
             {
-                @Click.started -= instance.OnClick;
-                @Click.performed -= instance.OnClick;
-                @Click.canceled -= instance.OnClick;
-                @Swipe.started -= instance.OnSwipe;
-                @Swipe.performed -= instance.OnSwipe;
-                @Swipe.canceled -= instance.OnSwipe;
+                @press.started -= instance.OnPress;
+                @press.performed -= instance.OnPress;
+                @press.canceled -= instance.OnPress;
             }
 
             /// <summary>
-            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="UIActions.UnregisterCallbacks(IUIActions)" />.
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="InputActions.UnregisterCallbacks(IInputActions)" />.
             /// </summary>
-            /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
-            public void RemoveCallbacks(IUIActions instance)
+            /// <seealso cref="InputActions.UnregisterCallbacks(IInputActions)" />
+            public void RemoveCallbacks(IInputActions instance)
             {
-                if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                if (m_Wrapper.m_InputActionsCallbackInterfaces.Remove(instance))
                     UnregisterCallbacks(instance);
             }
 
@@ -384,21 +341,21 @@ namespace PlayerMovementActions
             /// <remarks>
             /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
             /// </remarks>
-            /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
-            /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
-            /// <seealso cref="UIActions.UnregisterCallbacks(IUIActions)" />
-            public void SetCallbacks(IUIActions instance)
+            /// <seealso cref="InputActions.AddCallbacks(IInputActions)" />
+            /// <seealso cref="InputActions.RemoveCallbacks(IInputActions)" />
+            /// <seealso cref="InputActions.UnregisterCallbacks(IInputActions)" />
+            public void SetCallbacks(IInputActions instance)
             {
-                foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                foreach (var item in m_Wrapper.m_InputActionsCallbackInterfaces)
                     UnregisterCallbacks(item);
-                m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+                m_Wrapper.m_InputActionsCallbackInterfaces.Clear();
                 AddCallbacks(instance);
             }
         }
         /// <summary>
-        /// Provides a new <see cref="UIActions" /> instance referencing this action map.
+        /// Provides a new <see cref="InputActions" /> instance referencing this action map.
         /// </summary>
-        public UIActions @UI => new UIActions(this);
+        public InputActions @Input => new InputActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         /// <summary>
         /// Provides access to the input control scheme.
@@ -465,26 +422,19 @@ namespace PlayerMovementActions
             }
         }
         /// <summary>
-        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Input" which allows adding and removing callbacks.
         /// </summary>
-        /// <seealso cref="UIActions.AddCallbacks(IUIActions)" />
-        /// <seealso cref="UIActions.RemoveCallbacks(IUIActions)" />
-        public interface IUIActions
+        /// <seealso cref="InputActions.AddCallbacks(IInputActions)" />
+        /// <seealso cref="InputActions.RemoveCallbacks(IInputActions)" />
+        public interface IInputActions
         {
             /// <summary>
-            /// Method invoked when associated input action "Click" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "press" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnClick(InputAction.CallbackContext context);
-            /// <summary>
-            /// Method invoked when associated input action "Swipe" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnSwipe(InputAction.CallbackContext context);
+            void OnPress(InputAction.CallbackContext context);
         }
     }
 }

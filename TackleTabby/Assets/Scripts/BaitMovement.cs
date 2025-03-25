@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class BaitMovement : MonoBehaviour
 {
-    [SerializeField] 
-    private List<GameObject> buttons = new();
-
     public void OnPushedButton()
     {
-        print("swipe");
+        print("tap");
     }
 }
