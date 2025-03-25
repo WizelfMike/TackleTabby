@@ -6,23 +6,34 @@ using TMPro;
 public class ComboTracker : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI ComboSlotA;
+    private List<TextMeshProUGUI> ComboSlots = new();
 
     [SerializeField]
-    private TextMeshProUGUI ComboSlotB;
+    private combo _endingCombo = new combo();
 
-    [SerializeField]
-    private List<combo> BaitComboParts;
+    private int _comboIndex = 1;
 
-    private int comboIndex = 1;
-
-    public void SetNextCombo(string combo)
+    public void SetNextComboText(string combo)
     {
-        if (comboIndex == 1)
-            ComboSlotA.text = combo; comboIndex++;
-        if (comboIndex == 2)
-            ComboSlotB.text = combo; comboIndex++;
-        if (comboIndex > 2)
-            ComboSlotA.text = null; ComboSlotB.text = null; comboIndex = 0;
+        if (_comboIndex == 3)
+            ResetComboText();
+
+        ComboSlots[_comboIndex-1].SetText(combo);
+        _comboIndex++;
+
+        if (_comboIndex == 3)
+            SetGivenCombo();
+    }
+
+    public void ResetComboText()
+    {
+        ComboSlots[0].text = null;
+        ComboSlots[1].text = null;
+        _comboIndex = 1;
+    }
+
+    public void SetGivenCombo()
+    {
+        _endingCombo.FillSlots(ComboSlots[0].text.ToString(), ComboSlots[1].text.ToString());
     }
 }
