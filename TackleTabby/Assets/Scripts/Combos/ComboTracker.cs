@@ -21,17 +21,17 @@ public class ComboTracker : MonoBehaviour
 
         if (_baitList.Count >=  ComboLength)
         {
-            SetGivenCombo();
+            UpdateCombo();
             ResetCombo();
         }
     }
 
-    public void ResetCombo()
+    private void ResetCombo()
     {
         _baitList.Clear();
     }
 
-    public void SetGivenCombo()
+    public void UpdateCombo()
     {
         _endingCombo = new Combo()
         {
