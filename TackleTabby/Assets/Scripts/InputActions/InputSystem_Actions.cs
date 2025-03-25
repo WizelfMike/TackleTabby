@@ -94,24 +94,44 @@ namespace PlayerMovementActions
             ""id"": ""77c7af06-98b1-4208-a7a0-1f959224d4ef"",
             ""actions"": [
                 {
-                    ""name"": ""press"",
-                    ""type"": ""Value"",
-                    ""id"": ""44b8bc78-774b-48ae-bf49-8f973ac9ef37"",
+                    ""name"": ""OnPress"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c9f8bc1a-96ee-453a-9d27-64cd7caaf897"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OnPressEnd"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""dcab509f-291d-4fe7-8fb5-4685fa36322d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""c6718b47-0dd6-4915-abd6-b03911cf438d"",
-                    ""path"": ""<Touchscreen>/primaryTouch"",
+                    ""id"": ""5e44efad-7f2b-4fd9-95f6-6aa2de4dbf8c"",
+                    ""path"": ""<Touchscreen>/primaryTouch/startPosition"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse;Touch"",
-                    ""action"": ""press"",
+                    ""groups"": "";Touch"",
+                    ""action"": ""OnPress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df2193bc-ea25-4691-b002-a7a7b03f766e"",
+                    ""path"": ""<Touchscreen>/primaryTouch/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""OnPressEnd"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -183,7 +203,8 @@ namespace PlayerMovementActions
 }");
             // Input
             m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
-            m_Input_press = m_Input.FindAction("press", throwIfNotFound: true);
+            m_Input_OnPress = m_Input.FindAction("OnPress", throwIfNotFound: true);
+            m_Input_OnPressEnd = m_Input.FindAction("OnPressEnd", throwIfNotFound: true);
         }
 
         ~@PlayerMovementActions()
@@ -264,7 +285,8 @@ namespace PlayerMovementActions
         // Input
         private readonly InputActionMap m_Input;
         private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
-        private readonly InputAction m_Input_press;
+        private readonly InputAction m_Input_OnPress;
+        private readonly InputAction m_Input_OnPressEnd;
         /// <summary>
         /// Provides access to input actions defined in input action map "Input".
         /// </summary>
@@ -277,9 +299,13 @@ namespace PlayerMovementActions
             /// </summary>
             public InputActions(@PlayerMovementActions wrapper) { m_Wrapper = wrapper; }
             /// <summary>
-            /// Provides access to the underlying input action "Input/press".
+            /// Provides access to the underlying input action "Input/OnPress".
             /// </summary>
-            public InputAction @press => m_Wrapper.m_Input_press;
+            public InputAction @OnPress => m_Wrapper.m_Input_OnPress;
+            /// <summary>
+            /// Provides access to the underlying input action "Input/OnPressEnd".
+            /// </summary>
+            public InputAction @OnPressEnd => m_Wrapper.m_Input_OnPressEnd;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -306,9 +332,12 @@ namespace PlayerMovementActions
             {
                 if (instance == null || m_Wrapper.m_InputActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_InputActionsCallbackInterfaces.Add(instance);
-                @press.started += instance.OnPress;
-                @press.performed += instance.OnPress;
-                @press.canceled += instance.OnPress;
+                @OnPress.started += instance.OnOnPress;
+                @OnPress.performed += instance.OnOnPress;
+                @OnPress.canceled += instance.OnOnPress;
+                @OnPressEnd.started += instance.OnOnPressEnd;
+                @OnPressEnd.performed += instance.OnOnPressEnd;
+                @OnPressEnd.canceled += instance.OnOnPressEnd;
             }
 
             /// <summary>
@@ -320,9 +349,12 @@ namespace PlayerMovementActions
             /// <seealso cref="InputActions" />
             private void UnregisterCallbacks(IInputActions instance)
             {
-                @press.started -= instance.OnPress;
-                @press.performed -= instance.OnPress;
-                @press.canceled -= instance.OnPress;
+                @OnPress.started -= instance.OnOnPress;
+                @OnPress.performed -= instance.OnOnPress;
+                @OnPress.canceled -= instance.OnOnPress;
+                @OnPressEnd.started -= instance.OnOnPressEnd;
+                @OnPressEnd.performed -= instance.OnOnPressEnd;
+                @OnPressEnd.canceled -= instance.OnOnPressEnd;
             }
 
             /// <summary>
@@ -429,12 +461,19 @@ namespace PlayerMovementActions
         public interface IInputActions
         {
             /// <summary>
-            /// Method invoked when associated input action "press" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "OnPress" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnPress(InputAction.CallbackContext context);
+            void OnOnPress(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "OnPressEnd" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnOnPressEnd(InputAction.CallbackContext context);
         }
     }
 }

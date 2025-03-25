@@ -6,24 +6,44 @@
             "id": "77c7af06-98b1-4208-a7a0-1f959224d4ef",
             "actions": [
                 {
-                    "name": "press",
-                    "type": "Value",
-                    "id": "44b8bc78-774b-48ae-bf49-8f973ac9ef37",
+                    "name": "OnPress",
+                    "type": "PassThrough",
+                    "id": "c9f8bc1a-96ee-453a-9d27-64cd7caaf897",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OnPressEnd",
+                    "type": "PassThrough",
+                    "id": "dcab509f-291d-4fe7-8fb5-4685fa36322d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "c6718b47-0dd6-4915-abd6-b03911cf438d",
-                    "path": "<Touchscreen>/primaryTouch",
+                    "id": "5e44efad-7f2b-4fd9-95f6-6aa2de4dbf8c",
+                    "path": "<Touchscreen>/primaryTouch/startPosition",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "press",
+                    "groups": ";Touch",
+                    "action": "OnPress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df2193bc-ea25-4691-b002-a7a7b03f766e",
+                    "path": "<Touchscreen>/primaryTouch/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "OnPressEnd",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
