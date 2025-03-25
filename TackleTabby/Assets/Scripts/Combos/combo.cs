@@ -10,6 +10,5 @@ public struct ComboEntry
 [Serializable]
 public struct Combo
 {
-    [SerializeField]
     public ComboEntry[] Entries;
 }

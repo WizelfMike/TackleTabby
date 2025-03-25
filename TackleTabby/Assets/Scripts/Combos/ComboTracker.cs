@@ -7,12 +7,11 @@ public class ComboTracker : MonoBehaviour
 {
     [SerializeField]
     private int ComboLength = 2;
-    [SerializeField]
-    private Combo _endingCombo;
 
     public UnityEvent<Combo> OnComboFinished;
     public UnityEvent<ComboEntry> OnComboUpdated;
 
+    private Combo _endingCombo;
     private List<BaitDefinition> _baitList = new();
 
     public void UpdateCombo(BaitDefinition match)
