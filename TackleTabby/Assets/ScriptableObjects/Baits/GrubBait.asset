@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GrubBait
   m_EditorClassIdentifier: 
   DisplayName: Grub
-  BaitSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  BaitSprite: {fileID: 0}
