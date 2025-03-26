@@ -9,17 +9,17 @@ public class ComboTracker : MonoBehaviour
     private int ComboLength = 2;
 
     public UnityEvent<Combo> OnComboFinished;
-    public UnityEvent<ComboEntry> OnComboUpdated;
+    public UnityEvent<Match> OnComboUpdated;
 
     private Combo _endingCombo;
-    private List<BaitDefinition> _baitList = new();
+    private List<Match> _comboList = new();
 
-    public void UpdateCombo(BaitDefinition match)
+    public void UpdateCombo(Match match)
     {
-        _baitList.Add(match);
-        OnComboUpdated?.Invoke(new ComboEntry { BaitType = match });
+        _comboList.Add(match);
+        OnComboUpdated?.Invoke(match);
 
-        if (_baitList.Count >=  ComboLength)
+        if (_comboList.Count >=  ComboLength)
         {
             FinishCombo();
             ResetCombo();
@@ -28,14 +28,14 @@ public class ComboTracker : MonoBehaviour
 
     private void ResetCombo()
     {
-        _baitList.Clear();
+        _comboList.Clear();
     }
 
-    public void FinishCombo()
+    private void FinishCombo()
     {
-        _endingCombo = new Combo()
+        _endingCombo = new Combo
         {
-            Entries = _baitList.Select(match => new ComboEntry() { BaitType = match }).ToArray()
+            Entries = _comboList.ToArray()
         };
 
         OnComboFinished?.Invoke(_endingCombo);

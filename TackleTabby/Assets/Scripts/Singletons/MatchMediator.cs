@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class MatchMediator : GenericSingleton<MatchMediator>
 {
-    public UnityEvent<ICollection<FieldBlock>> OnMatchFound;
+    public UnityEvent<ICollection<FieldBlock>> OnMatchFound = new();
 
     public void NotifyOfMatch(FieldBlock caller, IEnumerable<FieldBlock> fullMatch)
     {

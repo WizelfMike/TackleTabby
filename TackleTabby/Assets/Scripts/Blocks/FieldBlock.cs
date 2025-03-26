@@ -24,6 +24,7 @@ public class FieldBlock : MonoBehaviour
 
     private BoxCollider2D _collider;
     private GridPlayField _parentField;
+    private bool _isInField = true;
 
     private void OnValidate()
     {
@@ -39,7 +40,7 @@ public class FieldBlock : MonoBehaviour
         transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
     }
 
-    public void BlockUpdate(Directions ignoreDirections = Directions.None)
+    public bool BlockUpdate(Directions ignoreDirections = Directions.None)
     {
         List<FieldBlock> horizontalProgress = new();
         List<FieldBlock> verticalProgress = new();
@@ -62,21 +63,52 @@ public class FieldBlock : MonoBehaviour
         if (validateHorizontal && validateVertical)
         {
             MatchMediator.Instance.NotifyOfMatch(this, horizontalProgress.Concat(verticalProgress));
-            return;
+            return true;
         }
 
         if (validateHorizontal)
         {
             MatchMediator.Instance.NotifyOfMatch(this, horizontalProgress);
-            return;
+            return true;
         }
 
         if (validateVertical)
         {
             MatchMediator.Instance.NotifyOfMatch(this, verticalProgress);
+            return true;
         }
+
+        return false;
     }
 
+    /// <summary>
+    /// Function that will get used to notify blocks above that their bottom-block is being removed
+    /// </summary>
+    public void NotifyUpperOfGravity()
+    {
+        RaycastHit2D upperHit = PerformSafeCast(transform.position, Vector2.up, RaycastDistance);
+        if (!upperHit)
+            return;
+
+        if (!upperHit.transform.TryGetComponent(out FieldBlock otherBlock))
+            return;
+        
+        otherBlock.OnGravityNotified();
+    }
+
+    public void OnGravityNotified()
+    {
+        
+        
+        NotifyUpperOfGravity();
+    }
+
+    public void CommenceDestroying()
+    {
+        _isInField = false;
+        NotifyUpperOfGravity();
+    }
+    
     private void CheckUp(FieldBlock instigator, ICollection<FieldBlock> progress)
     {
         RaycastHit2D hit = PerformSafeCast(transform.position, Vector2.up, RaycastDistance);
@@ -145,7 +177,7 @@ public class FieldBlock : MonoBehaviour
         otherBlock.CheckLeft(instigator, progress);
     }
 
-    private RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
+    public RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
     {
         Debug.DrawRay(origin, direction * RaycastDistance, Color.red, 3f);
             
