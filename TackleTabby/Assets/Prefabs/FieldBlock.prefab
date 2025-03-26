@@ -85,7 +85,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &5175040567833875743
 GameObject:
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 2156858513058524042}
   m_Layer: 6
   m_Name: FieldBlock
-  m_TagString: Untagged
+  m_TagString: FieldPiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

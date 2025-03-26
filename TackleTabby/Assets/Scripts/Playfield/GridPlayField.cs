@@ -13,17 +13,33 @@ public class GridPlayField : GenericSingleton<GridPlayField>
 
     [Header("Alpha mask")]
     [SerializeField]
-    private SpriteRenderer AlphaMaskSpriteRenderer;
+    private SpriteMask AlphaMaskSpriteRenderer;
+    [SerializeField]
+    private float MaskDistance = 1f;
+    
+    #if UNITY_EDITOR
+
+    [Header("Filling")]
+    [SerializeField]
+    private GameObject FieldBlockPrefab;
+    
+    #endif
+    
+    private void OnValidate()
+    {
+        PositionAlphaMask();
+    }
 
     private void OnDrawGizmos()
     {
+        Transform selfTransform = transform;
         float width = HorizontalGridCount * GridItemUnitSize;
         float height = VerticalGridCount * GridItemUnitSize;
 
-        Vector3 origin = transform.position + (Vector3.left * GridItemUnitSize / 2 + Vector3.down * GridItemUnitSize / 2);
-        Vector3 bottomRight = origin + Vector3.right * width;
-        Vector3 topRight = bottomRight + Vector3.up * height;
-        Vector3 topLeft = topRight + Vector3.left * width;
+        Vector3 origin = selfTransform.position + (Vector3.left * (GridItemUnitSize / 2 * selfTransform.localScale.x) + Vector3.down * (GridItemUnitSize / 2 * selfTransform.localScale.y));
+        Vector3 bottomRight = origin + Vector3.right * width * selfTransform.localScale.x;
+        Vector3 topRight = bottomRight + Vector3.up * height * selfTransform.localScale.y;
+        Vector3 topLeft = topRight + Vector3.left * width * selfTransform.localScale.x;
 
         Gizmos.color = Color.green;
         
@@ -36,13 +52,19 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         Gizmos.DrawSphere(GetWorldWeightPoint(), 0.2f);
     }
 
-    private void OnValidate()
+    private void Start()
     {
-        Transform spriteTransform = AlphaMaskSpriteRenderer.transform;
-        spriteTransform.localScale =
+        PositionAlphaMask();
+    }
+
+    private void PositionAlphaMask()
+    {
+        Transform maskTransform = AlphaMaskSpriteRenderer.transform;
+        maskTransform.localScale =
             new Vector3(HorizontalGridCount * GridItemUnitSize, VerticalGridCount * GridItemUnitSize, 1);
         Vector3 weightCentre = GetWorldWeightPoint();
-        spriteTransform.position = new Vector3(weightCentre.x, weightCentre.y, weightCentre.z - 2);
+        maskTransform.position =
+            new Vector3(weightCentre.x, weightCentre.y, weightCentre.z) + transform.forward * MaskDistance;
     }
 
     public Vector2 GetLocalisedCoordinate(int horizontalGridIndex, int verticalGridIndex)
@@ -61,7 +83,26 @@ public class GridPlayField : GenericSingleton<GridPlayField>
 
     public Vector3 GetWorldWeightPoint()
     {
-        return transform.position + new Vector3((HorizontalGridCount-1) / 2f * GridItemUnitSize,
-            (VerticalGridCount-1) / 2f * GridItemUnitSize);
+        Transform selfTransform = transform;
+        return selfTransform.position + new Vector3((HorizontalGridCount-1) / 2f * GridItemUnitSize * selfTransform.localScale.x,
+            (VerticalGridCount-1) / 2f * GridItemUnitSize * selfTransform.localScale.y);
     }
+    
+    #if UNITY_EDITOR
+
+    [ContextMenu("Filling/Fill Field")]
+    private void FillField()
+    {
+        for (int x = 0; x < HorizontalGridCount; x++)
+        {
+            for (int y = 0; y < VerticalGridCount; y++)
+            {
+                GameObject fieldBlockInstance = Instantiate(FieldBlockPrefab, transform);
+                fieldBlockInstance.name = FieldBlockPrefab.name + $" ({x}, {y})";
+                fieldBlockInstance.transform.localPosition = GetLocalisedCoordinate(x, y);
+            }
+        }
+    }
+    
+    #endif
 }
