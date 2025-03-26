@@ -95,43 +95,23 @@ namespace PlayerMovementActions
             ""actions"": [
                 {
                     ""name"": ""OnPress"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""c9f8bc1a-96ee-453a-9d27-64cd7caaf897"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""OnPressEnd"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""dcab509f-291d-4fe7-8fb5-4685fa36322d"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""5e44efad-7f2b-4fd9-95f6-6aa2de4dbf8c"",
-                    ""path"": ""<Touchscreen>/primaryTouch/startPosition"",
+                    ""path"": ""<Touchscreen>/primaryTouch/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Touch"",
                     ""action"": ""OnPress"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""df2193bc-ea25-4691-b002-a7a7b03f766e"",
-                    ""path"": ""<Touchscreen>/primaryTouch/press"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""OnPressEnd"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -204,7 +184,6 @@ namespace PlayerMovementActions
             // Input
             m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
             m_Input_OnPress = m_Input.FindAction("OnPress", throwIfNotFound: true);
-            m_Input_OnPressEnd = m_Input.FindAction("OnPressEnd", throwIfNotFound: true);
         }
 
         ~@PlayerMovementActions()
@@ -286,7 +265,6 @@ namespace PlayerMovementActions
         private readonly InputActionMap m_Input;
         private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
         private readonly InputAction m_Input_OnPress;
-        private readonly InputAction m_Input_OnPressEnd;
         /// <summary>
         /// Provides access to input actions defined in input action map "Input".
         /// </summary>
@@ -302,10 +280,6 @@ namespace PlayerMovementActions
             /// Provides access to the underlying input action "Input/OnPress".
             /// </summary>
             public InputAction @OnPress => m_Wrapper.m_Input_OnPress;
-            /// <summary>
-            /// Provides access to the underlying input action "Input/OnPressEnd".
-            /// </summary>
-            public InputAction @OnPressEnd => m_Wrapper.m_Input_OnPressEnd;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -335,9 +309,6 @@ namespace PlayerMovementActions
                 @OnPress.started += instance.OnOnPress;
                 @OnPress.performed += instance.OnOnPress;
                 @OnPress.canceled += instance.OnOnPress;
-                @OnPressEnd.started += instance.OnOnPressEnd;
-                @OnPressEnd.performed += instance.OnOnPressEnd;
-                @OnPressEnd.canceled += instance.OnOnPressEnd;
             }
 
             /// <summary>
@@ -352,9 +323,6 @@ namespace PlayerMovementActions
                 @OnPress.started -= instance.OnOnPress;
                 @OnPress.performed -= instance.OnOnPress;
                 @OnPress.canceled -= instance.OnOnPress;
-                @OnPressEnd.started -= instance.OnOnPressEnd;
-                @OnPressEnd.performed -= instance.OnOnPressEnd;
-                @OnPressEnd.canceled -= instance.OnOnPressEnd;
             }
 
             /// <summary>
@@ -467,13 +435,6 @@ namespace PlayerMovementActions
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnOnPress(InputAction.CallbackContext context);
-            /// <summary>
-            /// Method invoked when associated input action "OnPressEnd" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-            /// </summary>
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnOnPressEnd(InputAction.CallbackContext context);
         }
     }
 }
