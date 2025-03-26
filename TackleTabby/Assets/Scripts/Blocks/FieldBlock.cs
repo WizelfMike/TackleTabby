@@ -23,6 +23,7 @@ public class FieldBlock : MonoBehaviour
     }
 
     private BoxCollider2D _collider;
+    private GridPlayField _parentField;
 
     private void OnValidate()
     {
@@ -33,6 +34,9 @@ public class FieldBlock : MonoBehaviour
     {
         SpriteRenderer.sprite = BaitReference.BaitSprite;
         _collider = GetComponent<BoxCollider2D>();
+        
+        _parentField = transform.parent.GetComponent<GridPlayField>();
+        transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
     }
 
     public void BlockUpdate(Directions ignoreDirections = Directions.None)
