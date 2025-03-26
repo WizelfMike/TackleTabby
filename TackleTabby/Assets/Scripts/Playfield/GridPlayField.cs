@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GridPlayField : GenericSingleton<GridPlayField>
 {
@@ -21,7 +22,9 @@ public class GridPlayField : GenericSingleton<GridPlayField>
 
     [Header("Filling")]
     [SerializeField]
-    private GameObject FieldBlockPrefab;
+    private FieldBlock FieldBlockPrefab;
+    [SerializeField]
+    private BaitDefinition[] RandomBaits;
     
     #endif
     
@@ -97,7 +100,9 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         {
             for (int y = 0; y < VerticalGridCount; y++)
             {
-                GameObject fieldBlockInstance = Instantiate(FieldBlockPrefab, transform);
+                FieldBlock fieldBlockInstance = Instantiate(FieldBlockPrefab, transform);
+                if (RandomBaits.Length > 0)
+                    fieldBlockInstance.BaitDefinitionReference = RandomBaits[Random.Range(0, RandomBaits.Length)];
                 fieldBlockInstance.name = FieldBlockPrefab.name + $" ({x}, {y})";
                 fieldBlockInstance.transform.localPosition = GetLocalisedCoordinate(x, y);
             }
