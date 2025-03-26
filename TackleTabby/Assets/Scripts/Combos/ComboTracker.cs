@@ -21,7 +21,7 @@ public class ComboTracker : MonoBehaviour
 
         if (_baitList.Count >=  ComboLength)
         {
-            UpdateCombo();
+            FinishCombo();
             ResetCombo();
         }
     }
@@ -31,7 +31,7 @@ public class ComboTracker : MonoBehaviour
         _baitList.Clear();
     }
 
-    public void UpdateCombo()
+    public void FinishCombo()
     {
         _endingCombo = new Combo()
         {
