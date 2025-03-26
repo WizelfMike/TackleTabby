@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 2404356429725353540}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 2.5, z: 0.1}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalPosition: {x: 2, y: 2, z: 0.1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6985685245625638140}
@@ -132,9 +132,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d1804839564d72bc636f5567e2c459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HorizontalGridCount: 6
-  VerticalGridCount: 6
+  HorizontalGridCount: 5
+  VerticalGridCount: 5
   GridItemUnitSize: 1
   AlphaMaskSpriteRenderer: {fileID: 1844549252200711252}
   MaskDistance: 0.1
-  FieldBlockPrefab: {fileID: 5175040567833875743, guid: 183709f98dd4c0741bc0e1acc101b211, type: 3}
+  FieldBlockPrefab: {fileID: 6253624737462067451, guid: 183709f98dd4c0741bc0e1acc101b211, type: 3}
+  RandomBaits:
+  - {fileID: 11400000, guid: 179bb9294b5abf941801b534707f5bc5, type: 2}
+  - {fileID: 11400000, guid: 9fe3b75ffa5190248af0318088a1d53e, type: 2}
+  - {fileID: 11400000, guid: a76c41002a421754785e3e494f8ddc1e, type: 2}
+  - {fileID: 11400000, guid: 8b53020099fc6b3428929eb590fe53cf, type: 2}
+  - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
+  - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
