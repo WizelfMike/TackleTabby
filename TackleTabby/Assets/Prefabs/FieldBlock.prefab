@@ -96,8 +96,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7550231238958335120}
-  - component: {fileID: 6253624737462067451}
   - component: {fileID: 2156858513058524042}
+  - component: {fileID: 6253624737462067451}
+  - component: {fileID: 7574904681287063491}
   m_Layer: 6
   m_Name: FieldBlock
   m_TagString: FieldPiece
@@ -121,21 +122,6 @@ Transform:
   - {fileID: 5744732678265158825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6253624737462067451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5175040567833875743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9279b815aa776ff43af992d09db8baf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BaitReference: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
-  SpriteRenderer: {fileID: 6795579963323379539}
-  RaycastDistance: 1
 --- !u!61 &2156858513058524042
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -182,3 +168,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6253624737462067451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175040567833875743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9279b815aa776ff43af992d09db8baf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaitReference: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
+  SpriteRenderer: {fileID: 6795579963323379539}
+  RaycastDistance: 1
+--- !u!114 &7574904681287063491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175040567833875743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GravityStrength: 15
+  TerminalVelocity: 100
+  ControllingCollider: {fileID: 2156858513058524042}
+  GroundDetectionDistance: 1
+  OnLanded:
+    m_PersistentCalls:
+      m_Calls: []

@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(GravityManager))]
 public class FieldBlock : MonoBehaviour
 {
     [SerializeField]
@@ -27,6 +28,7 @@ public class FieldBlock : MonoBehaviour
     public int VerticalPosition => (int) _parentField.GetGridCoordinates(transform.localPosition).y;
 
     private BoxCollider2D _collider;
+    private GravityManager _gravityManager;
     private GridPlayField _parentField;
 
     private void OnValidate()
@@ -36,10 +38,11 @@ public class FieldBlock : MonoBehaviour
 
     private void Start()
     {
-        SpriteRenderer.sprite = BaitReference.BaitSprite;
         _collider = GetComponent<BoxCollider2D>();
-        
+        _gravityManager = GetComponent<GravityManager>();
         _parentField = transform.parent.GetComponent<GridPlayField>();
+        
+        SpriteRenderer.sprite = BaitReference.BaitSprite;
         transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
     }
 
@@ -87,9 +90,24 @@ public class FieldBlock : MonoBehaviour
     /// <summary>
     /// Function that will get used to notify this block that it should start falling
     /// </summary>
-    public void OnGravityNotified()
+    public void NotifyOfGravity()
     {
+        Vector2 gridCoords = _parentField.GetGridCoordinates(transform.localPosition);
+        if (gridCoords.y == 0)
+            return;
+
+        RaycastHit2D below = PerformSafeCast(transform.position, Vector2.down, transform.localScale.y/2 + 0.1f);
+        if (below)
+            return;
         
+        _gravityManager.OnLanded.AddListener(OnLanded);
+        _gravityManager.StartFalling();
+    }
+
+    private void OnLanded()
+    {
+        _gravityManager.OnLanded.RemoveListener(OnLanded);
+        transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
     }
     
     private void CheckUp(FieldBlock instigator, ICollection<FieldBlock> progress)
@@ -189,6 +207,12 @@ public class FieldBlock : MonoBehaviour
     private void BlockUpdateAllDirections()
     {
         BlockUpdate(Directions.None);
+    }
+
+    [ContextMenu("Gravity/StartGravity")]
+    private void StartGravity()
+    {
+        NotifyOfGravity();
     }
     
     #endif

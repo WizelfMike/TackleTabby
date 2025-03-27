@@ -89,7 +89,7 @@ public class GridPlayField : GenericSingleton<GridPlayField>
     public Vector2 GetGridCoordinates(Vector2 localLocation)
     {
         Vector2 scaledApproximates = localLocation / GridItemUnitSize;
-        return new Vector2(Mathf.Floor(localLocation.x), Mathf.Floor(localLocation.y));
+        return new Vector2(Mathf.Round(localLocation.x), Mathf.Round(localLocation.y));
     }
 
     public Vector2 GetPreciseGridLocation(Vector2 localLocation)
@@ -98,7 +98,7 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         return GetLocalisedCoordinate((int)gridCoordinates.x, (int)gridCoordinates.y);
     }
 
-    public Vector3 GetWorldWeightPoint()
+    private Vector3 GetWorldWeightPoint()
     {
         Transform selfTransform = transform;
         return selfTransform.position + new Vector3((HorizontalGridCount-1) / 2f * GridItemUnitSize * selfTransform.localScale.x,

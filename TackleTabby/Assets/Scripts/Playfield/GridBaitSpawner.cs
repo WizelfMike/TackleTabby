@@ -24,18 +24,25 @@ public class GridBaitSpawner : MonoBehaviour
 
     private void OnRemovedFromColumns(int[] columnIndices)
     {
+        StartCoroutine(RemovedFromColumnsCoroutine(columnIndices));
+    }
+
+    private IEnumerator RemovedFromColumnsCoroutine(int[] columnIndices)
+    {
         SpawnNewBlocks(columnIndices);
+        yield return new WaitForSeconds(0.2f);
         InstigateGravity(columnIndices);
     }
 
     private void SpawnNewBlocks(int[] columnIndices)
     {
         Vector3 playFieldWorldLocation = PlayField.transform.position;
+        Vector3 playFieldScale = PlayField.transform.localScale;
         int columnCount = columnIndices.Length;
         for (int i = 0; i < columnCount; i++)
         {
             int columnIndex = columnIndices[i];
-            Vector2 localisedGridCoords = PlayField.GetLocalisedCoordinate(columnIndex, 0);
+            Vector2 localisedGridCoords = PlayField.GetLocalisedCoordinate(columnIndex, 0) * playFieldScale;
             Vector2 rayCastOrigin = new Vector2(playFieldWorldLocation.x + localisedGridCoords.x,
                 playFieldWorldLocation.y + localisedGridCoords.y);           
             
@@ -54,11 +61,12 @@ public class GridBaitSpawner : MonoBehaviour
     private void InstigateGravity(int[] columnIndices)
     {
          Vector3 playFieldWorldLocation = PlayField.transform.position;
+         Vector3 playFieldScale = PlayField.transform.localScale;
          int columnCount = columnIndices.Length;
          for (int i = 0; i < columnCount; i++)
          {
              int columnIndex = columnIndices[i];
-             Vector2 localisedGridCoords = PlayField.GetLocalisedCoordinate(columnIndex, 0);
+             Vector2 localisedGridCoords = PlayField.GetLocalisedCoordinate(columnIndex, 0) * playFieldScale;
              Vector2 rayCastOrigin = new Vector2(playFieldWorldLocation.x + localisedGridCoords.x,
                  playFieldWorldLocation.y + localisedGridCoords.y);
  
@@ -73,7 +81,7 @@ public class GridBaitSpawner : MonoBehaviour
         int blockCount = columnBlocks.Length;
         for (int j = 0; j < blockCount; j++)
         {
-            columnBlocks[j].OnGravityNotified();
+            columnBlocks[j].NotifyOfGravity();
             yield return new WaitForSeconds(GravityDelaySeconds);
         }
     }
