@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ComboUI : MonoBehaviour
@@ -10,7 +9,7 @@ public class ComboUI : MonoBehaviour
     [SerializeField]
     private ComboTracker ComboTracker;
 
-    private List<ComboEntry> _progress = new();
+    private List<Match> _progress = new();
 
     private void Start()
     {
@@ -18,7 +17,7 @@ public class ComboUI : MonoBehaviour
         ComboTracker.OnComboFinished.AddListener(OnComboFinished);
     }
 
-    private void UpdateComboUI(ComboEntry match)
+    private void UpdateComboUI(Match match)
     {
         if (_progress.Count == 0)
             ResetComboUI();

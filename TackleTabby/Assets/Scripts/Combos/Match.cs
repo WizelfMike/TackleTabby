@@ -1,7 +1,8 @@
 ﻿using System;
 
 [Serializable]
-public struct ComboEntry
+public struct Match
 {
     public BaitDefinition BaitType;
+    public int MatchSize;
 }
