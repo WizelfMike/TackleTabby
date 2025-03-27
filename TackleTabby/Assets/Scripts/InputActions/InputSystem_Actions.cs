@@ -94,10 +94,10 @@ namespace PlayerMovementActions
             ""id"": ""77c7af06-98b1-4208-a7a0-1f959224d4ef"",
             ""actions"": [
                 {
-                    ""name"": ""OnPress"",
+                    ""name"": ""OnTouch"",
                     ""type"": ""Value"",
-                    ""id"": ""c9f8bc1a-96ee-453a-9d27-64cd7caaf897"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""id"": ""cc571d4f-ac7f-4dec-aed3-e792f8706eaf"",
+                    ""expectedControlType"": ""Touch"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -106,12 +106,12 @@ namespace PlayerMovementActions
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""5e44efad-7f2b-4fd9-95f6-6aa2de4dbf8c"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""id"": ""cb962641-7b57-4040-83de-075938044dde"",
+                    ""path"": ""<Touchscreen>/primaryTouch"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Touch"",
-                    ""action"": ""OnPress"",
+                    ""action"": ""OnTouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -183,7 +183,7 @@ namespace PlayerMovementActions
 }");
             // Input
             m_Input = asset.FindActionMap("Input", throwIfNotFound: true);
-            m_Input_OnPress = m_Input.FindAction("OnPress", throwIfNotFound: true);
+            m_Input_OnTouch = m_Input.FindAction("OnTouch", throwIfNotFound: true);
         }
 
         ~@PlayerMovementActions()
@@ -264,7 +264,7 @@ namespace PlayerMovementActions
         // Input
         private readonly InputActionMap m_Input;
         private List<IInputActions> m_InputActionsCallbackInterfaces = new List<IInputActions>();
-        private readonly InputAction m_Input_OnPress;
+        private readonly InputAction m_Input_OnTouch;
         /// <summary>
         /// Provides access to input actions defined in input action map "Input".
         /// </summary>
@@ -277,9 +277,9 @@ namespace PlayerMovementActions
             /// </summary>
             public InputActions(@PlayerMovementActions wrapper) { m_Wrapper = wrapper; }
             /// <summary>
-            /// Provides access to the underlying input action "Input/OnPress".
+            /// Provides access to the underlying input action "Input/OnTouch".
             /// </summary>
-            public InputAction @OnPress => m_Wrapper.m_Input_OnPress;
+            public InputAction @OnTouch => m_Wrapper.m_Input_OnTouch;
             /// <summary>
             /// Provides access to the underlying input action map instance.
             /// </summary>
@@ -306,9 +306,9 @@ namespace PlayerMovementActions
             {
                 if (instance == null || m_Wrapper.m_InputActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_InputActionsCallbackInterfaces.Add(instance);
-                @OnPress.started += instance.OnOnPress;
-                @OnPress.performed += instance.OnOnPress;
-                @OnPress.canceled += instance.OnOnPress;
+                @OnTouch.started += instance.OnOnTouch;
+                @OnTouch.performed += instance.OnOnTouch;
+                @OnTouch.canceled += instance.OnOnTouch;
             }
 
             /// <summary>
@@ -320,9 +320,9 @@ namespace PlayerMovementActions
             /// <seealso cref="InputActions" />
             private void UnregisterCallbacks(IInputActions instance)
             {
-                @OnPress.started -= instance.OnOnPress;
-                @OnPress.performed -= instance.OnOnPress;
-                @OnPress.canceled -= instance.OnOnPress;
+                @OnTouch.started -= instance.OnOnTouch;
+                @OnTouch.performed -= instance.OnOnTouch;
+                @OnTouch.canceled -= instance.OnOnTouch;
             }
 
             /// <summary>
@@ -429,12 +429,12 @@ namespace PlayerMovementActions
         public interface IInputActions
         {
             /// <summary>
-            /// Method invoked when associated input action "OnPress" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "OnTouch" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnOnPress(InputAction.CallbackContext context);
+            void OnOnTouch(InputAction.CallbackContext context);
         }
     }
 }

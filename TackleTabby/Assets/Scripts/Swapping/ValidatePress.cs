@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,15 +12,14 @@ public class ValidatePress : MonoBehaviour
     [SerializeField]
     private Camera GameCamera;
     
-    //FilledPiece
-    private bool ValidateSwipe(Vector2 start, Vector2 end)
+    private bool ValidateSwipe(Vector2 direction)
     {
-        return Vector2.Distance(start, end) >= MinSwipeLength;
+        return direction.magnitude >= MinSwipeLength;
     }
 
-    public void OnSwipeEnded(Vector2 start, Vector2 end)
+    public void OnSwipeEnded(Vector2 start, Vector2 direction)
     {
-        if (!ValidateSwipe(start, end))
+        if (!ValidateSwipe(direction))
             return;
         
         Vector2 worldPosition = GameCamera.ScreenToWorldPoint(start);
@@ -32,9 +30,8 @@ public class ValidatePress : MonoBehaviour
 
         Debug.Log(hit.transform.gameObject);
         
-        Vector2 direction = (end - start).normalized;
         FieldBlock fieldBlock = hit.transform.gameObject.GetComponent<FieldBlock>();
-        BaitSwapper.MoveBaitPieces(fieldBlock, direction);
+        BaitSwapper.MoveBaitPieces(fieldBlock, direction.normalized);
     }
     
     

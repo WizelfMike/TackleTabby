@@ -7,6 +7,9 @@ public class BaitSwapper : MonoBehaviour
 {
     [SerializeField]
     private VectorMapper AllowedSwipeDirections;
+    [SerializeField]
+    [Range(1f, 10f)]
+    private float SwappingSpeed = 1f;
     
     public UnityEvent<FieldBlock, FieldBlock> OnBlocksSwapped = new();
     
@@ -36,8 +39,7 @@ public class BaitSwapper : MonoBehaviour
             _isSwapping = false;
             return;
         }
-        
-        _swapProgress += Time.deltaTime;
+        _swapProgress += deltaTime * SwappingSpeed;
     }
 
     public void MoveBaitPieces(FieldBlock targetBlock, Vector2 direction)

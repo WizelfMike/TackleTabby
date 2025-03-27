@@ -6,10 +6,10 @@
             "id": "77c7af06-98b1-4208-a7a0-1f959224d4ef",
             "actions": [
                 {
-                    "name": "OnPress",
+                    "name": "OnTouch",
                     "type": "Value",
-                    "id": "c9f8bc1a-96ee-453a-9d27-64cd7caaf897",
-                    "expectedControlType": "Vector2",
+                    "id": "cc571d4f-ac7f-4dec-aed3-e792f8706eaf",
+                    "expectedControlType": "Touch",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -18,12 +18,12 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "5e44efad-7f2b-4fd9-95f6-6aa2de4dbf8c",
-                    "path": "<Touchscreen>/primaryTouch/position",
+                    "id": "cb962641-7b57-4040-83de-075938044dde",
+                    "path": "<Touchscreen>/primaryTouch",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Touch",
-                    "action": "OnPress",
+                    "action": "OnTouch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
