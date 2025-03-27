@@ -108,6 +108,7 @@ public class FieldBlock : MonoBehaviour
     {
         _gravityManager.OnLanded.RemoveListener(OnLanded);
         transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
+        BlockUpdate(Directions.Up);
     }
     
     private void CheckUp(FieldBlock instigator, ICollection<FieldBlock> progress)

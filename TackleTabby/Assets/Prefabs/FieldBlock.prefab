@@ -198,7 +198,7 @@ MonoBehaviour:
   GravityStrength: 15
   TerminalVelocity: 100
   ControllingCollider: {fileID: 2156858513058524042}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
       m_Calls: []

@@ -254,9 +254,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 58126690}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -369,9 +369,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 86160694}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -484,9 +484,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 133421222}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -773,9 +773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 184816506}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -1062,9 +1062,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 232790238}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -1401,9 +1401,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 302034766}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -1864,9 +1864,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 464357378}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -2066,9 +2066,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 469586800}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -2181,9 +2181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 533821584}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -2296,9 +2296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 551399120}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -2411,9 +2411,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 597303305}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -2526,9 +2526,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 624370337}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -2901,9 +2901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 804978726}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -3103,9 +3103,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 861676887}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -3218,9 +3218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 905516582}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -3333,9 +3333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 954562023}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -3535,9 +3535,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1039162831}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -3650,9 +3650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1087869085}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -3939,9 +3939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1164566146}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -4228,9 +4228,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1276132467}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -4343,9 +4343,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1358073207}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -4556,9 +4556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1408175817}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -4758,9 +4758,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1529172889}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -5047,9 +5047,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 1684412759}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -5370,9 +5370,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 15
-  TerminalVelocity: 100
+  TerminalVelocity: 15
   ControllingCollider: {fileID: 2018380917}
-  GroundDetectionDistance: 1
+  GroundDetectionDistance: 999
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
@@ -5623,6 +5623,10 @@ PrefabInstance:
       propertyPath: PlayField
       value: 
       objectReference: {fileID: 1385533108}
+    - target: {fileID: 6131952506709944486, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: GravityDelaySeconds
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6446499897111832942, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: m_Name
       value: FieldGameState

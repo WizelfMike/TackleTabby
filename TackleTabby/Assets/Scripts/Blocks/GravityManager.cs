@@ -23,6 +23,7 @@ public class GravityManager : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
     private GridPlayField _parentField;
 
+
     private void Start()
     {
         _parentField = transform.parent.GetComponent<GridPlayField>();
@@ -49,6 +50,7 @@ public class GravityManager : MonoBehaviour
         _acceleration = Vector3.zero;
         _isFalling = false;
         ControllingCollider.enabled = true;
+        
         OnLanded.Invoke();
     }
 
@@ -70,12 +72,13 @@ public class GravityManager : MonoBehaviour
 
     private float CheckGroundLevel()
     {
-        RaycastHit2D ground = Physics2D.Raycast(transform.position, Vector2.down, GroundDetectionDistance);
+        Transform tform = transform;
+        RaycastHit2D ground = Physics2D.Raycast(tform.position, Vector2.down, GroundDetectionDistance);
         if (!ground)
-            return Mathf.NegativeInfinity;
+            return 0f;
 
         if (!ground.transform.TryGetComponent(out FieldBlock groundBlock))
-            return Mathf.NegativeInfinity;
+            return 0f;
 
         return _parentField.GetLocalisedCoordinateUnclamped(0, groundBlock.VerticalPosition + 1).y;
     }

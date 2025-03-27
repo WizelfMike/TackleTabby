@@ -95,7 +95,7 @@ public class GridPlayField : GenericSingleton<GridPlayField>
     public Vector2 GetPreciseGridLocation(Vector2 localLocation)
     {
         Vector2 gridCoordinates = GetGridCoordinates(localLocation);
-        return GetLocalisedCoordinate((int)gridCoordinates.x, (int)gridCoordinates.y);
+        return GetLocalisedCoordinateUnclamped((int)gridCoordinates.x, (int)gridCoordinates.y);
     }
 
     private Vector3 GetWorldWeightPoint()
