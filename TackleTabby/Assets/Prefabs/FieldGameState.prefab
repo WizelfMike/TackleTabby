@@ -282,4 +282,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8b53020099fc6b3428929eb590fe53cf, type: 2}
   - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
-  GravityDelaySeconds: 0.05
+  GravityDelaySeconds: 0.1
+  SpawnGravityDelay: 0.1

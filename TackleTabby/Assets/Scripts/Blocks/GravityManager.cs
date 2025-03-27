@@ -15,7 +15,7 @@ public class GravityManager : MonoBehaviour
     [SerializeField]
     private float GroundDetectionDistance = 1f;
 
-    public UnityEvent OnLanded = new();
+    public UnityEvent<GravityManager> OnLanded = new();
 
     private bool _isFalling = false;
     private Vector3 _fallingDirection = Vector3.down;
@@ -51,7 +51,7 @@ public class GravityManager : MonoBehaviour
         _isFalling = false;
         ControllingCollider.enabled = true;
         
-        OnLanded.Invoke();
+        OnLanded.Invoke(this);
     }
 
     private void Fall(float deltaTime)

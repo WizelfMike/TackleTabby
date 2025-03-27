@@ -5623,10 +5623,6 @@ PrefabInstance:
       propertyPath: PlayField
       value: 
       objectReference: {fileID: 1385533108}
-    - target: {fileID: 6131952506709944486, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
-      propertyPath: GravityDelaySeconds
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6446499897111832942, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: m_Name
       value: FieldGameState

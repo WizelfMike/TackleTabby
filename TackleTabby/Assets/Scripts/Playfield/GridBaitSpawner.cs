@@ -18,6 +18,12 @@ public class GridBaitSpawner : MonoBehaviour
     private BaitDefinition[] Baits;
     [SerializeField]
     private float GravityDelaySeconds = 0.1f;
+    [SerializeField]
+    private float SpawnGravityDelay = 0.1f;
+
+    private readonly Queue<Dictionary<int, int>> _spawnQueue = new();
+    private int _spawningLeftCount = 0;
+    
     private void Start()
     {
         MatchRemover.OnRemovedFromColumns.AddListener(OnRemovedFromColumns);
@@ -25,14 +31,14 @@ public class GridBaitSpawner : MonoBehaviour
 
     private void OnRemovedFromColumns(Dictionary<int, int> columnIndices)
     {
-        StartCoroutine(RemovedFromColumnsCoroutine(columnIndices));
-        // SpawnNewBlocks(columnIndices);
+        // StartCoroutine(RemovedFromColumnsCoroutine(columnIndices));
+        TrySpawn(columnIndices);
     }
 
-    private IEnumerator RemovedFromColumnsCoroutine(Dictionary<int, int> columnIndices)
+    private IEnumerator SpawnColumnsCoroutine(Dictionary<int, int> columnIndices)
     {
         SpawnNewBlocks(columnIndices);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(SpawnGravityDelay);
         InstigateGravity(columnIndices);
     }
 
@@ -44,6 +50,10 @@ public class GridBaitSpawner : MonoBehaviour
             for (int j = 0; j < spawnCount; j++)
             {
                 FieldBlock newBlock = BlockPool.Retrieve();
+                GravityManager blockGravity = newBlock.GetComponent<GravityManager>();
+                blockGravity.OnLanded.AddListener(OnBlockLanded);
+                _spawningLeftCount++;
+                
                 newBlock.transform.SetParent(PlayField.transform);
                 newBlock.transform.localPosition = PlayField.GetLocalisedCoordinateUnclamped(key, PlayField.VerticalCount + j);
                 newBlock.BaitDefinitionReference = Baits[Random.Range(0, Baits.Length)];
@@ -75,5 +85,36 @@ public class GridBaitSpawner : MonoBehaviour
             columnBlocks[j].NotifyOfGravity();
             yield return new WaitForSeconds(GravityDelaySeconds);
         }
+    }
+
+    private void TrySpawn(Dictionary<int, int> columnIndices)
+    {
+        _spawnQueue.Enqueue(columnIndices);
+        if (_spawningLeftCount > 0)
+            return;
+        
+        CommenceSpawning();
+    }
+
+    private void CommenceSpawning()
+    {
+        if (_spawnQueue.Count <= 0)
+            return;
+        
+        Dictionary<int, int> indices = _spawnQueue.Dequeue();
+        StartCoroutine(SpawnColumnsCoroutine(indices));
+    }
+
+    private void OnBlockLanded(GravityManager gravityManager)
+    {
+        gravityManager.OnLanded.RemoveListener(OnBlockLanded);
+        _spawningLeftCount--;
+        if (_spawningLeftCount <= 0)
+            AllLanded();
+    }
+
+    private void AllLanded()
+    {
+        CommenceSpawning();
     }
 }

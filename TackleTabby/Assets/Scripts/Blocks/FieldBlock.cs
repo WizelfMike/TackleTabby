@@ -104,9 +104,9 @@ public class FieldBlock : MonoBehaviour
         _gravityManager.StartFalling();
     }
 
-    private void OnLanded()
+    private void OnLanded(GravityManager gravityManager)
     {
-        _gravityManager.OnLanded.RemoveListener(OnLanded);
+        gravityManager.OnLanded.RemoveListener(OnLanded);
         transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
         BlockUpdate(Directions.Up);
     }
