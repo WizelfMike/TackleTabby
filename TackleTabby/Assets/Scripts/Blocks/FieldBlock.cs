@@ -22,6 +22,10 @@ public class FieldBlock : MonoBehaviour
         }
     }
 
+    public GridPlayField ParentField => _parentField;
+    public int HorizontalPosition => (int)_parentField.GetGridCoordinates(transform.localPosition).x;
+    public int VerticalPosition => (int) _parentField.GetGridCoordinates(transform.localPosition).y;
+
     private BoxCollider2D _collider;
     private GridPlayField _parentField;
     private bool _isInField = true;
@@ -82,31 +86,16 @@ public class FieldBlock : MonoBehaviour
     }
 
     /// <summary>
-    /// Function that will get used to notify blocks above that their bottom-block is being removed
+    /// Function that will get used to notify this block that it should start falling
     /// </summary>
-    public void NotifyUpperOfGravity()
-    {
-        RaycastHit2D upperHit = PerformSafeCast(transform.position, Vector2.up, RaycastDistance);
-        if (!upperHit)
-            return;
-
-        if (!upperHit.transform.TryGetComponent(out FieldBlock otherBlock))
-            return;
-        
-        otherBlock.OnGravityNotified();
-    }
-
     public void OnGravityNotified()
     {
         
-        
-        NotifyUpperOfGravity();
     }
 
     public void CommenceDestroying()
     {
         _isInField = false;
-        NotifyUpperOfGravity();
     }
     
     private void CheckUp(FieldBlock instigator, ICollection<FieldBlock> progress)

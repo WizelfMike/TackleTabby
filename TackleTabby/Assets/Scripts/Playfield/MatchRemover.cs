@@ -11,6 +11,7 @@
         private FieldBlockPool BlockPool;
 
         public UnityEvent<Match> OnMatchDestroyed = new();
+        public UnityEvent<int[]> OnRemovedFromColumns = new();
 
         private MatchMapper _matchMapper = new();
 
@@ -22,49 +23,28 @@
         private void OnMatchFound(ICollection<FieldBlock> fieldBlocks)
         {
             Match fieldMatch = _matchMapper.MapFrom(fieldBlocks);
-            var upperBlocks = GetUpper(fieldBlocks);
+            int[] columns = CollectColumns(fieldBlocks);
             
             foreach (FieldBlock block in fieldBlocks)
                 DestroyBlock(block);
 
             OnMatchDestroyed.Invoke(fieldMatch);
-            
-            foreach (FieldBlock upperBlock in upperBlocks)
-            {
-                Debug.Log(upperBlock.name);
-                upperBlock.OnGravityNotified();
-            }
+            OnRemovedFromColumns.Invoke(columns);
         }
 
         private void DestroyBlock(FieldBlock block)
         {
             BlockPool.Store(block);
-            
         }
 
-        private FieldBlock[] GetUpper(ICollection<FieldBlock> fieldBlocks)
+        private int[] CollectColumns(ICollection<FieldBlock> fieldBlocks)
         {
-            return fieldBlocks.Where(block =>
+            HashSet<int> columns = new();
+            foreach (FieldBlock block in fieldBlocks)
             {
-                RaycastHit2D above = block.PerformSafeCast(block.transform.position, Vector2.up, 1f);
-                if (!above)
-                    return false;
+                columns.Add(block.HorizontalPosition);
+            }
 
-                if (!above.transform.TryGetComponent(out FieldBlock upperBlock))
-                    return false;
-
-                return !fieldBlocks.Contains(upperBlock);
-            })
-            .Select(block =>
-            {
-                RaycastHit2D above = block.PerformSafeCast(block.transform.position, Vector2.up, 1f);
-                if (!above)
-                    return null;
-            
-                if (!above.transform.TryGetComponent(out FieldBlock upperBlock))
-                    return null;
-            
-                return upperBlock;
-            }).Where(x => x != null).ToArray();
+            return columns.ToArray();
         }
     }
