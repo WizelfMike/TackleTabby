@@ -28,7 +28,6 @@ public class FieldBlock : MonoBehaviour
 
     private BoxCollider2D _collider;
     private GridPlayField _parentField;
-    private bool _isInField = true;
 
     private void OnValidate()
     {
@@ -91,11 +90,6 @@ public class FieldBlock : MonoBehaviour
     public void OnGravityNotified()
     {
         
-    }
-
-    public void CommenceDestroying()
-    {
-        _isInField = false;
     }
     
     private void CheckUp(FieldBlock instigator, ICollection<FieldBlock> progress)
