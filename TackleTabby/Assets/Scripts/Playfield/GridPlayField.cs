@@ -27,6 +27,10 @@ public class GridPlayField : GenericSingleton<GridPlayField>
     private BaitDefinition[] RandomBaits;
     
     #endif
+
+    public int HorizontalCount => HorizontalGridCount;
+    public int VerticalCount => VerticalGridCount;
+    public float ItemSize => GridItemUnitSize;
     
     private void OnValidate()
     {
@@ -69,13 +73,17 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         maskTransform.position =
             new Vector3(weightCentre.x, weightCentre.y, weightCentre.z) + transform.forward * MaskDistance;
     }
-    
+
+    public Vector2 GetLocalisedCoordinateUnclamped(int horizontalGridIndex, int verticalGridIndex)
+    {
+        return new Vector2(horizontalGridIndex * GridItemUnitSize, verticalGridIndex * GridItemUnitSize);
+    }
     public Vector2 GetLocalisedCoordinate(int horizontalGridIndex, int verticalGridIndex)
     {
         if (horizontalGridIndex >= HorizontalGridCount || verticalGridIndex >= VerticalGridCount || horizontalGridIndex < 0 || verticalGridIndex < 0)
             Debug.LogErrorFormat("The given indices were not valid: ({0}, {1})", horizontalGridIndex, verticalGridIndex);
             
-        return new Vector2(horizontalGridIndex * GridItemUnitSize, verticalGridIndex * GridItemUnitSize);
+        return GetLocalisedCoordinateUnclamped(horizontalGridIndex, verticalGridIndex);
     }
 
     public Vector2 GetGridCoordinates(Vector2 localLocation)
