@@ -202,9 +202,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1940597876}
+      - m_Target: {fileID: 1940597875}
         m_TargetAssemblyTypeName: ComboTracker, Assembly-CSharp
-        m_MethodName: UpdateCombo
+        m_MethodName: 
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: a76c41002a421754785e3e494f8ddc1e, type: 2}
@@ -808,9 +808,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1940597876}
+      - m_Target: {fileID: 1940597875}
         m_TargetAssemblyTypeName: ComboTracker, Assembly-CSharp
-        m_MethodName: UpdateCombo
+        m_MethodName: 
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}

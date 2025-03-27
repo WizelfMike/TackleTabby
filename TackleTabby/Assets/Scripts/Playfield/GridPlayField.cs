@@ -69,7 +69,7 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         maskTransform.position =
             new Vector3(weightCentre.x, weightCentre.y, weightCentre.z) + transform.forward * MaskDistance;
     }
-
+    
     public Vector2 GetLocalisedCoordinate(int horizontalGridIndex, int verticalGridIndex)
     {
         if (horizontalGridIndex >= HorizontalGridCount || verticalGridIndex >= VerticalGridCount || horizontalGridIndex < 0 || verticalGridIndex < 0)
@@ -78,10 +78,16 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         return new Vector2(horizontalGridIndex * GridItemUnitSize, verticalGridIndex * GridItemUnitSize);
     }
 
-    public Vector2 GetPreciseGridLocation(Vector2 localLocation)
+    public Vector2 GetGridCoordinates(Vector2 localLocation)
     {
         Vector2 scaledApproximates = localLocation / GridItemUnitSize;
-        return GetLocalisedCoordinate((int)Mathf.Floor(scaledApproximates.x), (int)Mathf.Floor(scaledApproximates.y));
+        return new Vector2(Mathf.Floor(localLocation.x), Mathf.Floor(localLocation.y));
+    }
+
+    public Vector2 GetPreciseGridLocation(Vector2 localLocation)
+    {
+        Vector2 gridCoordinates = GetGridCoordinates(localLocation);
+        return GetLocalisedCoordinate((int)gridCoordinates.x, (int)gridCoordinates.y);
     }
 
     public Vector3 GetWorldWeightPoint()
