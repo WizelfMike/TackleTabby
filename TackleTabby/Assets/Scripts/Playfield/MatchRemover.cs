@@ -41,9 +41,7 @@
         {
             HashSet<int> columns = new();
             foreach (FieldBlock block in fieldBlocks)
-            {
                 columns.Add(block.HorizontalPosition);
-            }
 
             return columns.ToArray();
         }
