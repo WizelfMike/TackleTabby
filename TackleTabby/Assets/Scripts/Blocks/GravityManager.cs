@@ -72,8 +72,7 @@ public class GravityManager : MonoBehaviour
 
     private float CheckGroundLevel()
     {
-        Transform tform = transform;
-        RaycastHit2D ground = Physics2D.Raycast(tform.position, Vector2.down, GroundDetectionDistance);
+        RaycastHit2D ground = Physics2D.Raycast(transform.position, Vector2.down, GroundDetectionDistance);
         if (!ground)
             return 0f;
 
