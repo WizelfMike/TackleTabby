@@ -31,7 +31,6 @@ public class GridBaitSpawner : MonoBehaviour
 
     private void OnRemovedFromColumns(Dictionary<int, int> columnIndices)
     {
-        // StartCoroutine(RemovedFromColumnsCoroutine(columnIndices));
         TrySpawn(columnIndices);
     }
 
