@@ -27,8 +27,6 @@ public class ValidatePress : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero.normalized * 0, Mathf.Infinity, BaitLayerMask);
         if (!hit)
             return;
-
-        Debug.Log(hit.transform.gameObject);
         
         FieldBlock fieldBlock = hit.transform.gameObject.GetComponent<FieldBlock>();
         BaitSwapper.MoveBaitPieces(fieldBlock, direction.normalized);

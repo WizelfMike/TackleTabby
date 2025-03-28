@@ -5,21 +5,24 @@ using UnityEngine.Events;
 
 public class BaitSwapper : MonoBehaviour
 {
+    [SerializeField] 
+    private bool AllowNonMatchSwap;
     [SerializeField]
     private VectorMapper AllowedSwipeDirections;
     [SerializeField]
     [Range(1f, 10f)]
     private float SwappingSpeed = 1f;
     
-    public UnityEvent<FieldBlock, FieldBlock> OnBlocksSwapped = new();
-    
-    private bool _isSwapping = false;
+    private bool _isSwapping;
+    private bool _hasSwappedBack;
     private FieldBlock _swapBlockA;
     private FieldBlock _swapBlockB;
     private Vector3 _swapATargetPosition;
     private Vector3 _swapBTargetPosition;
-    private float _swapProgress = 0;
-    
+    private Vector2 _direction;
+    private float _swapProgress;
+
+
     private void Update()
     {
         if (_isSwapping)
@@ -35,13 +38,32 @@ public class BaitSwapper : MonoBehaviour
 
         if (_swapProgress >= 1f)
         {
-            _swapProgress = 0;
             _isSwapping = false;
+            _swapProgress = 0;
+            CheckSwapBack();
             return;
         }
         _swapProgress += deltaTime * SwappingSpeed;
     }
 
+    private void CheckSwapBack()
+    {
+        if (_hasSwappedBack)
+        {
+            _hasSwappedBack = false;
+            return;
+        }
+        
+        bool checkBlockA = _swapBlockA.BlockUpdate(Directions.None);
+        bool checkBlockB = _swapBlockB.BlockUpdate(Directions.None);
+        
+        if (checkBlockA || checkBlockB || AllowNonMatchSwap)
+            return;
+
+        _hasSwappedBack = true;
+        MoveBaitPieces(_swapBlockA , -_direction);
+    }
+    
     public void MoveBaitPieces(FieldBlock targetBlock, Vector2 direction)
     {
         if (_isSwapping)
@@ -49,6 +71,7 @@ public class BaitSwapper : MonoBehaviour
         
         direction.Normalize();
         FieldBlock neighbour = targetBlock.FindNeighbourInDirection(AllowedSwipeDirections.MapInput(direction));
+        
         if (neighbour == null)
             return;
         
@@ -57,5 +80,6 @@ public class BaitSwapper : MonoBehaviour
         _swapBlockB = neighbour;
         _swapBTargetPosition = targetBlock.transform.position;
         _isSwapping = true;
+        _direction = direction;
     }
 }
