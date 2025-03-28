@@ -31,6 +31,4 @@ public class ValidatePress : MonoBehaviour
         FieldBlock fieldBlock = hit.transform.gameObject.GetComponent<FieldBlock>();
         BaitSwapper.MoveBaitPieces(fieldBlock, direction.normalized);
     }
-    
-    
 }
