@@ -27,6 +27,10 @@ public class GridPlayField : GenericSingleton<GridPlayField>
     private BaitDefinition[] RandomBaits;
     
     #endif
+
+    public int HorizontalCount => HorizontalGridCount;
+    public int VerticalCount => VerticalGridCount;
+    public float ItemSize => GridItemUnitSize;
     
     private void OnValidate()
     {
@@ -69,28 +73,32 @@ public class GridPlayField : GenericSingleton<GridPlayField>
         maskTransform.position =
             new Vector3(weightCentre.x, weightCentre.y, weightCentre.z) + transform.forward * MaskDistance;
     }
-    
+
+    public Vector2 GetLocalisedCoordinateUnclamped(int horizontalGridIndex, int verticalGridIndex)
+    {
+        return new Vector2(horizontalGridIndex * GridItemUnitSize, verticalGridIndex * GridItemUnitSize);
+    }
     public Vector2 GetLocalisedCoordinate(int horizontalGridIndex, int verticalGridIndex)
     {
         if (horizontalGridIndex >= HorizontalGridCount || verticalGridIndex >= VerticalGridCount || horizontalGridIndex < 0 || verticalGridIndex < 0)
             Debug.LogErrorFormat("The given indices were not valid: ({0}, {1})", horizontalGridIndex, verticalGridIndex);
             
-        return new Vector2(horizontalGridIndex * GridItemUnitSize, verticalGridIndex * GridItemUnitSize);
+        return GetLocalisedCoordinateUnclamped(horizontalGridIndex, verticalGridIndex);
     }
 
     public Vector2 GetGridCoordinates(Vector2 localLocation)
     {
         Vector2 scaledApproximates = localLocation / GridItemUnitSize;
-        return new Vector2(Mathf.Floor(localLocation.x), Mathf.Floor(localLocation.y));
+        return new Vector2(Mathf.Round(localLocation.x), Mathf.Round(localLocation.y));
     }
 
     public Vector2 GetPreciseGridLocation(Vector2 localLocation)
     {
         Vector2 gridCoordinates = GetGridCoordinates(localLocation);
-        return GetLocalisedCoordinate((int)gridCoordinates.x, (int)gridCoordinates.y);
+        return GetLocalisedCoordinateUnclamped((int)gridCoordinates.x, (int)gridCoordinates.y);
     }
 
-    public Vector3 GetWorldWeightPoint()
+    private Vector3 GetWorldWeightPoint()
     {
         Transform selfTransform = transform;
         return selfTransform.position + new Vector3((HorizontalGridCount-1) / 2f * GridItemUnitSize * selfTransform.localScale.x,

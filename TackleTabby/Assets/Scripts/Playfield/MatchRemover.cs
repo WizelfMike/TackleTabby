@@ -1,5 +1,7 @@
 ﻿    using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
+    using Unity.Collections;
     using UnityEngine;
     using UnityEngine.Events;
 
@@ -11,7 +13,7 @@
         private FieldBlockPool BlockPool;
 
         public UnityEvent<Match> OnMatchDestroyed = new();
-        public UnityEvent<int[]> OnRemovedFromColumns = new();
+        public UnityEvent<Dictionary<int, int>> OnRemovedFromColumns = new();
 
         private MatchMapper _matchMapper = new();
 
@@ -23,7 +25,7 @@
         private void OnMatchFound(ICollection<FieldBlock> fieldBlocks)
         {
             Match fieldMatch = _matchMapper.MapFrom(fieldBlocks);
-            int[] columns = CollectColumns(fieldBlocks);
+            Dictionary<int, int> columns = CollectColumns(fieldBlocks);
             
             foreach (FieldBlock block in fieldBlocks)
                 DestroyBlock(block);
@@ -37,12 +39,15 @@
             BlockPool.Store(block);
         }
 
-        private int[] CollectColumns(ICollection<FieldBlock> fieldBlocks)
+        private Dictionary<int, int> CollectColumns(ICollection<FieldBlock> fieldBlocks)
         {
-            HashSet<int> columns = new();
+            Dictionary<int, int> columns = new();
             foreach (FieldBlock block in fieldBlocks)
-                columns.Add(block.HorizontalPosition);
+            {
+                if (!columns.TryAdd(block.HorizontalPosition, 1))
+                    columns[block.HorizontalPosition]++;
+            }
 
-            return columns.ToArray();
+            return columns;
         }
     }
