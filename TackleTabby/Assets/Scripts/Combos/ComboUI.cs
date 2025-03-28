@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class ComboUI : MonoBehaviour
 {
     [SerializeField]
-    private List<TextMeshProUGUI> ComboSlots = new();
+    private List<ComboSlot> ComboSlots = new();
     [SerializeField]
     private ComboTracker ComboTracker;
 
@@ -15,6 +14,8 @@ public class ComboUI : MonoBehaviour
     {
         ComboTracker.OnComboUpdated.AddListener(UpdateComboUI);
         ComboTracker.OnComboFinished.AddListener(OnComboFinished);
+        
+        ResetComboUI();
     }
 
     private void UpdateComboUI(Match match)
@@ -23,7 +24,9 @@ public class ComboUI : MonoBehaviour
             ResetComboUI();
 
         _progress.Add(match);
-        ComboSlots[_progress.Count - 1].SetText(match.BaitType.DisplayName);
+        EnableSlot(_progress.Count - 1, true);
+        ComboSlots[_progress.Count - 1].BaitMatchImage.sprite = match.BaitType.BaitSprite;
+        ComboSlots[_progress.Count - 1].BaitMatchSizeText.SetText($"{match.MatchSize}x");
     }
 
     private void OnComboFinished(Combo combo)
@@ -36,9 +39,18 @@ public class ComboUI : MonoBehaviour
         _progress.Clear();
     }
 
+    private void EnableSlot(int index, bool enable = true)
+    {
+        ComboSlots[index].BaitMatchImage.enabled = enable;
+        ComboSlots[index].BaitMatchSizeText.enabled = enable;
+    }
+
     public void ResetComboUI()
     {
-        ComboSlots[0].SetText("");
-        ComboSlots[1].SetText("");
+        int slotCount = ComboSlots.Count;
+        for (int i = 0; i < slotCount; i++)
+        {
+            EnableSlot(i, false);
+        }
     }
 }
