@@ -1029,6 +1029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MatchMediator: {fileID: 0}
   BlockPool: {fileID: 0}
+  SimulationBait: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   OnMatchDestroyed:
     m_PersistentCalls:
       m_Calls:
@@ -1047,7 +1048,6 @@ MonoBehaviour:
   OnRemovedFromColumns:
     m_PersistentCalls:
       m_Calls: []
-  SimulateBait: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
 --- !u!4 &1730844477
 Transform:
   m_ObjectHideFlags: 0
