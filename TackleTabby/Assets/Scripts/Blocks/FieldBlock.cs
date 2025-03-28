@@ -169,6 +169,15 @@ public class FieldBlock : MonoBehaviour
         _collider.enabled = true;
         return hit;
     }
+
+    public FieldBlock FindNeighbourInDirection(Vector2 direction)
+    {
+        RaycastHit2D cast = PerformSafeCast(transform.position, direction, Mathf.Infinity);
+        if (!cast)
+            return null;
+
+        return cast.transform.GetComponent<FieldBlock>();
+    }
         
     
     #if UNITY_EDITOR
