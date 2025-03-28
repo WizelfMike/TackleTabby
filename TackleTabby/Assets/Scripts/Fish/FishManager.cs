@@ -14,7 +14,6 @@ public class FishManager : MonoBehaviour
 
     public void GetCombo(Combo combo)
     {
-        
         BaitDefinition[] baits = combo.Entries.Select(x => x.BaitType).ToArray();
         FishDefinition[] correspondingFishes = CentralFishStorage.Instance.FindByBaitCombination(baits);
         if (correspondingFishes.Length <= 0)
