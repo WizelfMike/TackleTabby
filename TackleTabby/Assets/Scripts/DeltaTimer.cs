@@ -3,12 +3,12 @@
 public class DeltaTimer
 {
     public Action OnTimerRanOut;
-
-    private float _currentTimeout = 0f;
-    private bool _hasInvoked = false;
     
     public float Timeout { get; }
     public bool IsRunning => !_hasInvoked;
+
+    private float _currentTimeout = 0f;
+    private bool _hasInvoked = false;
 
     public DeltaTimer(float timeout)
     {
