@@ -48,7 +48,7 @@ public class CentralFishStorage : GenericSingleton<CentralFishStorage>
             FishDefinition currentFish = readonlyArray[i];
             ReadOnlySpan<BaitDefinition> currentFishBaitCombination = currentFish.RequiredBaitCombination;
             int index = currentFishBaitCombination.IndexOf(baitCombination);
-            if (index != - 1)
+            if (index != -1)
                 foundFishes.Add(currentFish);
         }
 
