@@ -1,7 +1,13 @@
+using FMODUnity;
 using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
+    private void Start()
+    {
+        FMODUnity.RuntimeManager.WaitForAllSampleLoading();    
+    }
+
     public void PlayBaitDropSound()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/BaitLand");
