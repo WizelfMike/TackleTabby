@@ -4,8 +4,6 @@ using UnityEngine.Events;
 
 public class BaitSwapper : MonoBehaviour
 {
-    [SerializeField]
-    private AudioHandler swapAudio;
     [SerializeField] 
     private bool AllowNonMatchSwap;
     [SerializeField]
@@ -13,6 +11,8 @@ public class BaitSwapper : MonoBehaviour
     [SerializeField]
     [Range(1f, 10f)]
     private float SwappingSpeed = 1f;
+
+    public UnityEvent OnSwapping = new();
     
     private bool _isSwapping;
     private bool _hasSwappedBack;
@@ -83,6 +83,6 @@ public class BaitSwapper : MonoBehaviour
         _isSwapping = true;
         _direction = direction;
 
-        swapAudio.PlayBaitSwap();
+        OnSwapping.Invoke();
     }
 }
