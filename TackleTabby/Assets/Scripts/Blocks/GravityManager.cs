@@ -32,7 +32,16 @@ public class GravityManager : MonoBehaviour
     private void Update()
     {
         if (_isFalling)
+        {
+            TestGround();
             Fall(Time.deltaTime);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (_isFalling)
+            TestGround();
     }
 
     public void StartFalling()
@@ -54,20 +63,28 @@ public class GravityManager : MonoBehaviour
         OnLanded.Invoke(this);
     }
 
-    private void Fall(float deltaTime)
+    private void TestGround()
     {
         float ground = CheckGroundLevel();
         if (transform.localPosition.y <= ground)
-        {
             StopFalling();
-            return;
-        }
+    }
 
-        transform.position += _velocity * deltaTime;
-        _acceleration += _fallingDirection * (GravityStrength * deltaTime);
-        _velocity += _acceleration * deltaTime;
-        if (_velocity.magnitude >= TerminalVelocity)
-            _velocity = _velocity.normalized * TerminalVelocity;
+    private void Fall(float deltaTime)
+    {
+        if (!_isFalling)
+            return;
+
+        UpdateVelocityPosition(deltaTime);
+    }
+
+    private void UpdateVelocityPosition(float deltaTime)
+    {
+         transform.position += _velocity * deltaTime;
+         _acceleration += _fallingDirection * (GravityStrength * deltaTime);
+         _velocity += _acceleration * deltaTime;
+         if (_velocity.magnitude >= TerminalVelocity)
+             _velocity = _velocity.normalized * TerminalVelocity;       
     }
 
     private float CheckGroundLevel()
