@@ -45,5 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fish:
+  - {fileID: 11400000, guid: 0d5117c43d9e8aa48aa1b5c1d4a62db9, type: 2}
   - {fileID: 11400000, guid: 63674f1f3e1ff3a4caa16fa7ba36622c, type: 2}
+  - {fileID: 11400000, guid: 481fd9d09995adb43a65192f962d4832, type: 2}
+  - {fileID: 11400000, guid: e2798ae61ccfd0346bb76d9ff224c49a, type: 2}
+  - {fileID: 11400000, guid: 50232f1d6b8f03a4cbaf5eb4fcf97d0d, type: 2}
+  - {fileID: 11400000, guid: 251c2e606187ea6479f69e95b7a13b4d, type: 2}
+  - {fileID: 11400000, guid: d537eacabc451fd488cce453f4d54776, type: 2}
+  - {fileID: 11400000, guid: 195d4e34ff9e61142a4d3dec0533c122, type: 2}
+  - {fileID: 11400000, guid: 6d382f925f4ccdc45bddbbdca7703845, type: 2}
   - {fileID: 11400000, guid: 5a82f691bae72ba43b80aba9b411f510, type: 2}
