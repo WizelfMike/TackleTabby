@@ -55,12 +55,11 @@ public class GravityManager : MonoBehaviour
 
     private void StopFalling()
     {
+        OnLanded.Invoke(this);
         _velocity = Vector3.zero;
         _acceleration = Vector3.zero;
         _isFalling = false;
         ControllingCollider.enabled = true;
-        
-        OnLanded.Invoke(this);
     }
 
     private void TestGround()

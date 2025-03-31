@@ -11,6 +11,8 @@ public class BaitSwapper : MonoBehaviour
     [SerializeField]
     [Range(1f, 10f)]
     private float SwappingSpeed = 1f;
+
+    public UnityEvent OnSwapping = new();
     
     private bool _isSwapping;
     private bool _hasSwappedBack;
@@ -80,5 +82,7 @@ public class BaitSwapper : MonoBehaviour
         _swapBTargetPosition = targetBlock.transform.position;
         _isSwapping = true;
         _direction = direction;
+
+        OnSwapping.Invoke();
     }
 }
