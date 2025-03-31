@@ -22,6 +22,8 @@ public class GridBaitSpawner : MonoBehaviour
     private float SpawnGravityDelay = 0.1f;
 
     private readonly Queue<Dictionary<int, int>> _spawnQueue = new();
+    private readonly List<FieldBlock> _spawnBatch = new();
+    
     private int _spawningLeftCount = 0;
     
     private void Start()
@@ -49,10 +51,12 @@ public class GridBaitSpawner : MonoBehaviour
             for (int j = 0; j < spawnCount; j++)
             {
                 FieldBlock newBlock = BlockPool.Retrieve();
+                _spawnBatch.Add(newBlock);
                 GravityManager blockGravity = newBlock.GetComponent<GravityManager>();
                 blockGravity.OnLanded.AddListener(OnBlockLanded);
                 _spawningLeftCount++;
-                
+
+                newBlock.GetComponent<Collider2D>().enabled = false;
                 newBlock.transform.SetParent(PlayField.transform);
                 newBlock.transform.localPosition = PlayField.GetLocalisedCoordinateUnclamped(key, PlayField.VerticalCount + j);
                 newBlock.BaitDefinitionReference = Baits[Random.Range(0, Baits.Length)];
@@ -71,7 +75,8 @@ public class GridBaitSpawner : MonoBehaviour
                  playFieldWorldLocation.y + localisedGridCoords.y);
          
              RaycastHit2D[] hits = Physics2D.RaycastAll(rayCastOrigin, Vector2.up, Mathf.Infinity, FieldBlockMask);
-             FieldBlock[] columnBlocks = hits.Select(x => x.transform.GetComponent<FieldBlock>()).ToArray();
+             FieldBlock[] columnBlocks = hits.Select(x => x.transform.GetComponent<FieldBlock>()).Concat(_spawnBatch).ToArray();
+             _spawnBatch.Clear();
              StartCoroutine(ApplyColumnGravity(columnBlocks));
          }
     }
