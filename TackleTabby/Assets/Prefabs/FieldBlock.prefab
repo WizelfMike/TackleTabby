@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BaitReference: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   SpriteRenderer: {fileID: 6795579963323379539}
-  RaycastDistance: 1
+  RaycastDistance: 0.5
 --- !u!114 &7574904681287063491
 MonoBehaviour:
   m_ObjectHideFlags: 0
