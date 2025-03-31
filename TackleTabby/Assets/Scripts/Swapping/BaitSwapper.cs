@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class BaitSwapper : MonoBehaviour
 {
+    [SerializeField]
+    private AudioHandler swapAudio;
     [SerializeField] 
     private bool AllowNonMatchSwap;
     [SerializeField]
@@ -80,5 +82,7 @@ public class BaitSwapper : MonoBehaviour
         _swapBTargetPosition = targetBlock.transform.position;
         _isSwapping = true;
         _direction = direction;
+
+        swapAudio.PlayBaitSwap();
     }
 }

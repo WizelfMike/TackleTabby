@@ -172,7 +172,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &25151452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +356,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &79585129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +483,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &108718178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +610,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &128028680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,7 +998,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &206998507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,6 +1080,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 303750962350309016, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
+      propertyPath: swapAudio
+      value: 
+      objectReference: {fileID: 1769830538}
     - target: {fileID: 4054952404620534531, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
       propertyPath: GameCamera
       value: 
@@ -1640,7 +1704,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &529069996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1755,7 +1831,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &531597788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1870,7 +1958,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &578019286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2116,6 +2216,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
@@ -2123,7 +2227,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 629226414}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1769830538}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
@@ -2131,17 +2243,37 @@ PrefabInstance:
       value: UpdateCombo
       objectReference: {fileID: 0}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayBaitPop
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ComboTracker, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6131952506709944486, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: PlayField
       value: 
       objectReference: {fileID: 2111521601}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6446499897111832942, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: m_Name
       value: FieldGameState
@@ -2244,7 +2376,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &617285919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2544,7 +2688,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &703724503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,7 +2815,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &828423217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,7 +3150,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873878579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3184,7 +3364,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &990710375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3299,7 +3491,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1076748791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3501,7 +3705,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1120876376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3790,7 +4006,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1219524960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3992,7 +4220,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1266654871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4107,7 +4347,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1329678787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4222,7 +4474,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1402224504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4337,7 +4601,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1410937334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4452,7 +4728,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1422147406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4567,7 +4855,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1426325538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5030,7 +5330,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1679534238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,7 +5457,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1739029200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5207,6 +5531,50 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1769830537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769830539}
+  - component: {fileID: 1769830538}
+  m_Layer: 0
+  m_Name: AudioHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1769830538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769830537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96eb4e228dee1f40a490cbcd0066172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1769830539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769830537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.57442874, y: 0.98625267, z: -9.019316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1770957869 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3601288981840840085, guid: dcd322c1d48b5d34c81f2f8edb291dea, type: 3}
@@ -5406,7 +5774,19 @@ MonoBehaviour:
   GroundDetectionDistance: 100
   OnLanded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769830538}
+        m_TargetAssemblyTypeName: AudioHandler, Assembly-CSharp
+        m_MethodName: PlayBaitDropSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1885466596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6614,3 +6994,4 @@ SceneRoots:
   - {fileID: 360814102}
   - {fileID: 297553390}
   - {fileID: 1131141007}
+  - {fileID: 1769830539}
