@@ -3012,6 +3012,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 303750962350309016, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
+      propertyPath: AllowNonMatchSwap
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4054952404620534531, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
       propertyPath: GameCamera
       value: 
