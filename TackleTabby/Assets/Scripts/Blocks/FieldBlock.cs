@@ -179,7 +179,7 @@ public class FieldBlock : MonoBehaviour
         otherBlock.CheckLeft(instigator, progress);
     }
 
-    public RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
+    private RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
     {
         Debug.DrawRay(origin, direction * RaycastDistance, Color.red, 3f);
 
