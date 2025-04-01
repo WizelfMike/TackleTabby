@@ -87,11 +87,24 @@ public class GridBaitSpawner : MonoBehaviour
 
     private void TrySpawn(Dictionary<int, int> columnIndices)
     {
+        foreach (int key in columnIndices.Keys)
+            LockFloatingInColumn(key);
+        
         _spawnQueue.Enqueue(columnIndices);
         if (_landingLeftCount > 0)
             return;
         
         CommenceSpawning();
+    }
+
+    private void LockFloatingInColumn(int columnIndex)
+    { 
+        Vector3 playFieldWorldLocation = PlayField.transform.position;
+        Vector3 playFieldScale = PlayField.transform.localScale;
+        FieldBlock[] blocks = FindFloating(playFieldWorldLocation, playFieldScale, columnIndex);
+        int blockCount = blocks.Length;
+        for (int i = 0; i < blockCount; i++)
+            blocks[i].NotifyInFallingPosition();
     }
 
     private void CommenceSpawning()

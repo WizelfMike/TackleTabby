@@ -69,11 +69,17 @@ public class BaitSwapper : MonoBehaviour
     {
         if (_isSwapping)
             return;
+
+        if (!targetBlock.RequestSwap())
+            return;
         
         direction.Normalize();
         FieldBlock neighbour = targetBlock.FindNeighbourInDirection(AllowedSwipeDirections.MapInput(direction));
         
         if (neighbour == null)
+            return;
+        
+        if (!neighbour.RequestSwap())
             return;
         
         _swapBlockA = targetBlock;

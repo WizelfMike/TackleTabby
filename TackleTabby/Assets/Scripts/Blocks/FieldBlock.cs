@@ -30,6 +30,7 @@ public class FieldBlock : MonoBehaviour
     private BoxCollider2D _collider;
     private GravityManager _gravityManager;
     private GridPlayField _parentField;
+    private bool _inFallingPosition = false;
 
     private void OnValidate()
     {
@@ -108,6 +109,7 @@ public class FieldBlock : MonoBehaviour
     {
         gravityManager.OnLanded.RemoveListener(OnLanded);
         transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
+        _inFallingPosition = false;
         BlockUpdate(Directions.Up);
     }
     
@@ -202,6 +204,16 @@ public class FieldBlock : MonoBehaviour
             return null;
 
         return cast.transform.GetComponent<FieldBlock>();
+    }
+
+    public void NotifyInFallingPosition()
+    {
+        _inFallingPosition = true;
+    }
+
+    public bool RequestSwap()
+    {
+        return !_inFallingPosition;
     }
         
     
