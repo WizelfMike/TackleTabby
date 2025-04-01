@@ -24,7 +24,7 @@ public class GridBaitSpawner : MonoBehaviour
     private readonly Queue<Dictionary<int, int>> _spawnQueue = new();
     private readonly List<FieldBlock> _spawnBatch = new();
     
-    private int _spawningLeftCount = 0;
+    private int _landingLeftCount = 0;
     
     private void Start()
     {
@@ -52,9 +52,7 @@ public class GridBaitSpawner : MonoBehaviour
             {
                 FieldBlock newBlock = BlockPool.Retrieve();
                 _spawnBatch.Add(newBlock);
-                GravityManager blockGravity = newBlock.GetComponent<GravityManager>();
-                blockGravity.OnLanded.AddListener(OnBlockLanded);
-                _spawningLeftCount++;
+                BindToLanding(newBlock.GetComponent<GravityManager>());
 
                 newBlock.GetComponent<Collider2D>().enabled = false;
                 newBlock.transform.SetParent(PlayField.transform);
@@ -68,17 +66,13 @@ public class GridBaitSpawner : MonoBehaviour
     {
          Vector3 playFieldWorldLocation = PlayField.transform.position;
          Vector3 playFieldScale = PlayField.transform.localScale;
+         
          foreach (int key in columnIndices.Keys)
          {
-             Vector2 localisedGridCoords = PlayField.GetLocalisedCoordinate(key, 0) * playFieldScale;
-             Vector2 rayCastOrigin = new Vector2(playFieldWorldLocation.x + localisedGridCoords.x,
-                 playFieldWorldLocation.y + localisedGridCoords.y);
-         
-             RaycastHit2D[] hits = Physics2D.RaycastAll(rayCastOrigin, Vector2.up, Mathf.Infinity, FieldBlockMask);
-             FieldBlock[] columnBlocks = hits.Select(x => x.transform.GetComponent<FieldBlock>()).Concat(_spawnBatch).ToArray();
-             _spawnBatch.Clear();
+             FieldBlock[] columnBlocks = FindFloating(playFieldWorldLocation, playFieldScale, key).Concat(_spawnBatch).ToArray();
              StartCoroutine(ApplyColumnGravity(columnBlocks));
          }
+         _spawnBatch.Clear();
     }
 
     private IEnumerator ApplyColumnGravity(FieldBlock[] columnBlocks)
@@ -93,11 +87,24 @@ public class GridBaitSpawner : MonoBehaviour
 
     private void TrySpawn(Dictionary<int, int> columnIndices)
     {
+        foreach (int key in columnIndices.Keys)
+            LockFloatingInColumn(key);
+        
         _spawnQueue.Enqueue(columnIndices);
-        if (_spawningLeftCount > 0)
+        if (_landingLeftCount > 0)
             return;
         
         CommenceSpawning();
+    }
+
+    private void LockFloatingInColumn(int columnIndex)
+    { 
+        Vector3 playFieldWorldLocation = PlayField.transform.position;
+        Vector3 playFieldScale = PlayField.transform.localScale;
+        FieldBlock[] blocks = FindFloating(playFieldWorldLocation, playFieldScale, columnIndex);
+        int blockCount = blocks.Length;
+        for (int i = 0; i < blockCount; i++)
+            blocks[i].NotifyInFallingPosition();
     }
 
     private void CommenceSpawning()
@@ -109,11 +116,45 @@ public class GridBaitSpawner : MonoBehaviour
         StartCoroutine(SpawnColumnsCoroutine(indices));
     }
 
+    private FieldBlock[] FindFloating(Vector3 playFieldWorldLocation, Vector3 playFieldScale, int columnIndex)
+    { 
+        Vector2 localisedGridCoords = PlayField.GetLocalisedCoordinate(columnIndex, 0) * playFieldScale;
+        Vector2 rayCastOrigin = new Vector2(playFieldWorldLocation.x + localisedGridCoords.x, 
+            playFieldWorldLocation.y + localisedGridCoords.y);
+
+        bool foundLowest = false;
+ 
+        return Physics2D.RaycastAll(rayCastOrigin, Vector2.up, Mathf.Infinity, FieldBlockMask)
+            .Select(x => x.transform.GetComponent<FieldBlock>())
+            .Where(x =>
+            {
+                if (x.VerticalPosition <= 0)
+                    return false;
+
+                if (foundLowest)
+                    return true;
+
+                if (x.FindNeighbourInDirection(Vector2.down) == null)
+                {
+                    foundLowest = true;
+                    return true;
+                }
+
+                return false;
+            }).ToArray();
+    }
+
+    private void BindToLanding(GravityManager gravityManager)
+    {
+        _landingLeftCount++;
+        gravityManager.OnLanded.AddListener(OnBlockLanded);
+    }
+
     private void OnBlockLanded(GravityManager gravityManager)
     {
         gravityManager.OnLanded.RemoveListener(OnBlockLanded);
-        _spawningLeftCount--;
-        if (_spawningLeftCount <= 0)
+        _landingLeftCount--;
+        if (_landingLeftCount <= 0)
             AllLanded();
     }
 
