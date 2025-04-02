@@ -3,9 +3,15 @@ using UnityEngine;
 
 public class AudioHandler : MonoBehaviour
 {
+
+    private FMOD.Studio.EventInstance _backgroundMusic;
+
     private void Start()
     {
-        FMODUnity.RuntimeManager.WaitForAllSampleLoading();    
+        FMODUnity.RuntimeManager.WaitForAllSampleLoading();
+
+        _backgroundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Match3Music");
+        _backgroundMusic.start();
     }
 
     public void PlayBaitDropSound()
