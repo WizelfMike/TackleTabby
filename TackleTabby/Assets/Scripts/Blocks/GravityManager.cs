@@ -5,15 +5,21 @@ using UnityEngine.Events;
 
 public class GravityManager : MonoBehaviour
 {
+    [Header("Gravity")]
     [SerializeField]
     [Description("Strength in gravity, positive value is downwards")]
     private float GravityStrength = 9.81f;
     [SerializeField]
     private float TerminalVelocity = 1f;
     [SerializeField]
-    private Collider2D ControllingCollider;
+    [Range(0.1f, 2f)]
+    private float MaxLossyScaleDistance = 0.5f;
+    [Header("Detection")]
     [SerializeField]
     private float GroundDetectionDistance = 1f;
+    [Header("Collision")]
+    [SerializeField]
+    private Collider2D ControllingCollider;
 
     public UnityEvent<GravityManager> OnLanded = new();
 
@@ -23,25 +29,18 @@ public class GravityManager : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
     private GridPlayField _parentField;
 
-
     private void Start()
     {
         _parentField = transform.parent.GetComponent<GridPlayField>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_isFalling)
         {
             TestGround();
-            Fall(Time.deltaTime);
+            Fall(Time.fixedDeltaTime);
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (_isFalling)
-            TestGround();
     }
 
     public void StartFalling()
@@ -79,11 +78,19 @@ public class GravityManager : MonoBehaviour
 
     private void UpdateVelocityPosition(float deltaTime)
     {
-         transform.position += _velocity * deltaTime;
-         _acceleration += _fallingDirection * (GravityStrength * deltaTime);
-         _velocity += _acceleration * deltaTime;
-         if (_velocity.magnitude >= TerminalVelocity)
-             _velocity = _velocity.normalized * TerminalVelocity;       
+        transform.position += SafeguardVelocity(_velocity * deltaTime);
+         
+        _acceleration += _fallingDirection * (GravityStrength * deltaTime);
+        _velocity += _acceleration * deltaTime;
+        if (_velocity.magnitude >= TerminalVelocity)
+            _velocity = _velocity.normalized * TerminalVelocity;       
+    }
+
+    private Vector3 SafeguardVelocity(Vector3 velocity)
+    {
+        if (velocity.magnitude >= transform.lossyScale.y * MaxLossyScaleDistance)
+            return velocity.normalized * (transform.lossyScale.y * MaxLossyScaleDistance);
+        return velocity;
     }
 
     private float CheckGroundLevel()
