@@ -48,17 +48,20 @@ public class GravityManager : MonoBehaviour
         if (_isFalling)
             return;
         
+        ResetVelocity();
         _isFalling = true;
         ControllingCollider.enabled = false;
     }
 
     private void StopFalling()
     {
-        OnLanded.Invoke(this);
-        _velocity = Vector3.zero;
-        _acceleration = Vector3.zero;
+        if (!_isFalling)
+            return;
+        
         _isFalling = false;
+        ResetVelocity();
         ControllingCollider.enabled = true;
+        OnLanded.Invoke(this);
     }
 
     private void TestGround()
@@ -91,6 +94,12 @@ public class GravityManager : MonoBehaviour
         if (velocity.magnitude >= transform.lossyScale.y * MaxLossyScaleDistance)
             return velocity.normalized * (transform.lossyScale.y * MaxLossyScaleDistance);
         return velocity;
+    }
+
+    private void ResetVelocity()
+    {
+        _velocity = Vector3.zero;
+        _acceleration = Vector3.zero;
     }
 
     private float CheckGroundLevel()
