@@ -30,6 +30,7 @@ public class FieldBlock : MonoBehaviour
     private BoxCollider2D _collider;
     private GravityManager _gravityManager;
     private GridPlayField _parentField;
+    private bool _inFallingPosition = false;
 
     private void OnValidate()
     {
@@ -108,6 +109,7 @@ public class FieldBlock : MonoBehaviour
     {
         gravityManager.OnLanded.RemoveListener(OnLanded);
         transform.localPosition = _parentField.GetPreciseGridLocation(transform.localPosition);
+        _inFallingPosition = false;
         BlockUpdate(Directions.Up);
     }
     
@@ -179,7 +181,7 @@ public class FieldBlock : MonoBehaviour
         otherBlock.CheckLeft(instigator, progress);
     }
 
-    public RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
+    private RaycastHit2D PerformSafeCast(Vector2 origin, Vector2 direction, float distance)
     {
         Debug.DrawRay(origin, direction * RaycastDistance, Color.red, 3f);
 
@@ -202,6 +204,16 @@ public class FieldBlock : MonoBehaviour
             return null;
 
         return cast.transform.GetComponent<FieldBlock>();
+    }
+
+    public void NotifyInFallingPosition()
+    {
+        _inFallingPosition = true;
+    }
+
+    public bool RequestSwap()
+    {
+        return !_inFallingPosition;
     }
         
     
