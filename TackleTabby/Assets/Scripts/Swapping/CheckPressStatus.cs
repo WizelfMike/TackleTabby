@@ -11,6 +11,7 @@ public class CheckPressStatus : MonoBehaviour
     public UnityEvent<Vector2, Vector2> OnSwipeEnded = new();
 
     private Vector2 _startPosition;
+    private bool _hasStarted = false;
     
     public void OnPressStart(InputAction.CallbackContext context)
     {
@@ -20,7 +21,8 @@ public class CheckPressStatus : MonoBehaviour
         TouchState touch = context.ReadValue<TouchState>();
         if (touch.phase != TouchPhase.Began)
             return;
-        
+
+        _hasStarted = true;
         _startPosition = touch.position;
     }
 
@@ -33,6 +35,10 @@ public class CheckPressStatus : MonoBehaviour
         if (touch.phase != TouchPhase.Ended)
             return;
 
+        if (!_hasStarted)
+            return;
+
+        _hasStarted = false;
         Vector2 direction = (touch.position - _startPosition);
         OnSwipeEnded.Invoke(_startPosition, direction);
     }
