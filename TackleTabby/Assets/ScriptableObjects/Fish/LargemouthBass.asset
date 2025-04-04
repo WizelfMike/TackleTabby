@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3292eebda5c464aafe59d6fede0420, type: 3}
+  m_Name: LargemouthBass
+  m_EditorClassIdentifier: 
+  DisplayName: Largemouth Bass
+  FishSprite: {fileID: 21300000, guid: 16d1688f425041740a41f83283127653, type: 3}
+  MinSizeInches: 15.3
+  MaxSizeInches: 29.5
+  MaxSizeDeviationInch: 5.6
+  RequiredBaitCombination:
+  - {fileID: 11400000, guid: a76c41002a421754785e3e494f8ddc1e, type: 2}
+  - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
