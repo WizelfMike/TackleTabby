@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b7af7ff4f9842259f1dc43f849e8d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrashList: []
+  TrashList:
+  - {fileID: 11400000, guid: 001fc5484f4b9aa4981029fc610bfbff, type: 2}

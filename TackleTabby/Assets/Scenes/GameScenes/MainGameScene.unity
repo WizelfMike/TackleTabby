@@ -7065,14 +7065,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashStorageContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 6000539099486879751, guid: 0be608592bc22e840b2aee845e8c75e0, type: 3}
-      propertyPath: TrashList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6000539099486879751, guid: 0be608592bc22e840b2aee845e8c75e0, type: 3}
-      propertyPath: 'TrashList.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 001fc5484f4b9aa4981029fc610bfbff, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
