@@ -11,6 +11,7 @@ public class FishManager : MonoBehaviour
     private ComboTracker ComboTracker;
 
     public UnityEvent<CaughtFish> OnFishCaught = new();
+    public UnityEvent<TrashDefinition> OnTrashCaught = new();
 
     private void Start()
     {
@@ -23,7 +24,10 @@ public class FishManager : MonoBehaviour
         FishDefinition[] correspondingFishes = CentralFishStorage.Instance.FindByBaitCombination(baits);
         if (correspondingFishes.Length <= 0)
         {
-            Debug.Log("Trash");
+            TrashDefinition trash = CentralTrashStorage.Instance.GetRandomTrash();
+            OnTrashCaught.Invoke(trash);
+            
+            Debug.Log($"Trash: {trash?.DisplayName}");
             FishImage.enabled = false;
             return;
         }
