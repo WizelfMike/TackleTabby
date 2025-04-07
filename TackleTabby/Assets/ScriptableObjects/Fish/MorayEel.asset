@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Moray Eel
   FishSprite: {fileID: 21300000, guid: 6d5db1cc80d4753489eabf3f55e257c1, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: e81168d8429e1164588dcde475964445, type: 3}
   MinSizeInches: 31.5
   MaxSizeInches: 78.7
   MaxSizeDeviationInch: 9.9

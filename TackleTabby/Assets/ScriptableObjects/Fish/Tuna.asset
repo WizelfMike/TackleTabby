@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Tuna
   FishSprite: {fileID: 21300000, guid: 2f2a651c123b2cc43882dfc441c89aea, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: 0333a4f36efc81044acc3005b96b4329, type: 3}
   MinSizeInches: 11.8
   MaxSizeInches: 27.6
   MaxSizeDeviationInch: 5.6

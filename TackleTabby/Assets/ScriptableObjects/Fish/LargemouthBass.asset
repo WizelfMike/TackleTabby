@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Largemouth Bass
   FishSprite: {fileID: 21300000, guid: 16d1688f425041740a41f83283127653, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: 151e9a9ed2cc6ad448868162ae475cd5, type: 3}
   MinSizeInches: 15.3
   MaxSizeInches: 29.5
   MaxSizeDeviationInch: 5.6

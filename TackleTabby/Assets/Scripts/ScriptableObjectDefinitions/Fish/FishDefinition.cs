@@ -6,6 +6,7 @@ public class FishDefinition : ScriptableObject
     [Header("Display")]
     public string DisplayName;
     public Sprite FishSprite;
+    public Sprite ThumbnailSprite;
 
     [Header("Size Definition")]
     [Range(0.1f, 1000f)]

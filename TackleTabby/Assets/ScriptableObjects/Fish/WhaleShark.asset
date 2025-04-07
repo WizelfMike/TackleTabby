@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Whale Shark
   FishSprite: {fileID: 21300000, guid: ee98f3d87043ba64f9212fef47c5f70a, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: 5cad842e7e68f3c4ab9268abf811ec3f, type: 3}
   MinSizeInches: 393.7
   MaxSizeInches: 472.4
   MaxSizeDeviationInch: 12
