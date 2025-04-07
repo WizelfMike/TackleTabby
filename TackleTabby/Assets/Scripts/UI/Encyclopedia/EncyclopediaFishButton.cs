@@ -47,7 +47,7 @@ public class EncyclopediaFishButton : MonoBehaviour
         if (!_isUnlocked)
             return;
 
-        ButtonImage.sprite = ButtonSpriteActive;
         OnPressed.Invoke(_fishType);
+        ButtonImage.sprite = ButtonSpriteActive;
     }
 }

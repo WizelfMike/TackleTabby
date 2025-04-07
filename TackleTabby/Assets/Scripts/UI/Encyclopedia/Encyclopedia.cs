@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Burst;
 using UnityEngine;
@@ -16,12 +17,11 @@ public class Encyclopedia : MonoBehaviour
     private Image[] BaitDisplayImages;
     [SerializeField]
     private EncyclopediaFishButton[] FishButtons;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private void Start()
     {
-        var allFishes = CentralFishStorage.Instance.GetAllFish();
-        var length = allFishes.Length;
+        ReadOnlySpan<FishDefinition> allFishes = CentralFishStorage.Instance.GetAllFish();
+        int length = allFishes.Length;
         if (length != FishButtons.Length)
             Debug.LogWarning("The amount of buttons in the encyclopedia is not equal to the amount of fishes");
 
@@ -29,8 +29,27 @@ public class Encyclopedia : MonoBehaviour
         {
             FishButtons[i].FishType = allFishes[i];
             FishButtons[i].OnPressed.AddListener(OnFishButtonPressed);
-            FishButtons[i].Unlock();
         }
+    }
+
+    public void OnFishCaught(FishDefinition fish)
+    {
+        ReadOnlySpan<FishDefinition> fishes = CentralFishStorage.Instance.GetAllFish();
+        int length = fishes.Length;
+        int index = -1;
+        for (int i = 0; i < length; i++)
+        {
+            if (fishes[i] != fish)
+                continue;
+
+            index = i;
+            break;
+        }
+
+        if (index == -1)
+            return;
+        
+        FishButtons[index].Unlock();
     }
 
     public void OpenEncyclopedia()
@@ -46,6 +65,9 @@ public class Encyclopedia : MonoBehaviour
     {
         OpenFishInfo(false);
         Container.SetActive(false);
+        foreach (EncyclopediaFishButton button in FishButtons)
+            button.Exit();
+        
         MenuCommunicator.Instance.CloseMenu();
     }
 
