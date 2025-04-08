@@ -11,6 +11,8 @@ public class ComboTracker : MonoBehaviour
     public UnityEvent<Combo> OnComboFinished;
     public UnityEvent<Match> OnComboUpdated;
 
+    public int RequiredComboLength => ComboLength;
+        
     private Combo _endingCombo;
     private List<Match> _comboList = new();
 
