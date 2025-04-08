@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using Unity.Burst;
 using UnityEngine;
@@ -12,12 +13,16 @@ public class Encyclopedia : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI FishNameDisplay;
     [SerializeField]
+    private TextMeshProUGUI FishSizeDisplay;
+    [SerializeField]
     private Image FishDisplayImage;
     [SerializeField]
     private Image[] BaitDisplayImages;
     [SerializeField]
     private EncyclopediaFishButton[] FishButtons;
-    
+
+    private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
+
     private void Start()
     {
         ReadOnlySpan<FishDefinition> allFishes = CentralFishStorage.Instance.GetAllFish();
@@ -32,14 +37,13 @@ public class Encyclopedia : MonoBehaviour
         }
     }
 
-    public void OnFishCaught(FishDefinition fish)
+    public void OnFishCaught(CaughtFish fish)
     {
-        ReadOnlySpan<FishDefinition> fishes = CentralFishStorage.Instance.GetAllFish();
-        int length = fishes.Length;
+        int length = FishButtons.Length;
         int index = -1;
         for (int i = 0; i < length; i++)
         {
-            if (fishes[i] != fish)
+            if (FishButtons[i].FishType != fish.FishType)
                 continue;
 
             index = i;
@@ -49,6 +53,7 @@ public class Encyclopedia : MonoBehaviour
         if (index == -1)
             return;
         
+        TryAddCatchProgress(fish);
         FishButtons[index].Unlock();
     }
 
@@ -75,19 +80,38 @@ public class Encyclopedia : MonoBehaviour
     {
         foreach (EncyclopediaFishButton button in FishButtons)
             button.Exit();
+
+        CaughtFish caught = _fishProgress[fishType];
         
         OpenFishInfo();
-        FishNameDisplay.SetText(fishType.DisplayName);
-        FishDisplayImage.sprite = fishType.FishSprite;
+        FishNameDisplay.SetText(caught.FishType.DisplayName);
+        FishDisplayImage.sprite = caught.FishType.FishSprite;
+        FishSizeDisplay.SetText($"{caught.CaughtSize:F1} inch");
         for (int i = 0; i < BaitDisplayImages.Length; i++)
-            BaitDisplayImages[i].sprite = fishType.RequiredBaitCombination[i].BaitSprite;
+            BaitDisplayImages[i].sprite = caught.FishType.RequiredBaitCombination[i].BaitSprite;
     }
 
     public void OpenFishInfo(bool enabledState = true)
     {
         FishNameDisplay.enabled = enabledState;
         FishDisplayImage.enabled = enabledState;
+        FishSizeDisplay.enabled = enabledState;
         foreach (Image baitImage in BaitDisplayImages)
             baitImage.enabled = enabledState;
+    }
+
+    private bool TryAddCatchProgress(CaughtFish fish)
+    {
+        if (!_fishProgress.TryGetValue(fish.FishType, out CaughtFish alreadyCaught))
+        {
+            _fishProgress.Add(fish.FishType, fish);
+            return true;
+        }
+
+        if (alreadyCaught.CaughtSize > fish.CaughtSize)
+            return false;
+
+        _fishProgress[fish.FishType] = fish;
+        return true;
     }
 }
