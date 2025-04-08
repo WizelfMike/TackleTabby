@@ -16,13 +16,18 @@ public class Encyclopedia : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI FishSizeDisplay;
     [SerializeField]
+    private TextMeshProUGUI DescriptionText;
+    [SerializeField]
     private Image FishDisplayImage;
     [SerializeField]
     private Image[] BaitDisplayImages;
     [SerializeField]
     private EncyclopediaFishButton[] FishButtons;
+    
+    [Header("Animation")]
     [SerializeField]
     private Animator OpenCloseAnimator;
+    
     [Header("Settings")]
     [SerializeField]
     private bool KeepInfoOpenOnClose;
@@ -70,10 +75,12 @@ public class Encyclopedia : MonoBehaviour
     {
         if (MenuCommunicator.Instance.HasMenuOpen)
             return;
-        
+
         if (KeepInfoOpenOnClose && _lastOpenedFishButton != null)
             _lastOpenedFishButton.OnButtonPressed();
         
+        DescriptionText.enabled = !(KeepInfoOpenOnClose && _lastOpenedFishButton != null);
+
         OpenCloseAnimator.SetTrigger("OpenTrigger");
         MenuCommunicator.Instance.OpenMenu();
     }
@@ -99,8 +106,10 @@ public class Encyclopedia : MonoBehaviour
             button.Exit();
 
         CaughtFish caught = _fishProgress[fishButton.FishType];
-        
+
+        DescriptionText.enabled = false;
         OpenFishInfo();
+        
         FishNameDisplay.SetText(caught.FishType.DisplayName);
         FishDisplayImage.sprite = caught.FishType.FishSprite;
         FishSizeDisplay.SetText($"{caught.CaughtSize:F1} inch");
