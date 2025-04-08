@@ -114,16 +114,18 @@ public class Encyclopedia : MonoBehaviour
         foreach (EncyclopediaFishButton button in FishButtons)
             button.Exit();
 
-        CaughtFish caught = _fishProgress[fishButton.FishType];
+        bool hasCaught = _fishProgress.TryGetValue(fishButton.FishType, out CaughtFish caught);
 
         DescriptionText.enabled = false;
         OpenFishInfo();
         
-        FishNameDisplay.SetText(caught.FishType.DisplayName);
-        FishDisplayImage.sprite = caught.FishType.FishSprite;
-        FishSizeDisplay.SetText($"{caught.CaughtSize:F1} inch");
+        FishNameDisplay.SetText(fishButton.FishType.DisplayName);
+        FishDisplayImage.sprite = fishButton.FishType.FishSprite;
+        if (hasCaught)
+            FishSizeDisplay.SetText($"{caught.CaughtSize:F1} inch");
+        
         for (int i = 0; i < BaitDisplayImages.Length; i++)
-            BaitDisplayImages[i].sprite = caught.FishType.RequiredBaitCombination[i].BaitSprite;
+            BaitDisplayImages[i].sprite = fishButton.FishType.RequiredBaitCombination[i].BaitSprite;
     }
 
     public void OpenFishInfo(bool enabledState = true)
@@ -149,4 +151,29 @@ public class Encyclopedia : MonoBehaviour
         _fishProgress[fish.FishType] = fish;
         return true;
     }
+    
+    #if UNITY_EDITOR
+
+    [ContextMenu("Unlocking/Unlock all")]
+    private void UnlockAllFish()
+    {
+        int length = FishButtons.Length;
+        for (int i = 0; i < length; i++)
+            FishButtons[i].Unlock();
+    }
+
+    [ContextMenu("Unlocking/Relock uncaught")]
+    private void RelockUncaught()
+    {
+        int length = FishButtons.Length;
+        for (int i = 0; i < length; i++)
+        {
+            if (_fishProgress.ContainsKey(FishButtons[i].FishType))
+                continue;
+            
+            FishButtons[i].Lock();
+        }
+    }
+    
+    #endif // UNITY_EDITOR
 }

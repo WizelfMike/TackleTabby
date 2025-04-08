@@ -37,6 +37,12 @@ public class EncyclopediaFishButton : MonoBehaviour
         FishThumbnail.color = Color.white;
     }
 
+    public void Lock()
+    {
+        _isUnlocked = false;
+        FishThumbnail.color = Color.black;
+    }
+
     public void Exit()
     {
         ButtonImage.sprite = ButtonSpriteInactive;
