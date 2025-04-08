@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Burst;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Encyclopedia : MonoBehaviour
@@ -20,11 +21,15 @@ public class Encyclopedia : MonoBehaviour
     private Image[] BaitDisplayImages;
     [SerializeField]
     private EncyclopediaFishButton[] FishButtons;
+    [SerializeField]
+    private Animator OpenCloseAnimator;
 
     private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
 
     private void Start()
     {
+        OpenFishInfo(false);
+        
         ReadOnlySpan<FishDefinition> allFishes = CentralFishStorage.Instance.GetAllFish();
         int length = allFishes.Length;
         if (length != FishButtons.Length)
@@ -62,14 +67,15 @@ public class Encyclopedia : MonoBehaviour
         if (MenuCommunicator.Instance.HasMenuOpen)
             return;
         
-        Container.SetActive(true);
+        // Container.SetActive(true);
+        OpenCloseAnimator.SetTrigger("OpenTrigger");
         MenuCommunicator.Instance.OpenMenu();
     }
 
     public void CloseEncyclopedia()
     {
+        OpenCloseAnimator.SetTrigger("CloseTrigger");
         OpenFishInfo(false);
-        Container.SetActive(false);
         foreach (EncyclopediaFishButton button in FishButtons)
             button.Exit();
         
