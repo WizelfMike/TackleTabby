@@ -77,8 +77,17 @@ public class Encyclopedia : MonoBehaviour
             return;
 
         if (KeepInfoOpenOnClose && _lastOpenedFishButton != null)
+        {
             _lastOpenedFishButton.OnButtonPressed();
-        
+        }
+        else
+        {
+            if (_lastOpenedFishButton)
+                _lastOpenedFishButton.Exit();
+            
+            OpenFishInfo(false);
+        }
+
         DescriptionText.enabled = !(KeepInfoOpenOnClose && _lastOpenedFishButton != null);
 
         OpenCloseAnimator.SetTrigger("OpenTrigger");
