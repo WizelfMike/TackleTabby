@@ -23,8 +23,12 @@ public class Encyclopedia : MonoBehaviour
     private EncyclopediaFishButton[] FishButtons;
     [SerializeField]
     private Animator OpenCloseAnimator;
+    [Header("Settings")]
+    [SerializeField]
+    private bool KeepInfoOpenOnClose;
 
     private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
+    private EncyclopediaFishButton _lastOpenedFishButton;
 
     private void Start()
     {
@@ -67,7 +71,9 @@ public class Encyclopedia : MonoBehaviour
         if (MenuCommunicator.Instance.HasMenuOpen)
             return;
         
-        // Container.SetActive(true);
+        if (KeepInfoOpenOnClose && _lastOpenedFishButton != null)
+            _lastOpenedFishButton.OnButtonPressed();
+        
         OpenCloseAnimator.SetTrigger("OpenTrigger");
         MenuCommunicator.Instance.OpenMenu();
     }
@@ -75,19 +81,24 @@ public class Encyclopedia : MonoBehaviour
     public void CloseEncyclopedia()
     {
         OpenCloseAnimator.SetTrigger("CloseTrigger");
-        OpenFishInfo(false);
-        foreach (EncyclopediaFishButton button in FishButtons)
-            button.Exit();
-        
+
+        if (!KeepInfoOpenOnClose)
+        {
+            OpenFishInfo(false);
+            foreach (EncyclopediaFishButton button in FishButtons)
+                button.Exit();
+        }
+
         MenuCommunicator.Instance.CloseMenu();
     }
 
-    private void OnFishButtonPressed(FishDefinition fishType)
+    private void OnFishButtonPressed(EncyclopediaFishButton fishButton)
     {
+        _lastOpenedFishButton = fishButton;
         foreach (EncyclopediaFishButton button in FishButtons)
             button.Exit();
 
-        CaughtFish caught = _fishProgress[fishType];
+        CaughtFish caught = _fishProgress[fishButton.FishType];
         
         OpenFishInfo();
         FishNameDisplay.SetText(caught.FishType.DisplayName);

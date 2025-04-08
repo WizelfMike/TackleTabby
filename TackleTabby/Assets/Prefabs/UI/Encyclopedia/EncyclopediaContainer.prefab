@@ -869,6 +869,7 @@ MonoBehaviour:
   - {fileID: 2794565067152494920}
   - {fileID: 590813402357529053}
   OpenCloseAnimator: {fileID: 0}
+  KeepInfoOpenOnClose: 1
 --- !u!1 &7606299836874518700
 GameObject:
   m_ObjectHideFlags: 0

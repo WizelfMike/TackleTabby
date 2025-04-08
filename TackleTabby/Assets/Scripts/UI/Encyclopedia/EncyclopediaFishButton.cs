@@ -14,7 +14,7 @@ public class EncyclopediaFishButton : MonoBehaviour
     [SerializeField]
     private Sprite ButtonSpriteInactive;
 
-    public UnityEvent<FishDefinition> OnPressed = new();
+    public UnityEvent<EncyclopediaFishButton> OnPressed = new();
 
     public FishDefinition FishType
     {
@@ -47,7 +47,7 @@ public class EncyclopediaFishButton : MonoBehaviour
         if (!_isUnlocked)
             return;
 
-        OnPressed.Invoke(_fishType);
+        OnPressed.Invoke(this);
         ButtonImage.sprite = ButtonSpriteActive;
     }
 }
