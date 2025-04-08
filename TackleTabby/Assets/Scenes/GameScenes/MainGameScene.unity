@@ -1222,6 +1222,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1769830538}
     - target: {fileID: 303750962350309016, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
+      propertyPath: AllowNonMatchSwap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 303750962350309016, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
       propertyPath: OnSwapping.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
