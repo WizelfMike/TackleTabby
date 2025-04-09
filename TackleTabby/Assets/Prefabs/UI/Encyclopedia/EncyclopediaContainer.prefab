@@ -224,8 +224,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -110, y: -160}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -120, y: -160}
+  m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4148431705031900688
 CanvasRenderer:
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2bbf07dc433ab054e97c4b45fa4c6358, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f352df9372d3a545b39f75d5678ccd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -311,7 +311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6339575637694589124}
         m_TargetAssemblyTypeName: Encyclopedia, Assembly-CSharp
-        m_MethodName: CloseOverlay
+        m_MethodName: CloseEncyclopedia
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Collection
+  m_text: Catalogue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab3245fa9735e404383e5461984e0faa, type: 2}
   m_sharedMaterial: {fileID: 550732093338335038, guid: ab3245fa9735e404383e5461984e0faa, type: 2}
@@ -1008,12 +1008,6 @@ MonoBehaviour:
   - {fileID: 590813402357529053}
   OpenCloseAnimator: {fileID: 0}
   KeepInfoOpenOnClose: 1
-  OnOpened:
-    m_PersistentCalls:
-      m_Calls: []
-  OnClosed:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &7606299836874518700
 GameObject:
   m_ObjectHideFlags: 0
