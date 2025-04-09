@@ -644,7 +644,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 849880804}
         m_TargetAssemblyTypeName: Encyclopedia, Assembly-CSharp
-        m_MethodName: OpenEncyclopedia
+        m_MethodName: OpenOverlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7155,6 +7155,14 @@ PrefabInstance:
       propertyPath: OpenCloseAnimator
       value: 
       objectReference: {fileID: 891058900}
+    - target: {fileID: 8640416606156102028, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 849880804}
+    - target: {fileID: 8640416606156102028, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseOverlay
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7467,22 +7475,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3049976824533075779}
     m_Modifications:
-    - target: {fileID: 2206415252230322065, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2206415252230322065, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2206415252230322065, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4686839585335826792, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: m_Name
       value: CatchPopupContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: FishManager
+      value: 
+      objectReference: {fileID: 1136517567}
     - target: {fileID: 8551632943396275512, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
