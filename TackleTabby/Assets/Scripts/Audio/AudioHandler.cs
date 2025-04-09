@@ -28,4 +28,9 @@ public class AudioHandler : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Swap");
     }
+
+    public void ChangeMusicParameter(int ParameterValue)
+    {
+        _backgroundMusic.setParameterByName("Catalogue Open", ParameterValue);
+    }
 }

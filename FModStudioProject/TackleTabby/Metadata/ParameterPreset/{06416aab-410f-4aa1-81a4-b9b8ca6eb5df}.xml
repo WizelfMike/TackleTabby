@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{06416aab-410f-4aa1-81a4-b9b8ca6eb5df}">
+		<property name="name">
+			<value>Catalogue Open</value>
+		</property>
+		<relationship name="folder">
+			<destination>{cb3682bd-6462-48bd-8d77-0b92ec953526}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5398a5b7-c8b8-4e98-91af-65773a2ebbba}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5398a5b7-c8b8-4e98-91af-65773a2ebbba}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
