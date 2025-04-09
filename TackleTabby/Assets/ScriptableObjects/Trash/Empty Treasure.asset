@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38949eaad53d4490985980bf6c733aaf, type: 3}
-  m_Name: Treasure
+  m_Name: Empty Treasure
   m_EditorClassIdentifier: 
-  DisplayName: Trashbag
-  TrashSprite: {fileID: 21300000, guid: 0c0a39730a50dbb4dbeae6354449e4c5, type: 3}
+  DisplayName: Empty Treasure
+  TrashSprite: {fileID: 21300000, guid: 1f1be1883ad5a914fbe1e6bca8c2a8d3, type: 3}
