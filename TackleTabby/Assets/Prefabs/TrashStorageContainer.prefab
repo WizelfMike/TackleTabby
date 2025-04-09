@@ -46,3 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TrashList:
   - {fileID: 11400000, guid: 001fc5484f4b9aa4981029fc610bfbff, type: 2}
+  - {fileID: 11400000, guid: c403d184d138b814a876e70f6d1ce48b, type: 2}
+  - {fileID: 11400000, guid: afdbea09a3485b141979f196cb720f2d, type: 2}
+  - {fileID: 11400000, guid: a4c99c0995665cb40bde055cf934d6e8, type: 2}
+  - {fileID: 11400000, guid: 97625d308c276364aad854a139d9a60d, type: 2}
+  - {fileID: 11400000, guid: 1a2a1ade7d61c3548aacb92cba51e741, type: 2}
