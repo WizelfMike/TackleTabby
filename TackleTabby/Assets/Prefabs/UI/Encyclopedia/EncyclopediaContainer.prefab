@@ -311,7 +311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6339575637694589124}
         m_TargetAssemblyTypeName: Encyclopedia, Assembly-CSharp
-        m_MethodName: CloseEncyclopedia
+        m_MethodName: CloseOverlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1008,6 +1008,12 @@ MonoBehaviour:
   - {fileID: 590813402357529053}
   OpenCloseAnimator: {fileID: 0}
   KeepInfoOpenOnClose: 1
+  OnOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClosed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7606299836874518700
 GameObject:
   m_ObjectHideFlags: 0
