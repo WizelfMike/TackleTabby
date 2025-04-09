@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Jelly Fish
   FishSprite: {fileID: 21300000, guid: e8bdfed2f0cd46f48b845a0c9ce9ab76, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: 0f1341d4e5c13084180c0f4df5fc1822, type: 3}
   MinSizeInches: 1
   MaxSizeInches: 59
   MaxSizeDeviationInch: 2
