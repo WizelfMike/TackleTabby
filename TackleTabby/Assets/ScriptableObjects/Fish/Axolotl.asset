@@ -21,3 +21,4 @@ MonoBehaviour:
   RequiredBaitCombination:
   - {fileID: 11400000, guid: 9fe3b75ffa5190248af0318088a1d53e, type: 2}
   - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
+  SatiationAmount: 2

@@ -18,6 +18,9 @@ public class FishDefinition : ScriptableObject
     [Header("Catching")]
     public BaitDefinition[] RequiredBaitCombination;
 
+    [Header("Satiation")] 
+    [Range(1,10)]
+    public int SatiationAmount;
     private void OnValidate()
     {
         if (string.IsNullOrEmpty(DisplayName))
