@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{f45c052e-5d25-452e-aacd-0163176106ed}">
+		<property name="assetPath">
+			<value>Fishing Reel/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0d635458-a2a2-44aa-9bb5-a7d9c18a73d8}</destination>
+		</relationship>
+	</object>
+</objects>
