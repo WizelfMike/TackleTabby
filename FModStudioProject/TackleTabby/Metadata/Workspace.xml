@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Workspace" id="{5c3f5d09-a6b3-4130-b5fa-dad602936d00}">
 		<property name="builtBanksOutputDirectory">
-			<value>../../Tackle Tabby REAL EXAM/TackleTabby/TackleTabby/Assets/FMOD</value>
+			<value>../../TackleTabby/Assets/FMOD</value>
 		</property>
 		<relationship name="masterEventFolder">
 			<destination>{a4ed17fa-c9dd-4247-9584-b662e21d8f6d}</destination>
