@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="Workspace" id="{5c3f5d09-a6b3-4130-b5fa-dad602936d00}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../Tackle Tabby REAL EXAM/TackleTabby/TackleTabby/Assets/FMOD</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{a4ed17fa-c9dd-4247-9584-b662e21d8f6d}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{67a8d2ab-d219-4cd6-a34e-7ac536701b4f}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{050c0210-1b8b-47d9-b223-ded30e567517}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{cb3682bd-6462-48bd-8d77-0b92ec953526}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{43f88746-f1e9-40c8-8e4c-eb0631e23b22}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{ee1edee8-8801-423a-83aa-434a5eca6579}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{0d635458-a2a2-44aa-9bb5-a7d9c18a73d8}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{add36425-1701-4718-9254-9830999369f7}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{3363f572-d158-4244-a09d-96059215c3ca}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{4eef9cd8-d8d0-4f58-ba97-ab2d73d2c65c}</destination>
+		</relationship>
+	</object>
+</objects>
