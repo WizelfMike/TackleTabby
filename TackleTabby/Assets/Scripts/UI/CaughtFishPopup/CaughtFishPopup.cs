@@ -31,7 +31,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     private void Start()
     {
         FishManager.OnFishCaught.AddListener(OnCaughtFish);
-        FishManager.OnTrashCaught.AddListener(OnCaughtTrash);
+        // FishManager.OnTrashCaught.AddListener(OnCaughtTrash);
     }
 
     private void OnCaughtFish(CaughtFish fish)
@@ -125,7 +125,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     private void DisplayFish(CaughtFish fish)
     {
         CaughtDisplay.sprite = fish.FishType.FishSprite;
-        TextMessage.SetText($"You caugth a(n) {fish.FishType.DisplayName} of {fish.CaughtSize} inch");
+        TextMessage.SetText($"You caugth a(n) {fish.FishType.DisplayName} of {fish.CaughtSize:F1} inch");
     }
 
     private void DisplayTrash(TrashDefinition trash)
