@@ -16,19 +16,9 @@ public class AudioHandler : MonoBehaviour
         _backgroundMusic.setParameterByName("Catalogue Open", 0);
     }
 
-    public void PlayBaitDropSound()
+    public void PlayFmodOneShot(string EventDirectory)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/BaitLand");
-    }
-
-    public void PlayBaitPop()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/BaitPop");
-    }
-
-    public void PlayBaitSwap()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Swap");
+        FMODUnity.RuntimeManager.PlayOneShot(EventDirectory);
     }
 
     public void ChangeMusicParameter(int ParameterValue)
