@@ -28,6 +28,9 @@ public class MainMenu : MonoBehaviour, IOverlayMenu
         _isOpen = OpenedAtStart;
         StartGameButton.onClick.AddListener(OnStartPressed);
         QuitGameButton.onClick.AddListener(OnQuitPressed);
+
+        if (_isOpen)
+            MenuCommunicator.Instance.OpenedMenu(this);
     }
 
     private void OnStartPressed()
