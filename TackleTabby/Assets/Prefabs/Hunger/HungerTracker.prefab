@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc8a0541af12fa4cb19a9688ba96791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StomachSize: 5
+  StomachSize: 10
   OnStarving:
     m_PersistentCalls:
       m_Calls: []
