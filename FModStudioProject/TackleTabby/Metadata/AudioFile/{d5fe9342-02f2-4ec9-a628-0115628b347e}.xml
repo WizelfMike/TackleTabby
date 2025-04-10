@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d5fe9342-02f2-4ec9-a628-0115628b347e}">
+		<property name="assetPath">
+			<value>Fish Caught/Fish Caught Splash.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.9242083333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0d635458-a2a2-44aa-9bb5-a7d9c18a73d8}</destination>
+		</relationship>
+	</object>
+</objects>

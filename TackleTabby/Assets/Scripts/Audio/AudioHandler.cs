@@ -12,20 +12,17 @@ public class AudioHandler : MonoBehaviour
 
         _backgroundMusic = FMODUnity.RuntimeManager.CreateInstance("event:/Match3Music");
         _backgroundMusic.start();
+
+        _backgroundMusic.setParameterByName("Catalogue Open", 0);
     }
 
-    public void PlayBaitDropSound()
+    public void PlayFmodOneShot(string EventDirectory)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/BaitLand");
+        FMODUnity.RuntimeManager.PlayOneShot(EventDirectory);
     }
 
-    public void PlayBaitPop()
+    public void ChangeMusicParameter(int ParameterValue)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/BaitPop");
-    }
-
-    public void PlayBaitSwap()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Swap");
+        _backgroundMusic.setParameterByName("Catalogue Open", ParameterValue);
     }
 }

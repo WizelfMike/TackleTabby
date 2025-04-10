@@ -26,9 +26,9 @@ public class FishManager : MonoBehaviour
         {
             TrashDefinition trash = CentralTrashStorage.Instance.GetRandomTrash();
             OnTrashCaught.Invoke(trash);
-            
-            Debug.Log($"Trash: {trash?.DisplayName}");
-            FishImage.enabled = false;
+
+            FishImage.sprite = trash.TrashSprite;
+            FishImage.enabled = true;
             return;
         }
         

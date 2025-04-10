@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Burst;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class Encyclopedia : MonoBehaviour
+public class Encyclopedia : MonoBehaviour, IOverlayMenu
 {
     [Header("UI")]
     [SerializeField]
@@ -31,6 +32,10 @@ public class Encyclopedia : MonoBehaviour
     [Header("Settings")]
     [SerializeField]
     private bool KeepInfoOpenOnClose;
+
+    [Header("Events")]
+    public UnityEvent<IOverlayMenu> OnOpened;
+    public UnityEvent<IOverlayMenu> OnClosed;
 
     private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
     private EncyclopediaFishButton _lastOpenedFishButton;
@@ -69,43 +74,6 @@ public class Encyclopedia : MonoBehaviour
         
         TryAddCatchProgress(fish);
         FishButtons[index].Unlock();
-    }
-
-    public void OpenEncyclopedia()
-    {
-        if (MenuCommunicator.Instance.HasMenuOpen)
-            return;
-
-        if (KeepInfoOpenOnClose && _lastOpenedFishButton != null)
-        {
-            _lastOpenedFishButton.OnButtonPressed();
-        }
-        else
-        {
-            if (_lastOpenedFishButton)
-                _lastOpenedFishButton.Exit();
-            
-            OpenFishInfo(false);
-        }
-
-        DescriptionText.enabled = !(KeepInfoOpenOnClose && _lastOpenedFishButton != null);
-
-        OpenCloseAnimator.SetTrigger("OpenTrigger");
-        MenuCommunicator.Instance.OpenMenu();
-    }
-
-    public void CloseEncyclopedia()
-    {
-        OpenCloseAnimator.SetTrigger("CloseTrigger");
-
-        if (!KeepInfoOpenOnClose)
-        {
-            OpenFishInfo(false);
-            foreach (EncyclopediaFishButton button in FishButtons)
-                button.Exit();
-        }
-
-        MenuCommunicator.Instance.CloseMenu();
     }
 
     private void OnFishButtonPressed(EncyclopediaFishButton fishButton)
@@ -151,8 +119,67 @@ public class Encyclopedia : MonoBehaviour
         _fishProgress[fish.FishType] = fish;
         return true;
     }
-    
-    #if UNITY_EDITOR
+
+    public void OpenOverlay()
+    {
+        if (MenuCommunicator.Instance.HasMenuOpen)
+            return;
+
+        OpenCloseAnimator.SetTrigger("OpenTrigger");
+        
+        if (KeepInfoOpenOnClose && _lastOpenedFishButton != null)
+        {
+            _lastOpenedFishButton.OnButtonPressed();
+        }
+        else
+        {
+            if (_lastOpenedFishButton)
+                _lastOpenedFishButton.Exit();
+            
+            OpenFishInfo(false);
+        }
+
+        DescriptionText.enabled = !(KeepInfoOpenOnClose && _lastOpenedFishButton != null);
+        OnOpened.Invoke(this);
+        MenuCommunicator.Instance.OpenedMenu(this);
+    }
+
+    public void CloseOverlay()
+    {
+        OpenCloseAnimator.SetTrigger("CloseTrigger");
+
+        if (!KeepInfoOpenOnClose)
+        {
+            OpenFishInfo(false);
+            foreach (EncyclopediaFishButton button in FishButtons)
+                button.Exit();
+        }
+
+        OnClosed.Invoke(this);
+        MenuCommunicator.Instance.ClosedMenu(this);
+    }
+
+    public void ListenToOpen(UnityAction<IOverlayMenu> callback)
+    {
+        OnOpened.AddListener(callback);
+    }
+
+    public void StopListenToOpen(UnityAction<IOverlayMenu> callback)
+    {
+        OnOpened.RemoveListener(callback);
+    }
+
+    public void ListenToClose(UnityAction<IOverlayMenu> callback)
+    {
+        OnClosed.AddListener(callback);
+    }
+
+    public void StopListenToClose(UnityAction<IOverlayMenu> callback)
+    {
+        OnClosed.RemoveListener(callback);
+    }
+
+#if UNITY_EDITOR
 
     [ContextMenu("Unlocking/Unlock all")]
     private void UnlockAllFish()
