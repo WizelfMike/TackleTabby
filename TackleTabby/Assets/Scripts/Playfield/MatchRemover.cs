@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +10,10 @@ public class MatchRemover : MonoBehaviour
     private MatchMediator MatchMediator;
     [SerializeField]
     private FieldBlockPool BlockPool;
+
+    [SerializeField]
+    [Range(0f, 10f)]
+    private float RemovalDelaySeconds = 1f;
 
 #if UNITY_EDITOR
 
@@ -31,8 +34,21 @@ public class MatchRemover : MonoBehaviour
 
     private void OnMatchFound(ICollection<FieldBlock> fieldBlocks)
     {
+        StartCoroutine(OnMatchFoundCoroutine(fieldBlocks));
+    }
+
+    private IEnumerator OnMatchFoundCoroutine(ICollection<FieldBlock> fieldBlocks)
+    {
         Match fieldMatch = _matchMapper.MapFrom(fieldBlocks);
         Dictionary<int, int> columns = CollectColumns(fieldBlocks);
+
+        foreach (FieldBlock block in fieldBlocks)
+        {
+            block.GetComponent<Collider2D>().enabled = false;
+            block.PlayMatchAnimation();
+        }
+
+        yield return new WaitForSeconds(RemovalDelaySeconds);
             
         foreach (FieldBlock block in fieldBlocks)
             DestroyBlock(block);
@@ -44,6 +60,7 @@ public class MatchRemover : MonoBehaviour
     private void DestroyBlock(FieldBlock block)
     {
         BlockPool.Store(block);
+        block.ResetAnimator();
     }
 
     private Dictionary<int, int> CollectColumns(ICollection<FieldBlock> fieldBlocks)
@@ -57,6 +74,7 @@ public class MatchRemover : MonoBehaviour
 
         return columns;
     }
+    
 
 #if UNITY_EDITOR
 
