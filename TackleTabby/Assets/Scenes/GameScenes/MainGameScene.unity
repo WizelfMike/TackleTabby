@@ -209,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700226038324620587, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_Name
-      value: HungerContainer
+      value: HungerBarContainer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
