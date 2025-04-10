@@ -8,19 +8,23 @@ using Image = UnityEngine.UI.Image;
 public class UpdateHungerBar : MonoBehaviour
 {
     [SerializeField] 
-    private Image[] HungerFishSprites;
+    private Image[] HungerFishImages;
+
+    [SerializeField] 
+    private Sprite SatiatedSprite;
+    [SerializeField] 
+    private Sprite HungerSprite;
     
     public void UpdateBar(int currentSaturation)
     {
-        int hungerFishCount = HungerFishSprites.Length;
+        int hungerFishCount = HungerFishImages.Length;
         for (int i = hungerFishCount; i > 0; i--)
         {
-            HungerFishSprites[i -1].color = Color.black;
+            HungerFishImages[i -1].sprite = HungerSprite;
             if (i <= currentSaturation)
             {
-                HungerFishSprites[i -1].color = Color.white;
+                HungerFishImages[i -1].sprite = SatiatedSprite;
             }
-
         }
     }
 }
