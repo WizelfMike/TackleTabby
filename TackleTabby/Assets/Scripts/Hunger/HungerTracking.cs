@@ -24,7 +24,6 @@ public class HungerTracking : MonoBehaviour
             _satiation = StomachSize;
 
         OnSatiationChanged?.Invoke(_satiation);
-        
     }
 
     public void ApplyHunger(int hunger = 1)

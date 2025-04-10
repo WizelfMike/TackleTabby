@@ -35,7 +35,7 @@ public class FishManager : MonoBehaviour
 
         FishDefinition bestFish = correspondingFishes[0];
         int comboSize = combo.Entries.Aggregate(0, (total, match) => total + match.MatchSize);
-        CaughtFish caughtFish = CalcFishSize(bestFish, comboSize , bestFish.SatiationAmount);
+        CaughtFish caughtFish = CalcFishSize(bestFish, comboSize, bestFish.SatiationAmount);
         OnFishCaught.Invoke(caughtFish);
 
         // Todo! Still very closly coupled with the sprite directly
