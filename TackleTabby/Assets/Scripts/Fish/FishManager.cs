@@ -35,7 +35,7 @@ public class FishManager : MonoBehaviour
 
         FishDefinition bestFish = correspondingFishes[0];
         int comboSize = combo.Entries.Aggregate(0, (total, match) => total + match.MatchSize);
-        CaughtFish caughtFish = CalcFishSize(bestFish, comboSize);
+        CaughtFish caughtFish = CalcFishSize(bestFish, comboSize, bestFish.SatiationAmount);
         OnFishCaught.Invoke(caughtFish);
 
         // Todo! Still very closly coupled with the sprite directly
@@ -45,7 +45,7 @@ public class FishManager : MonoBehaviour
         FishImage.sprite = bestFish.FishSprite;
     }
 
-    private CaughtFish CalcFishSize(FishDefinition fishType, int comboSize)
+    private CaughtFish CalcFishSize(FishDefinition fishType, int comboSize, int satiationAmount)
     {
         float maxPossibleComboSize = (3f * (FieldMatchValidator.Instance.MinRequiredMatchSize - 1) + 1) * ComboTracker.RequiredComboLength;
         float minPossibleComboSize = ComboTracker.RequiredComboLength * FieldMatchValidator.Instance.MinRequiredMatchSize;
@@ -57,7 +57,8 @@ public class FishManager : MonoBehaviour
         return new CaughtFish
         {
             FishType = fishType,
-            CaughtSize = Mathf.Min(directFishSize + noise, fishType.MaxSizeInches)
+            CaughtSize = Mathf.Min(directFishSize + noise, fishType.MaxSizeInches),
+            SatiationAmount = satiationAmount
         };
     }
 }
