@@ -45,6 +45,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     private EncyclopediaFishButton _lastOpenedFishButton;
 
     private DateTime _lastClosedTime = DateTime.MinValue;
+    private DateTime _lastOpenedTime = DateTime.MinValue;
 
     private void Start()
     {
@@ -140,8 +141,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
             BaitDisplayLockedText[i].enabled = !isUnlocked;
         }
     }
-    
-    public void OpenFishInfo(bool enabledState = true)
+
+    private void OpenFishInfo(bool enabledState = true)
     {
         FishNameDisplay.enabled = enabledState;
         FishDisplayImage.enabled = enabledState;
@@ -169,8 +170,11 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
     public void OpenOverlay()
     {
-        if ((DateTime.Now - _lastClosedTime).Seconds < ReOpenTimeoutSeconds)
+        DateTime now = DateTime.Now;
+        if ((now - _lastClosedTime).Seconds < ReOpenTimeoutSeconds ||
+            (now - _lastOpenedTime).Seconds < ReOpenTimeoutSeconds)
             return;
+        _lastOpenedTime = DateTime.Now;
         
         if (MenuCommunicator.Instance.HasMenuOpen)
             return;
@@ -196,6 +200,12 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
     public void CloseOverlay()
     {
+        DateTime now = DateTime.Now;
+        if ((now - _lastClosedTime).Seconds < ReOpenTimeoutSeconds ||
+            (now - _lastOpenedTime).Seconds < ReOpenTimeoutSeconds)
+            return;
+        _lastClosedTime = DateTime.Now;
+        
         OpenCloseAnimator.SetTrigger("CloseTrigger");
 
         if (!KeepInfoOpenOnClose)
@@ -205,7 +215,6 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
                 button.Exit();
         }
 
-        _lastClosedTime = DateTime.Now;
         OnClosed.Invoke(this);
         MenuCommunicator.Instance.ClosedMenu(this);
     }
