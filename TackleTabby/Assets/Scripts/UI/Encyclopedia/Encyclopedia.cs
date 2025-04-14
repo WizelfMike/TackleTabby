@@ -34,7 +34,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     [SerializeField]
     private bool KeepInfoOpenOnClose;
     [SerializeField]
-    private float ReOpenTimeoutSeconds = 1f;
+    private float ReopenTimeoutSeconds = 1f;
 
     [Header("Events")]
     public UnityEvent<IOverlayMenu> OnOpened;
@@ -171,8 +171,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     public void OpenOverlay()
     {
         DateTime now = DateTime.Now;
-        if ((now - _lastClosedTime).Seconds < ReOpenTimeoutSeconds ||
-            (now - _lastOpenedTime).Seconds < ReOpenTimeoutSeconds)
+        if ((now - _lastClosedTime).Seconds < ReopenTimeoutSeconds ||
+            (now - _lastOpenedTime).Seconds < ReopenTimeoutSeconds)
             return;
         _lastOpenedTime = DateTime.Now;
         
@@ -201,8 +201,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     public void CloseOverlay()
     {
         DateTime now = DateTime.Now;
-        if ((now - _lastClosedTime).Seconds < ReOpenTimeoutSeconds ||
-            (now - _lastOpenedTime).Seconds < ReOpenTimeoutSeconds)
+        if ((now - _lastClosedTime).Seconds < ReopenTimeoutSeconds ||
+            (now - _lastOpenedTime).Seconds < ReopenTimeoutSeconds)
             return;
         _lastClosedTime = DateTime.Now;
         
