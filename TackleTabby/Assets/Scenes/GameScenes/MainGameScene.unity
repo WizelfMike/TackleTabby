@@ -1537,47 +1537,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46bff63e39be21d448491357e4cca3a6, type: 3}
---- !u!1 &345517319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6075417818069677615, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
-  m_PrefabInstance: {fileID: 1636352311795257136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &345517320 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3600936971655777176, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
   m_PrefabInstance: {fileID: 1636352311795257136}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &345517325
+--- !u!114 &345517325 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+  m_PrefabInstance: {fileID: 1636352311795257136}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 345517319}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfc8a0541af12fa4cb19a9688ba96791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StomachSize: 10
-  OnStarving:
-    m_PersistentCalls:
-      m_Calls: []
-  OnSatiationChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1676953255}
-        m_TargetAssemblyTypeName: UpdateHungerBar, Assembly-CSharp
-        m_MethodName: UpdateBar
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &360814099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8044,13 +8019,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1676953255}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateBar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6075417818069677615, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 345517325}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
 --- !u!1001 &1923481923890966111
 PrefabInstance:
