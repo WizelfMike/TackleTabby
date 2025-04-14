@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 561019972046728731}
   - component: {fileID: 7758300779307816802}
   - component: {fileID: 5622640709915112149}
+  - component: {fileID: 6189375354355820230}
   m_Layer: 5
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -111,3 +112,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2988649e0649c89413154ced923efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6189375354355820230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075417818069677615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc8a0541af12fa4cb19a9688ba96791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StomachSize: 10
+  OnStarving:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSatiationChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UpdateHungerBar, Assembly-CSharp
+        m_MethodName: UpdateBar
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
