@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class EncyclopediaFishButton : MonoBehaviour
 {
     [SerializeField]
+    private bool FallThroughUnlockedCheck;
+    [SerializeField]
     private Image FishThumbnail;
     [SerializeField]
     private Image ButtonImage;
@@ -50,7 +52,7 @@ public class EncyclopediaFishButton : MonoBehaviour
 
     public void OnButtonPressed()
     {
-        if (!_isUnlocked)
+        if (!_isUnlocked && !FallThroughUnlockedCheck)
             return;
 
         OnPressed.Invoke(this);
