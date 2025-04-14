@@ -1008,6 +1008,7 @@ MonoBehaviour:
   - {fileID: 590813402357529053}
   OpenCloseAnimator: {fileID: 0}
   KeepInfoOpenOnClose: 1
+  ReOpenTimeoutSeconds: 0.5
   OnOpened:
     m_PersistentCalls:
       m_Calls: []

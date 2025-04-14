@@ -8174,6 +8174,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: ReOpenTimeout
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
       propertyPath: OpenCloseAnimator
       value: 
       objectReference: {fileID: 891058900}

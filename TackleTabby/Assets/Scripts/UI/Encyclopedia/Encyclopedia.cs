@@ -32,6 +32,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     [Header("Settings")]
     [SerializeField]
     private bool KeepInfoOpenOnClose;
+    [SerializeField]
+    private float ReOpenTimeoutSeconds = 1f;
 
     [Header("Events")]
     public UnityEvent<IOverlayMenu> OnOpened;
@@ -39,6 +41,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
     private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
     private EncyclopediaFishButton _lastOpenedFishButton;
+
+    private DateTime _lastClosedTime = DateTime.MinValue;
 
     private void Start()
     {
@@ -122,6 +126,9 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
     public void OpenOverlay()
     {
+        if ((DateTime.Now - _lastClosedTime).Seconds < ReOpenTimeoutSeconds)
+            return;
+        
         if (MenuCommunicator.Instance.HasMenuOpen)
             return;
 
@@ -155,6 +162,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
                 button.Exit();
         }
 
+        _lastClosedTime = DateTime.Now;
         OnClosed.Invoke(this);
         MenuCommunicator.Instance.ClosedMenu(this);
     }
