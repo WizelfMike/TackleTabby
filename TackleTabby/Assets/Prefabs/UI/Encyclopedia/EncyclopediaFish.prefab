@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e35d4fb5f37c6c42998bf7cc90f5a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FallThroughUnlockedCheck: 1
   FishThumbnail: {fileID: 6224659629384111737}
   ButtonImage: {fileID: 6291627924681189876}
   ButtonSpriteActive: {fileID: 21300000, guid: 5e0d2b2e62676e94daaab7f667c9e207, type: 3}

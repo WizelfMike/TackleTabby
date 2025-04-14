@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using Unity.Burst;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Encyclopedia : MonoBehaviour, IOverlayMenu
@@ -23,6 +22,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     [SerializeField]
     private Image[] BaitDisplayImages;
     [SerializeField]
+    private TextMeshProUGUI[] BaitDisplayLockedText;
+    [SerializeField]
     private EncyclopediaFishButton[] FishButtons;
     
     [Header("Animation")]
@@ -40,6 +41,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     public UnityEvent<IOverlayMenu> OnClosed;
 
     private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
+    private BaitDefinition[] _baitProgress = Array.Empty<BaitDefinition>();
     private EncyclopediaFishButton _lastOpenedFishButton;
 
     private DateTime _lastClosedTime = DateTime.MinValue;
@@ -78,6 +80,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         
         TryAddCatchProgress(fish);
         FishButtons[index].Unlock();
+        UpdateBaitProgress();
     }
 
     private void OnFishButtonPressed(EncyclopediaFishButton fishButton)
@@ -86,20 +89,58 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         foreach (EncyclopediaFishButton button in FishButtons)
             button.Exit();
 
-        bool hasCaught = _fishProgress.TryGetValue(fishButton.FishType, out CaughtFish caught);
-
         DescriptionText.enabled = false;
-        OpenFishInfo();
         
-        FishNameDisplay.SetText(fishButton.FishType.DisplayName);
-        FishDisplayImage.sprite = fishButton.FishType.FishSprite;
-        if (hasCaught)
-            FishSizeDisplay.SetText($"{caught.CaughtSize:F1} inch");
-        
-        for (int i = 0; i < BaitDisplayImages.Length; i++)
-            BaitDisplayImages[i].sprite = fishButton.FishType.RequiredBaitCombination[i].BaitSprite;
+        if (_fishProgress.TryGetValue(fishButton.FishType, out CaughtFish caught))
+        {
+            DisplayAlreadyCaughtFish(caught);
+        }
+        else
+        {
+            DisplayLockedFish(fishButton.FishType);
+        }
     }
 
+    private void DisplayAlreadyCaughtFish(CaughtFish fish)
+    {
+        OpenFishInfo();
+        
+        FishNameDisplay.SetText(fish.FishType.DisplayName);
+        FishDisplayImage.color = Color.white;
+        FishDisplayImage.sprite = fish.FishType.FishSprite;
+        FishSizeDisplay.SetText($"{fish.CaughtSize:F1} inch");
+
+        for (int i = 0; i < BaitDisplayImages.Length; i++)
+        {
+            BaitDisplayLockedText[i].enabled = false;
+            
+            BaitDisplayImages[i].color = Color.white;
+            BaitDisplayImages[i].sprite = fish.FishType.RequiredBaitCombination[i].BaitSprite;
+        }
+    }
+
+    private void DisplayLockedFish(FishDefinition fishType)
+    {
+        OpenFishInfo();
+        
+        FishDisplayImage.color = Color.black;
+        FishSizeDisplay.enabled = false;
+        
+        FishNameDisplay.SetText(fishType.DisplayName.Select(x => x == ' ' ? x : '?').ToArray());
+        FishDisplayImage.sprite = fishType.FishSprite;
+
+        for (int i = 0; i < BaitDisplayImages.Length; i++)
+        {
+            BaitDefinition baitType = fishType.RequiredBaitCombination[i];
+            bool isUnlocked = _baitProgress.Contains(baitType);
+            
+            BaitDisplayImages[i].color = Color.black;
+            BaitDisplayImages[i].sprite = fishType.RequiredBaitCombination[i].BaitSprite;
+            BaitDisplayImages[i].enabled = isUnlocked;
+            BaitDisplayLockedText[i].enabled = !isUnlocked;
+        }
+    }
+    
     public void OpenFishInfo(bool enabledState = true)
     {
         FishNameDisplay.enabled = enabledState;
@@ -107,6 +148,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         FishSizeDisplay.enabled = enabledState;
         foreach (Image baitImage in BaitDisplayImages)
             baitImage.enabled = enabledState;
+        foreach (TextMeshProUGUI baitLockedText in BaitDisplayLockedText)
+            baitLockedText.enabled = enabledState;
     }
 
     private bool TryAddCatchProgress(CaughtFish fish)
@@ -187,6 +230,17 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         OnClosed.RemoveListener(callback);
     }
 
+    private void UpdateBaitProgress()
+    {
+        List<BaitDefinition> intermediate = new();
+        ReadOnlySpan<FishDefinition> keys = _fishProgress.Keys.ToArray();
+        int keyCount = _fishProgress.Keys.Count;
+        for (int i = 0; i < keyCount; i++)
+            intermediate.AddRange(keys[i].RequiredBaitCombination);
+
+        _baitProgress = intermediate.Distinct().ToArray();
+    }
+    
 #if UNITY_EDITOR
 
     [ContextMenu("Unlocking/Unlock all")]
