@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -249,7 +250,19 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
         _baitProgress = intermediate.Distinct().ToArray();
     }
-    
+
+    public IReadOnlyDictionary<FishDefinition, CaughtFish> RetrieveFishProgress()
+    {
+        return new ReadOnlyDictionary<FishDefinition, CaughtFish>(_fishProgress);
+    }
+
+    public bool RestoreCatalogue(IReadOnlyDictionary<FishDefinition, CaughtFish> data)
+    {
+        _fishProgress = new Dictionary<FishDefinition, CaughtFish>(data);
+        UpdateBaitProgress();
+        return true;
+    }
+
 #if UNITY_EDITOR
 
     [ContextMenu("Unlocking/Unlock all")]

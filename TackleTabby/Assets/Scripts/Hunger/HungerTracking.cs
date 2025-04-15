@@ -41,4 +41,16 @@ public class HungerTracking : MonoBehaviour
     {
         OnStarving?.Invoke();
     }
+
+    public int SaveSatiation()
+    {
+        return _satiation;
+    }
+
+    public void LoadSatiation(int satiation)
+    {
+        _satiation = satiation;
+
+        OnSatiationChanged.Invoke(_satiation);
+    }
 }
