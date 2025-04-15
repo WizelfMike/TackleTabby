@@ -1,6 +1,9 @@
 using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System.Collections.ObjectModel;
+using Newtonsoft.Json;
 
 public class SaveManager : MonoBehaviour
 {
@@ -32,12 +35,15 @@ public class SaveManager : MonoBehaviour
     {
         int satiationAmount = HungerTracker.SaveSatiation();
 
+        IReadOnlyDictionary<FishDefinition, CaughtFish> toSaveDictionary = ActiveEncyclopedia.RetrieveFishProgress();
+
         SaveInstance saveInstance = new SaveInstance()
         {
-            SavedSatiationAmount = satiationAmount
+            SavedSatiationAmount = satiationAmount,
         };
 
         string saveData = JsonUtility.ToJson(saveInstance);
+
 
         File.WriteAllText(SaveFileName, saveData);
     }
@@ -51,8 +57,6 @@ public class SaveManager : MonoBehaviour
             return;
 
         SaveInstance saveInstance = JsonUtility.FromJson<SaveInstance>(testText);
-
-        ActiveEncyclopedia.RetrieveFishProgress();
 
         HungerTracker.LoadSatiation(saveInstance.SavedSatiationAmount);
     }

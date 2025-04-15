@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveEncyclopedia: {fileID: 849880804}
+  HungerTracker: {fileID: 345517325}
 --- !u!4 &94861935
 Transform:
   m_ObjectHideFlags: 0
@@ -8065,12 +8066,40 @@ PrefabInstance:
       value: MainCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
       propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1676953255}
     - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 94861934}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
       propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UpdateBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SaveGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SaveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8294,6 +8323,22 @@ PrefabInstance:
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1769830538}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicParameter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFmodOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicParameter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFmodOneShot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
