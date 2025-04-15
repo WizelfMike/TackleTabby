@@ -171,8 +171,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     public void OpenOverlay()
     {
         DateTime now = DateTime.Now;
-        if ((now - _lastClosedTime).Seconds < ReopenTimeoutSeconds ||
-            (now - _lastOpenedTime).Seconds < ReopenTimeoutSeconds)
+        if ((now - _lastClosedTime).TotalSeconds < ReopenTimeoutSeconds ||
+            (now - _lastOpenedTime).TotalSeconds < ReopenTimeoutSeconds)
             return;
         _lastOpenedTime = DateTime.Now;
         
@@ -201,8 +201,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     public void CloseOverlay()
     {
         DateTime now = DateTime.Now;
-        if ((now - _lastClosedTime).Seconds < ReopenTimeoutSeconds ||
-            (now - _lastOpenedTime).Seconds < ReopenTimeoutSeconds)
+        if ((now - _lastClosedTime).TotalSeconds < ReopenTimeoutSeconds ||
+            (now - _lastOpenedTime).TotalSeconds < ReopenTimeoutSeconds)
             return;
         _lastClosedTime = DateTime.Now;
         
