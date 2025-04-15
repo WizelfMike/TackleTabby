@@ -82,6 +82,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
         OpenCloseAnimator.SetTrigger("OpenTrigger");
         _isOpen = true;
         NextInQueue();
+        OnOpened.Invoke(this);
         MenuCommunicator.Instance.OpenedMenu(this);
     }
 
@@ -89,6 +90,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     {
         OpenCloseAnimator.SetTrigger("CloseTrigger");
         _isOpen = false;
+        OnClosed.Invoke(this);
         MenuCommunicator.Instance.ClosedMenu(this);
     }
 

@@ -747,6 +747,8 @@ GameObject:
   - component: {fileID: 110480104}
   - component: {fileID: 110480103}
   - component: {fileID: 110480102}
+  - component: {fileID: 110480105}
+  - component: {fileID: 110480106}
   m_Layer: 5
   m_Name: EncyclopediaOpeningButton
   m_TagString: Untagged
@@ -771,7 +773,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 140, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &110480102
 MonoBehaviour:
@@ -867,6 +869,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110480100}
   m_CullTransparentMesh: 1
+--- !u!95 &110480105
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110480100}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 947f3eb8d7d3e7b43a0f6aeb233555ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &110480106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110480100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8708bfe35bb14bbeb53450e4339c71d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Animator: {fileID: 110480105}
 --- !u!1 &128028677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6907,7 +6944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 90, y: -90}
+  m_AnchoredPosition: {x: 100, y: -100}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1836026605
@@ -8230,9 +8267,21 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OpenBtnAnimator
+      value: 
+      objectReference: {fileID: 110480105}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
       propertyPath: OpenCloseAnimator
       value: 
       objectReference: {fileID: 891058900}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8249,6 +8298,50 @@ PrefabInstance:
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1769830538}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 110480106}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicParameter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFmodOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeMusicParameter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFmodOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: OnEncyclopediaOpened
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: EncyclopediaOpenBtn, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: event:/Catalogue Sounds/CatalogueOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6339575637694589124, guid: def7f74b249fbcd4ca6cdfd5e75685c0, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8404,7 +8497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnFishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8424,7 +8517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnFishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8445,7 +8538,7 @@ PrefabInstance:
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 110480106}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnFishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -8484,7 +8577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ApplyHunger
+      value: OnCaughtTrash
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnFishCaught.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -8504,10 +8597,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: HungerTracking, Assembly-CSharp
+      value: EncyclopediaOpenBtn, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
       propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
+      propertyPath: OnTrashCaught.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2213592836433779774, guid: ff6f539772c4a564d82c29606144c950, type: 3}
@@ -8684,6 +8781,34 @@ PrefabInstance:
       propertyPath: FishManager
       value: 
       objectReference: {fileID: 1136517567}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 110480106}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnFishCaughtPopupClosed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EncyclopediaOpenBtn, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8551632943396275512, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
