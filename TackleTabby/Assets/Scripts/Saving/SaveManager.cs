@@ -28,6 +28,9 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Saving/Save")]
     public void SaveGame()
     {
+        if (!enabled)
+            return;
+
         int satiationAmount = HungerTracker.SaveSatiation();
 
         ICollection<CaughtFish> toSaveDictionary = ActiveEncyclopedia.RetrieveFishProgress().Select(
@@ -47,6 +50,9 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Loading/Load")]
     public void LoadGame()
     {
+        if (!enabled)
+            return;
+
         if (!File.Exists(SaveFileName))
             return;
 
@@ -56,7 +62,7 @@ public class SaveManager : MonoBehaviour
             return;
 
         SaveInstance saveInstance = JsonConvert.DeserializeObject<SaveInstance>(testText);
-        // Verify all the fishes
+
         ICollection<CaughtFish> encyclopediaProgress = saveInstance.SavedFishList
             .Where(fish => fish.FishType.VerifySelf()).AsReadOnlyCollection();
 
@@ -67,20 +73,9 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Reseting/Reset")]
     private void ResetProgress()
     {
-        SaveInstance saveInstance = new SaveInstance()
-        {
-            SavedSatiationAmount = 10
-        };
+        if (!enabled)
+            return;
 
-        string saveData = JsonUtility.ToJson(saveInstance);
-
-        File.WriteAllText(SaveFileName, saveData);
-
-        string testText = File.ReadAllText(SaveFileName);
-
-        SaveInstance LoadInstance = JsonUtility.FromJson<SaveInstance>(testText);
-
-        HungerTracker.LoadSatiation(LoadInstance.SavedSatiationAmount);
-
+        File.Delete(SaveFileName);
     }
 }
