@@ -41,13 +41,15 @@ public class SaveManager : MonoBehaviour
 
         string saveData = JsonConvert.SerializeObject(saveInstance);
 
-
         File.WriteAllText(SaveFileName, saveData);
     }
 
     [ContextMenu("Loading/Load")]
     public void LoadGame()
     {
+        if (!File.Exists(SaveFileName))
+            return;
+
         string testText = File.ReadAllText(SaveFileName);
 
         if (testText == string.Empty)
