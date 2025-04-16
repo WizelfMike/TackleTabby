@@ -39,7 +39,7 @@ public class MainCharacter : MonoBehaviour
             return;
 
         _hasFirstBait = false;
-        _catchDisplaySprite = fish.FishType.FishSprite;
+        _catchDisplaySprite = fish.FishType.Expand().FishSprite;
         _animator.SetTrigger(_onCaughtTrigger);
     }
 

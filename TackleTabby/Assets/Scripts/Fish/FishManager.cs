@@ -56,9 +56,8 @@ public class FishManager : MonoBehaviour
 
         return new CaughtFish
         {
-            FishType = fishType,
+            FishType = new FishTypeKey(fishType),
             CaughtSize = Mathf.Min(directFishSize + noise, fishType.MaxSizeInches),
-            SatiationAmount = satiationAmount
         };
     }
 }

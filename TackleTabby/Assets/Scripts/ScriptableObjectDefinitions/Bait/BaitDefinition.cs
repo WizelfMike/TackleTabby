@@ -27,6 +27,13 @@ public class BaitDefinition : ScriptableObject, IEquatable<BaitDefinition>, ICom
         return HashCode.Combine(base.GetHashCode(), DisplayName);
     }
 
+    public Hash128 GetMagicKey()
+    {
+        Hash128 hash = new Hash128();
+        hash.Append(DisplayName);
+        return hash;
+    }
+
     public int CompareTo(BaitDefinition other)
     {
         if (ReferenceEquals(this, other)) return 0;

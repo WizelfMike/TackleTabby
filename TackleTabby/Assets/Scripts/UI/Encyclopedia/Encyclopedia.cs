@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Encyclopedia : MonoBehaviour, IOverlayMenu
@@ -69,7 +71,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         int index = -1;
         for (int i = 0; i < length; i++)
         {
-            if (FishButtons[i].FishType != fish.FishType)
+            if (FishButtons[i].FishType != fish.FishType.Expand())
                 continue;
 
             index = i;
@@ -105,10 +107,12 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     private void DisplayAlreadyCaughtFish(CaughtFish fish)
     {
         OpenFishInfo();
+
+        FishDefinition fishType = fish.FishType.Expand();
         
-        FishNameDisplay.SetText(fish.FishType.DisplayName);
+        FishNameDisplay.SetText(fishType.DisplayName);
         FishDisplayImage.color = Color.white;
-        FishDisplayImage.sprite = fish.FishType.FishSprite;
+        FishDisplayImage.sprite = fishType.FishSprite;
         FishSizeDisplay.SetText($"{fish.CaughtSize:F1} inch");
 
         for (int i = 0; i < BaitDisplayImages.Length; i++)
@@ -116,7 +120,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
             BaitDisplayLockedText[i].enabled = false;
             
             BaitDisplayImages[i].color = Color.white;
-            BaitDisplayImages[i].sprite = fish.FishType.RequiredBaitCombination[i].BaitSprite;
+            BaitDisplayImages[i].sprite = fishType.RequiredBaitCombination[i].BaitSprite;
         }
     }
 
@@ -155,16 +159,17 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
     private bool TryAddCatchProgress(CaughtFish fish)
     {
-        if (!_fishProgress.TryGetValue(fish.FishType, out CaughtFish alreadyCaught))
+        FishDefinition fishType = fish.FishType.Expand();
+        if (!_fishProgress.TryGetValue(fishType, out CaughtFish alreadyCaught))
         {
-            _fishProgress.Add(fish.FishType, fish);
+            _fishProgress.Add(fishType, fish);
             return true;
         }
 
         if (alreadyCaught.CaughtSize > fish.CaughtSize)
             return false;
 
-        _fishProgress[fish.FishType] = fish;
+        _fishProgress[fishType] = fish;
         return true;
     }
 
@@ -249,7 +254,19 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
         _baitProgress = intermediate.Distinct().ToArray();
     }
-    
+
+    public IReadOnlyDictionary<FishDefinition, CaughtFish> RetrieveFishProgress()
+    {
+        return new ReadOnlyDictionary<FishDefinition, CaughtFish>(_fishProgress);
+    }
+
+    public bool RestoreCatalogue(ICollection<CaughtFish> data)
+    {
+        foreach (CaughtFish fish in data)
+            OnFishCaught(fish);
+        return true;
+    }
+
 #if UNITY_EDITOR
 
     [ContextMenu("Unlocking/Unlock all")]
