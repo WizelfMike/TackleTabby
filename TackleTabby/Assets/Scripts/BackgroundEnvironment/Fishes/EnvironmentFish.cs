@@ -3,16 +3,14 @@ using UnityEngine;
 public class EnvironmentFish : MonoBehaviour
 {
     [SerializeField]
-    private float SteeringStrength = 0.4f;
+    private float SteeringStrength = 0.85f;
+    [SerializeField]
+    private float Velocity = 0.6f;
     
     private RectTransform _rectTransform;
     private FishContainer _parentContainer;
     private Vector3 _currentDirection = Vector3.right;
-    private Vector3 _targetDirection = Vector3.down;
-
-    private DeltaTimer _turnTimeout = new DeltaTimer(1f);
-    
-    private float velocity = 1f;
+    private Vector3 _targetDirection = Vector3.right;
 
     public RectTransform RectTransform
     {
@@ -29,33 +27,30 @@ public class EnvironmentFish : MonoBehaviour
     private void Start()
     {
         _parentContainer = transform.parent.GetComponent<FishContainer>();
+        SetDirection(new Vector3(1f, 1f, 0f));
     }
 
     private void Update()
     {
-        if (_turnTimeout.IsRunning)
-            _turnTimeout.Update(Time.deltaTime);
-        
         HandleWalls();
         _currentDirection = Vector3.MoveTowards(_currentDirection, _targetDirection, SteeringStrength * Time.deltaTime);
-        RectTransform.position += _currentDirection * (velocity * Time.deltaTime);
+        RectTransform.position += _currentDirection * (Velocity * Time.deltaTime);
     }
 
     private Directions CheckWalls()
     {
-        // TODO! Calculate position correct
-        if (RectTransform.position.x - RectTransform.rect.width / 2  - _parentContainer.BoundaryBuffer < float.Epsilon)
+        if (RectTransform.anchoredPosition.x - RectTransform.rect.width / 2 < _parentContainer.BoundaryBuffer)
             return Directions.Left;
 
-        if (RectTransform.position.x + RectTransform.rect.width / 2 + _parentContainer.BoundaryBuffer >
-            _parentContainer.RectTransform.rect.width)
+        if (RectTransform.anchoredPosition.x + RectTransform.rect.width / 2 >
+            _parentContainer.RectTransform.rect.width - _parentContainer.BoundaryBuffer)
             return Directions.Right;
 
-        if (RectTransform.position.y - RectTransform.rect.height / 2 - _parentContainer.BoundaryBuffer < float.Epsilon)
+        if (RectTransform.anchoredPosition.y - RectTransform.rect.height / 2 < _parentContainer.BoundaryBuffer)
             return Directions.Down;
 
-        if (RectTransform.position.y + RectTransform.rect.height / 2 + _parentContainer.BoundaryBuffer >
-            _parentContainer.RectTransform.rect.height)
+        if (RectTransform.anchoredPosition.y + RectTransform.rect.height / 2 >
+            _parentContainer.RectTransform.rect.height - _parentContainer.BoundaryBuffer)
             return Directions.Up;
 
         return Directions.None;
@@ -63,15 +58,33 @@ public class EnvironmentFish : MonoBehaviour
 
     private void HandleWalls()
     {
-        if (_turnTimeout.IsRunning)
-            return;
-        
         Directions hittingWall = CheckWalls();
-        if (!hittingWall.HasFlag(Directions.None))
+        switch (hittingWall)
         {
-            _turnTimeout.Reset();
-            _targetDirection = -_targetDirection;
+            case Directions.Left:
+                if (Mathf.Sign(_targetDirection.x) < 0)
+                    _targetDirection *= new Vector2(-1f, 1f);
+                break;
+            case Directions.Right:
+                if (Mathf.Sign(_targetDirection.x) > 0)
+                    _targetDirection *= new Vector2(-1f, 1f);
+                break;
+            case Directions.Up:
+                if (Mathf.Sign(_targetDirection.y) > 0)
+                    _targetDirection *= new Vector2(1f, -1f);
+                break;
+            case Directions.Down:
+                if (Mathf.Sign(_targetDirection.y) < 0)
+                    _targetDirection *= new Vector2(1f, -1f);
+                break;
         }
     }
-    
+
+    public void SetDirection(Vector3 newDirection)
+    {
+        newDirection *= Vector2.one;
+        newDirection.Normalize();
+        _currentDirection = newDirection;
+        _targetDirection = newDirection;
+    }
 }
