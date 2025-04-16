@@ -28,7 +28,7 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Saving/Save")]
     public void SaveGame()
     {
-        if (!enabled)
+        if (!enabled || !gameObject.activeSelf)
             return;
 
         int satiationAmount = HungerTracker.SaveSatiation();
@@ -50,7 +50,7 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Loading/Load")]
     public void LoadGame()
     {
-        if (!enabled)
+        if (!enabled || !gameObject.activeSelf)
             return;
 
         if (!File.Exists(SaveFileName))
@@ -73,7 +73,7 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Reseting/Reset")]
     private void ResetProgress()
     {
-        if (!enabled)
+        if (!enabled || !gameObject.activeSelf)
             return;
 
         File.Delete(SaveFileName);
