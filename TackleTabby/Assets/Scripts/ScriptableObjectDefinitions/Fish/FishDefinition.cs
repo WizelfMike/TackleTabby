@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "FishDefinition", menuName = "Scriptable Objects/FishDefinition")]
@@ -34,5 +35,21 @@ public class FishDefinition : ScriptableObject
         
         if (RequiredBaitCombination == null || RequiredBaitCombination.Length == 0)
             Debug.LogError("RequiredBaitCombo may not be empty");
+    }
+
+    public Hash128 MagicKey()
+    {
+        Hash128 hash = new Hash128();
+        
+        hash.Append(DisplayName);
+        hash.Append(MinSizeInches);
+        hash.Append(MaxSizeInches);
+        hash.Append(MaxSizeDeviationInch);
+        hash.Append(SatiationAmount);
+        
+        foreach (BaitDefinition bait in RequiredBaitCombination)
+            hash.Append(bait.GetMagicKey().ToString());
+        
+        return hash;
     }
 }

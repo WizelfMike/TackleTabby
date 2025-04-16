@@ -124,8 +124,9 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
 
     private void DisplayFish(CaughtFish fish)
     {
-        CaughtDisplay.sprite = fish.FishType.FishSprite;
-        TextMessage.SetText($"You caugth a(n) {fish.FishType.DisplayName} of {fish.CaughtSize:F1} inch");
+        FishDefinition fishType = fish.FishType.Expand();
+        CaughtDisplay.sprite = fishType.FishSprite;
+        TextMessage.SetText($"You caugth a(n) {fishType.DisplayName} of {fish.CaughtSize:F1} inch");
     }
 
     private void DisplayTrash(TrashDefinition trash)

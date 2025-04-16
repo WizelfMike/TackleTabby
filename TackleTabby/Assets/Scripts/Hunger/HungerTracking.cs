@@ -19,7 +19,7 @@ public class HungerTracking : MonoBehaviour
 
     public void Feed(CaughtFish fish)
     {
-        _satiation += fish.SatiationAmount;
+        _satiation += fish.FishType.Expand().SatiationAmount;
         if (_satiation >= StomachSize)
             _satiation = StomachSize;
 
