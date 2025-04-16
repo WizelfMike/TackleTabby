@@ -8,9 +8,9 @@ public struct FishTypeKey
     [JsonProperty("FishName")]
     public readonly string FishName;
     [JsonProperty("MagicKey")]
-    public readonly Hash128 MagicKey;
+    public readonly string MagicKey;
     [JsonProperty("Verify")]
-    public readonly Hash128 Verify;
+    public readonly string Verify;
 
     [JsonIgnore]
     private FishDefinition _expanded;
@@ -18,27 +18,36 @@ public struct FishTypeKey
     public FishTypeKey(FishDefinition fish)
     {
         FishName = fish.DisplayName;
-        MagicKey = fish.MagicKey();
+        MagicKey = fish.MagicKey().ToString();
         
         Hash128 hash = new Hash128();
         hash.Append(FishName);
-        hash.Append(MagicKey.ToString());
-        Verify = hash;
+        hash.Append(MagicKey);
+        Verify = BuildVerify(FishName, MagicKey).ToString();
 
         _expanded = null;
+    }
+
+    private static Hash128 BuildVerify(string fishName, string magicKey)
+    {
+        Hash128 hash = new Hash128();
+        hash.Append(fishName);
+        hash.Append(magicKey);
+        return hash;
     }
 
     public FishDefinition Expand()
     {
         if (_expanded != null)
             return _expanded;
-        
+
+        Hash128 key = Hash128.Parse(MagicKey);
         ReadOnlySpan<FishDefinition> fishes = CentralFishStorage.Instance.GetAllFish();
         int fishCount = fishes.Length;
 
         for (int i = 0; i < fishCount; i++)
         {
-            if (fishes[i].MagicKey() != MagicKey)
+            if (fishes[i].MagicKey() != key)
                 continue;
 
             _expanded = fishes[i];
@@ -53,7 +62,7 @@ public struct FishTypeKey
         FishDefinition type = Expand();
         if (type == null)
             return false;
-        
-        return new FishTypeKey(type).Verify == Verify;
+
+        return BuildVerify(FishName, MagicKey).ToString() == Verify;
     }
 }

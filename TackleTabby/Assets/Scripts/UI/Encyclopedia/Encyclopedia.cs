@@ -5,6 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Encyclopedia : MonoBehaviour, IOverlayMenu
@@ -259,10 +260,10 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         return new ReadOnlyDictionary<FishDefinition, CaughtFish>(_fishProgress);
     }
 
-    public bool RestoreCatalogue(IReadOnlyDictionary<FishDefinition, CaughtFish> data)
+    public bool RestoreCatalogue(ICollection<CaughtFish> data)
     {
-        _fishProgress = new Dictionary<FishDefinition, CaughtFish>(data);
-        UpdateBaitProgress();
+        foreach (CaughtFish fish in data)
+            OnFishCaught(fish);
         return true;
     }
 

@@ -6358,6 +6358,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainMenuContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 94861934}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SaveManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8297009612855329483, guid: 502be8c3203b55344b586940fca57a66, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

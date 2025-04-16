@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SaveInstance
 {
-    public KeyValuePair<FishDefinition, CaughtFish>[] SavedFishDictionary;
+    public CaughtFish[] SavedFishList;
 
     public int SavedSatiationAmount;
 }

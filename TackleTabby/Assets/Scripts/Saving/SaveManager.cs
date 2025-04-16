@@ -2,8 +2,8 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System.Collections.ObjectModel;
 using Newtonsoft.Json;
+using Unity.VisualScripting;
 
 public class SaveManager : MonoBehaviour
 {
@@ -25,40 +25,41 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        LoadGame();
-    }
-
     [ContextMenu("Saving/Save")]
     public void SaveGame()
     {
         int satiationAmount = HungerTracker.SaveSatiation();
 
-        IReadOnlyDictionary<FishDefinition, CaughtFish> toSaveDictionary = ActiveEncyclopedia.RetrieveFishProgress();
+        ICollection<CaughtFish> toSaveDictionary = ActiveEncyclopedia.RetrieveFishProgress().Select(
+            valuePair => valuePair.Value).AsReadOnlyCollection();
 
         SaveInstance saveInstance = new SaveInstance()
         {
             SavedSatiationAmount = satiationAmount,
+            SavedFishList = toSaveDictionary.ToArray()
         };
 
-        string saveData = JsonUtility.ToJson(saveInstance);
+        string saveData = JsonConvert.SerializeObject(saveInstance);
 
 
         File.WriteAllText(SaveFileName, saveData);
     }
 
     [ContextMenu("Loading/Load")]
-    private void LoadGame()
+    public void LoadGame()
     {
         string testText = File.ReadAllText(SaveFileName);
 
         if (testText == string.Empty)
             return;
 
-        SaveInstance saveInstance = JsonUtility.FromJson<SaveInstance>(testText);
+        SaveInstance saveInstance = JsonConvert.DeserializeObject<SaveInstance>(testText);
+        // Verify all the fishes
+        ICollection<CaughtFish> encyclopediaProgress = saveInstance.SavedFishList
+            .Where(fish => fish.FishType.VerifySelf()).AsReadOnlyCollection();
 
         HungerTracker.LoadSatiation(saveInstance.SavedSatiationAmount);
+        ActiveEncyclopedia.RestoreCatalogue(encyclopediaProgress);
     }
 
     [ContextMenu("Reseting/Reset")]
