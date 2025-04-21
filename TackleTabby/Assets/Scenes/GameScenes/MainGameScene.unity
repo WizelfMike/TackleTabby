@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchorMax.y
@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchorMin.y
@@ -153,11 +153,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 315
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -189,7 +189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 200
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8179,9 +8179,17 @@ PrefabInstance:
       value: MainCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
       propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1676953255}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateBar
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9140,6 +9148,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1770957869}
     m_Modifications:
+    - target: {fileID: 7100859867728318706, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
+      propertyPath: m_Name
+      value: EnvironmentFish
+      objectReference: {fileID: 0}
     - target: {fileID: 7521269912905618611, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
       propertyPath: m_Name
       value: FishContainer
@@ -9170,7 +9182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7616290389051477568, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7616290389051477568, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
       propertyPath: m_SizeDelta.y
@@ -9225,7 +9237,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7100859867728318706, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}

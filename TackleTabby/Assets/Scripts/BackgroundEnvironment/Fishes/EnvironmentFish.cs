@@ -6,11 +6,15 @@ public class EnvironmentFish : MonoBehaviour
     private float SteeringStrength = 0.85f;
     [SerializeField]
     private float Velocity = 0.6f;
+    [SerializeField]
+    [Range(-1, 1)]
+    private int SignedDirection = -1;
     
     private RectTransform _rectTransform;
     private FishContainer _parentContainer;
     private Vector3 _currentDirection = Vector3.right;
     private Vector3 _targetDirection = Vector3.right;
+    private Vector3 _defaultScale = Vector3.zero;
 
     public RectTransform RectTransform
     {
@@ -26,6 +30,7 @@ public class EnvironmentFish : MonoBehaviour
 
     private void Start()
     {
+        _defaultScale = transform.localScale;
         _parentContainer = transform.parent.GetComponent<FishContainer>();
         SetDirection(new Vector3(1f, 1f, 0f));
     }
@@ -35,6 +40,7 @@ public class EnvironmentFish : MonoBehaviour
         HandleWalls();
         _currentDirection = Vector3.MoveTowards(_currentDirection, _targetDirection, SteeringStrength * Time.deltaTime);
         RectTransform.position += _currentDirection * (Velocity * Time.deltaTime);
+        RectTransform.localScale = new Vector3(_defaultScale.x * Mathf.Sign(_currentDirection.x) * SignedDirection, _defaultScale.y, _defaultScale.z);
     }
 
     private Directions CheckWalls()
