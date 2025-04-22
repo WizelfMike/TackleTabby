@@ -3,6 +3,7 @@
 public class DeltaTimer
 {
     public Action OnTimerRanOut;
+    public Action OnTimerReset;
     
     public float Timeout { get; }
     public bool IsRunning => !_hasInvoked;
@@ -13,12 +14,15 @@ public class DeltaTimer
     public DeltaTimer(float timeout)
     {
         Timeout = timeout;
+        _currentTimeout = Timeout;
+        _hasInvoked = false;
     }
 
     public void Reset()
     {
         _currentTimeout = Timeout;
         _hasInvoked = false;
+        OnTimerReset?.Invoke();
     }
 
     public void Prolong()

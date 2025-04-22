@@ -114,6 +114,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnFirstBaitMatchTriggerName: OnFirstBaitTrigger
   OnCaughtTriggerName: OnCaughtFishTrigger
+  OnSleepTriggerNames:
+  - OnSleepOneTrigger
+  - OnSleepTwoTrigger
+  SleepTimeoutSeconds: 10
 --- !u!114 &6189375354355820230
 MonoBehaviour:
   m_ObjectHideFlags: 0
