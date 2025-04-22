@@ -32,7 +32,6 @@ public class EnvironmentFish : MonoBehaviour
     {
         _defaultScale = transform.localScale;
         _parentContainer = transform.parent.GetComponent<FishContainer>();
-        SetDirection(new Vector3(1f, 1f, 0f));
     }
 
     private void Update()

@@ -52,5 +52,10 @@ MonoBehaviour:
   FishCount: 10
   SpawnDelay: 0.2
   EnvironmentFish: {fileID: 129814553634527563, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
-  FishSprites:
-  - {fileID: 21300000, guid: 5e7002aee731b2e4cbe26d111d796e92, type: 3}
+  FishAnimationControllers:
+  - {fileID: 9100000, guid: 250029ba56cc5d048a52fe9123904039, type: 2}
+  - {fileID: 9100000, guid: e44c3c99977ba2045aa38284e4defd9e, type: 2}
+  - {fileID: 9100000, guid: 946fb71044b3c824f86117270e8c3293, type: 2}
+  - {fileID: 9100000, guid: db1e4178349b13a42b8b3e99a5552e54, type: 2}
+  - {fileID: 9100000, guid: 2ab85df7a5c70fa409b9f1dee9fe11e1, type: 2}
+  - {fileID: 9100000, guid: 72d5069de9bcde24a97f2c6434d52467, type: 2}

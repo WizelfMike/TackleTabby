@@ -1,6 +1,6 @@
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FishContainer : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class FishContainer : MonoBehaviour
     [SerializeField]
     private EnvironmentFish EnvironmentFish;
     [SerializeField]
-    private Sprite[] FishSprites;
+    private AnimatorController[] FishAnimationControllers;
     
     
     private RectTransform _rectTransform;
@@ -49,7 +49,8 @@ public class FishContainer : MonoBehaviour
     {
         EnvironmentFish fish = Instantiate(EnvironmentFish, transform);
         fish.RectTransform.anchoredPosition = SpawnPosition();
-        fish.GetComponent<Image>().sprite = FishSprites[Random.Range(0, FishSprites.Length)];
+        fish.GetComponent<Animator>().runtimeAnimatorController =
+            FishAnimationControllers[Random.Range(0, FishAnimationControllers.Length)];
         fish.SetDirection(SpawnDirection());
     }
 
