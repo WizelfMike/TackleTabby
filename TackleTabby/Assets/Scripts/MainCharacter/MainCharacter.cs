@@ -18,9 +18,7 @@ public class MainCharacter : MonoBehaviour
     private int _onCaughtTrigger = -1;
     private bool _hasFirstBait = false;
     private Sprite _catchDisplaySprite = null;
-
     private DeltaTimer _sleepTimer;
-    
 
     private void Start()
     {
