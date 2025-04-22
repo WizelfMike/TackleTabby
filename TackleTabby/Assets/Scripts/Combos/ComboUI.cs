@@ -14,6 +14,12 @@ public class ComboUI : MonoBehaviour
     private string OpenTriggerName;
     [SerializeField]
     private string CloseTriggerName;
+    [SerializeField]
+    [Range(0f, 2f)]
+    private float ResetUIDelay = 0.2f;
+    [SerializeField]
+    [Range(0f, 2f)]
+    private float ClearProgressDelay = 0.2f;
 
     private Queue<Match> _progressQueue = new();
     private List<Match> _progress = new();
@@ -28,25 +34,21 @@ public class ComboUI : MonoBehaviour
 
     private void UpdateComboUI(Match match)
     {
-        // if (_progress.Count == 0)
-        //     ResetComboUI();
-        
         _progressQueue.Enqueue(match);
         HandleProgressQueue();
     }
 
     private void OnComboFinished(Combo combo)
     {
-        // Invoke(nameof(OnComboFinishedDelayed), 0.5f);
         StartCoroutine(OnComboFinishedDelayed());
     }
 
     private IEnumerator OnComboFinishedDelayed()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(ResetUIDelay);
         ResetComboUI();
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(ClearProgressDelay);
         ClearProgress();
         while (true)
         {
@@ -67,7 +69,7 @@ public class ComboUI : MonoBehaviour
 
     private bool HandleProgressQueue()
     {
-        if (_progress.Count >= ComboSlots.Count)
+        if (_progress.Count >= ComboSlots.Count || _progressQueue.Count <= 0)
             return false;
         
         Match match = _progressQueue.Dequeue();
