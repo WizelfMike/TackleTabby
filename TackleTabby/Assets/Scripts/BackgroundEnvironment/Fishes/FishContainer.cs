@@ -19,9 +19,6 @@ public class FishContainer : MonoBehaviour
     [SerializeField]
     private AnimatorController[] FishAnimationControllers;
     
-    
-    private RectTransform _rectTransform;
-
     public RectTransform RectTransform
     {
         get
@@ -33,8 +30,10 @@ public class FishContainer : MonoBehaviour
             return _rectTransform;
         }
     }
-
+    
     public float BoundaryBuffer => BoundaryBufferSize;
+    
+    private RectTransform _rectTransform;
 
     private IEnumerator Start()
     {

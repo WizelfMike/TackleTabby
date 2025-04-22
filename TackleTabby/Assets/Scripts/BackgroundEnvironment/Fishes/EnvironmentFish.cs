@@ -10,12 +10,6 @@ public class EnvironmentFish : MonoBehaviour
     [Range(-1, 1)]
     private int SignedDirection = -1;
     
-    private RectTransform _rectTransform;
-    private FishContainer _parentContainer;
-    private Vector3 _currentDirection = Vector3.right;
-    private Vector3 _targetDirection = Vector3.right;
-    private Vector3 _defaultScale = Vector3.zero;
-
     public RectTransform RectTransform
     {
         get
@@ -27,6 +21,12 @@ public class EnvironmentFish : MonoBehaviour
             return _rectTransform;
         }
     }
+    
+    private RectTransform _rectTransform;
+    private FishContainer _parentContainer;
+    private Vector3 _currentDirection = Vector3.right;
+    private Vector3 _targetDirection = Vector3.right;
+    private Vector3 _defaultScale = Vector3.zero;
 
     private void Start()
     {
