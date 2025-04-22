@@ -41,13 +41,16 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     [Header("Events")]
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
+    public UnityEvent<IOverlayMenu> OnComplete;
 
     private Dictionary<FishDefinition, CaughtFish> _fishProgress = new();
     private BaitDefinition[] _baitProgress = Array.Empty<BaitDefinition>();
     private EncyclopediaFishButton _lastOpenedFishButton;
+    private int _caughtAmount;
 
     private DateTime _lastClosedTime = DateTime.MinValue;
     private DateTime _lastOpenedTime = DateTime.MinValue;
+    private bool _suppressWin;
 
     private void Start()
     {
@@ -73,7 +76,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         {
             if (FishButtons[i].FishType != fish.FishType.Expand())
                 continue;
-
+            
             index = i;
             break;
         }
@@ -163,6 +166,8 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         if (!_fishProgress.TryGetValue(fishType, out CaughtFish alreadyCaught))
         {
             _fishProgress.Add(fishType, fish);
+            _caughtAmount++;
+            TryReadCatalogueCompletion();
             return true;
         }
 
@@ -171,6 +176,17 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
 
         _fishProgress[fishType] = fish;
         return true;
+    }
+
+    private void TryReadCatalogueCompletion()
+    {
+        if (_suppressWin)
+            return;
+
+        if (_caughtAmount >= FishButtons.Length)
+        {
+            OnComplete.Invoke(this);
+        }
     }
 
     public void OpenOverlay()
@@ -260,10 +276,22 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         return new ReadOnlyDictionary<FishDefinition, CaughtFish>(_fishProgress);
     }
 
+    public int ReturnCaughtAmount()
+    {
+        return _caughtAmount;
+    }
+
+    public void SetCaughtAmount(int amount)
+    {
+        _caughtAmount = amount;
+    }
+
     public bool RestoreCatalogue(ICollection<CaughtFish> data)
     {
+        _suppressWin = true;
         foreach (CaughtFish fish in data)
             OnFishCaught(fish);
+        _suppressWin = false;
         return true;
     }
 

@@ -32,6 +32,7 @@ public class SaveManager : MonoBehaviour
             return;
 
         int satiationAmount = HungerTracker.SaveSatiation();
+        int caughtFishAmount = ActiveEncyclopedia.ReturnCaughtAmount();
 
         ICollection<CaughtFish> toSaveDictionary = ActiveEncyclopedia.RetrieveFishProgress().Select(
             valuePair => valuePair.Value).AsReadOnlyCollection();
@@ -39,7 +40,8 @@ public class SaveManager : MonoBehaviour
         SaveInstance saveInstance = new SaveInstance()
         {
             SavedSatiationAmount = satiationAmount,
-            SavedFishList = toSaveDictionary.ToArray()
+            SavedFishList = toSaveDictionary.ToArray(),
+            CaughtAmount = caughtFishAmount
         };
 
         string saveData = JsonConvert.SerializeObject(saveInstance);
@@ -68,6 +70,7 @@ public class SaveManager : MonoBehaviour
 
         HungerTracker.LoadSatiation(saveInstance.SavedSatiationAmount);
         ActiveEncyclopedia.RestoreCatalogue(encyclopediaProgress);
+        ActiveEncyclopedia.SetCaughtAmount(saveInstance.CaughtAmount);
     }
 
     [ContextMenu("Reseting/Reset")]
