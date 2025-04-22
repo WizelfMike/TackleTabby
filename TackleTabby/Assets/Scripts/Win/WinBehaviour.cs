@@ -31,6 +31,8 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
         WinPanelAnimator.SetTrigger("ExitWin");
         _isOpen = false;
 
+        OnClosed.Invoke(this);
+
         MenuCommunicator.Instance.ClosedMenu(this);
     }
 
@@ -63,6 +65,8 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
         WinPanel.SetActive(true);
 
         WinPanelAnimator.SetTrigger("PlayWin");
+
+        OnOpened.Invoke(this);
 
         MenuCommunicator.Instance.OpenedMenu(this);
         yield break;
