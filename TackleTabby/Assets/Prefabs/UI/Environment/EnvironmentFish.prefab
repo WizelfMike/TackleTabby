@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1541847421726667138}
   - component: {fileID: 4075426354055831077}
   - component: {fileID: 129814553634527563}
+  - component: {fileID: 3784127209097827740}
   m_Layer: 5
   m_Name: EnvironmentFish
   m_TagString: Untagged
@@ -91,3 +92,25 @@ MonoBehaviour:
   SteeringStrength: 0.85
   Velocity: 0.6
   SignedDirection: -1
+--- !u!95 &3784127209097827740
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562248543875960950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e44c3c99977ba2045aa38284e4defd9e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

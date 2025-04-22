@@ -5386,6 +5386,107 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &1350811311
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1789724695}
+    m_Modifications:
+    - target: {fileID: 562248543875960950, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_Name
+      value: EnvironmentFish
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784127209097827740, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 72d5069de9bcde24a97f2c6434d52467, type: 2}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
 --- !u!1 &1402224501
 GameObject:
   m_ObjectHideFlags: 0
@@ -7785,6 +7886,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!224 &2060411161 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6835870418250778035, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+  m_PrefabInstance: {fileID: 1350811311}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2098392021
 GameObject:
   m_ObjectHideFlags: 0
@@ -9152,6 +9258,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnvironmentFish
       objectReference: {fileID: 0}
+    - target: {fileID: 7418657486359329484, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
+      propertyPath: FishCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7521269912905618611, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
       propertyPath: m_Name
       value: FishContainer
@@ -9239,7 +9349,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7100859867728318706, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7616290389051477568, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2060411161}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 210292c4cec535045a7c533e0fac8bf3, type: 3}
 --- !u!1660057539 &9223372036854775807
