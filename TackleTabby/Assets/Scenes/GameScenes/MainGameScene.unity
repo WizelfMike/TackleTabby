@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_SizeDelta.y
@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1972652979904543523, guid: 35bbfdeac9139024288dee953f8cbf88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7632,7 +7632,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1935322609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8524,6 +8524,10 @@ PrefabInstance:
       value: MainCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: StomachSize
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189375354355820230, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
       propertyPath: OnSatiationChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
@@ -8559,6 +8563,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3049976824533075779}
     m_Modifications:
+    - target: {fileID: 4587887357201616107, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587887357201616107, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587887357201616107, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587887357201616107, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976284222956263446, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976284222956263446, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976284222956263446, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5976284222956263446, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6290035650546136509, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
       propertyPath: ComboTracker
       value: 
