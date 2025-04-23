@@ -20,7 +20,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
     private GameObject HungerBarHighlight;
     
     [SerializeField]
-    private float waitingTime = 0.5f;
+    private float WaitingTime = 0.5f;
     
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
@@ -41,6 +41,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
     {
         if (!_mayCheck)
             return;
+        
         if (caughtAFish && !_alreadyCaughtFish)
         {
             _mayCheck = false;
@@ -50,8 +51,10 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
             OpenOverlay();
             return;
         }
+        
         if (_alreadyCaughtTrash)
             return;
+        
         _mayCheck = false;
         _alreadyCaughtTrash = true;
         _currentCanvas = HungerBarCanvas;
@@ -83,9 +86,9 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
 
     private IEnumerator OpenOverlayCoroutine()
     {
-        yield return new WaitForSeconds(waitingTime);
+        yield return new WaitForSeconds(WaitingTime);
         while (MenuCommunicator.Instance.HasMenuOpen)
-            yield return new WaitForSeconds(waitingTime);
+            yield return new WaitForSeconds(WaitingTime);
         
         _currentCanvas.sortingOrder = 1;
         _currentHighlight.SetActive(true);
