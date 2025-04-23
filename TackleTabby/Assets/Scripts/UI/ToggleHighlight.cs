@@ -21,6 +21,9 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
     
     [SerializeField]
     private float WaitingTime = 0.5f;
+
+    [SerializeField] 
+    private Animator Animator;
     
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
@@ -48,6 +51,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
             _alreadyCaughtFish = true;
             _currentCanvas = CatalogueCanvas;
             _currentHighlight = CatalogueHighlight;
+            Animator.SetBool("IsCatalogue", true);
             OpenOverlay();
             return;
         }
@@ -59,6 +63,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
         _alreadyCaughtTrash = true;
         _currentCanvas = HungerBarCanvas;
         _currentHighlight = HungerBarHighlight;
+        Animator.SetBool("IsCatalogue", false);
         OpenOverlay();
     }
     
@@ -78,8 +83,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
         
         CatalogueCanvas.sortingOrder = -1;
         HungerBarCanvas.sortingOrder = -1;
-        _currentHighlight.SetActive(false);
-        FieldGrayout.SetActive(false);
+        Animator.SetTrigger("CloseTrigger");
         _isOpen = false;
         MenuCommunicator.Instance.ClosedMenu(this);
     }
@@ -91,8 +95,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
             yield return new WaitForSeconds(WaitingTime);
         
         _currentCanvas.sortingOrder = 1;
-        _currentHighlight.SetActive(true);
-        FieldGrayout.SetActive(true);
+        Animator.SetTrigger("OpenTrigger");
         MenuCommunicator.Instance.OpenedMenu(this);
     }
     
