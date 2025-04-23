@@ -1,8 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MonoBehaviour
 {
+    [Header("ChildObjects")]
+    [SerializeField]
+    private Image CaughtFishDisplayImage;
+    
     [Header("Animation")]
     [SerializeField]
     private string OnFirstBaitMatchTriggerName;
@@ -57,6 +62,8 @@ public class MainCharacter : MonoBehaviour
 
         _hasFirstBait = false;
         _catchDisplaySprite = fish.FishType.Expand().FishSprite;
+        CaughtFishDisplayImage.sprite = _catchDisplaySprite;
+        CaughtFishDisplayImage.rectTransform.pivot = fish.FishType.Expand().MouthPivot;
         _animator.SetTrigger(_onCaughtTrigger);
         _sleepTimer.Reset();
     }
@@ -68,6 +75,8 @@ public class MainCharacter : MonoBehaviour
 
         _hasFirstBait = false;
         _catchDisplaySprite = trashType.TrashSprite;
+        CaughtFishDisplayImage.sprite = _catchDisplaySprite;
+        CaughtFishDisplayImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
         _animator.SetTrigger(_onCaughtTrigger);
         _sleepTimer.Reset();
     }

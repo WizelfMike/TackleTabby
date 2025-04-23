@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2988649e0649c89413154ced923efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CaughtFishDisplayImage: {fileID: 834999911736510917}
   OnFirstBaitMatchTriggerName: OnFirstBaitTrigger
   OnCaughtTriggerName: OnCaughtFishTrigger
   OnSleepTriggerNames:
