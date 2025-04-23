@@ -18,6 +18,7 @@ public class FishDefinition : ScriptableObject
 
     [Header("Catching")]
     public BaitDefinition[] RequiredBaitCombination;
+    public Vector2 MouthPivot = new Vector2(0.5f, 0.5f);
 
     [Header("Satiation")] 
     [Range(1,10)]
