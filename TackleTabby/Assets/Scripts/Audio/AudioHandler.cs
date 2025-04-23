@@ -41,23 +41,23 @@ public class AudioHandler : MonoBehaviour
         _backgroundMusic.setParameterByName("Catalogue Open", ParameterValue);
     }
 
-    public void SetMusicVolume(float Volume)
+    public void SetMusicVolume(float volume)
     {
-        MusicVolume = Volume;
+        MusicVolume = volume;
 
         _musicBus.setVolume(MusicVolume);
     }
 
-    public void SetSFXVolume(float Volume)
+    public void SetSFXVolume(float volume)
     {
-        SFXVolume = Volume;
+        SFXVolume = volume;
 
         _sfxBus.setVolume(SFXVolume);
     }
 
-    public void SetMasterVolume(float Volume)
+    public void SetMasterVolume(float volume)
     {
-        MasterVolume = Volume;
+        MasterVolume = volume;
 
         _masterBus.setVolume(MasterVolume);
     }
