@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
@@ -12,7 +13,9 @@ public class MainCharacter : MonoBehaviour
     [SerializeField]
     private string OnFirstBaitMatchTriggerName;
     [SerializeField]
-    private string OnCaughtTriggerName;
+    private string OnCaughtFishTriggerName;
+    [SerializeField]
+    private string OnCaughtTrashTriggerName;
     [SerializeField]
     private string[] OnSleepTriggerNames;
     [SerializeField]
@@ -20,7 +23,8 @@ public class MainCharacter : MonoBehaviour
 
     private Animator _animator;
     private int _onFirstBaitMatchTrigger = -1;
-    private int _onCaughtTrigger = -1;
+    private int _onCaughtFishTrigger = -1;
+    private int _onCaughtTrashTrigger = -1;
     private bool _hasFirstBait = false;
     private Sprite _catchDisplaySprite = null;
     private DeltaTimer _sleepTimer;
@@ -36,7 +40,8 @@ public class MainCharacter : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _onFirstBaitMatchTrigger = Animator.StringToHash(OnFirstBaitMatchTriggerName);
-        _onCaughtTrigger = Animator.StringToHash(OnCaughtTriggerName);
+        _onCaughtFishTrigger = Animator.StringToHash(OnCaughtFishTriggerName);
+        _onCaughtTrashTrigger = Animator.StringToHash(OnCaughtTrashTriggerName);
     }
 
     private void Update()
@@ -64,7 +69,7 @@ public class MainCharacter : MonoBehaviour
         _catchDisplaySprite = fish.FishType.Expand().FishSprite;
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = fish.FishType.Expand().MouthPivot;
-        _animator.SetTrigger(_onCaughtTrigger);
+        _animator.SetTrigger(_onCaughtFishTrigger);
         _sleepTimer.Reset();
     }
 
@@ -77,7 +82,7 @@ public class MainCharacter : MonoBehaviour
         _catchDisplaySprite = trashType.TrashSprite;
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
-        _animator.SetTrigger(_onCaughtTrigger);
+        _animator.SetTrigger(_onCaughtTrashTrigger);
         _sleepTimer.Reset();
     }
 
