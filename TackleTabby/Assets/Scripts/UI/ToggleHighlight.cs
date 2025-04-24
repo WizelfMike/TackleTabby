@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 public class ToggleHighlight : MonoBehaviour , IOverlayMenu
 {
     [SerializeField]
+    private Encyclopedia Encyclopedia;
+    [SerializeField]
     private Canvas CatalogueCanvas;
     [SerializeField] 
     private Canvas HungerBarCanvas;
@@ -28,12 +30,21 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
 
+    public bool AlreadyCaughtFish => _alreadyCaughtFish;
+    public bool AlreadyCaughtTrash => _alreadyCaughtTrash;
+
     private GameObject _currentHighlight;
     private Canvas _currentCanvas;
     private bool _mayCheck = true;
     private bool _alreadyCaughtFish;
     private bool _alreadyCaughtTrash;
     private bool _isOpen;
+
+    public void SetTutorialProgress(bool alreadyCaughtFish, bool alreadyCaughtTrash)
+    {
+        _alreadyCaughtFish = alreadyCaughtFish;
+        _alreadyCaughtTrash = alreadyCaughtTrash;
+    }
     
     public void HasClosed()
     {
@@ -56,7 +67,7 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
             return;
         }
         
-        if (_alreadyCaughtTrash)
+        if (_alreadyCaughtTrash || caughtAFish)
             return;
         
         _mayCheck = false;

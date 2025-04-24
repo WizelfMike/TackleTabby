@@ -5545,6 +5545,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1805164456}
     - target: {fileID: 4543373781636186444, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: Encyclopedia
+      value: 
+      objectReference: {fileID: 849880804}
+    - target: {fileID: 4543373781636186444, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: CatalogueCanvas
       value: 
       objectReference: {fileID: 110480108}
@@ -9658,7 +9662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1721996324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10898,6 +10902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveEncyclopedia: {fileID: 849880804}
+  ToggleHighlight: {fileID: 1805164455}
   HungerTracker: {fileID: 345517325}
 --- !u!4 &1935322610
 Transform:

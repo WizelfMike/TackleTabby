@@ -7,4 +7,6 @@ public class SaveInstance
     public int CaughtAmount;
 
     public int SavedSatiationAmount;
+    public bool AlreadyCaughtFish;
+    public bool AlreadyCaughtTrash;
 }
