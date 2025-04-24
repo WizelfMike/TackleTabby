@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class FishContainer : MonoBehaviour
@@ -17,7 +16,7 @@ public class FishContainer : MonoBehaviour
     [SerializeField]
     private EnvironmentFish EnvironmentFish;
     [SerializeField]
-    private AnimatorController[] FishAnimationControllers;
+    private RuntimeAnimatorController[] FishAnimationControllers;
     
     public RectTransform RectTransform
     {
