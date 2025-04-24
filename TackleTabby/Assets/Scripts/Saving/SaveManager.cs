@@ -30,6 +30,7 @@ public class SaveManager : MonoBehaviour
     [ContextMenu("Saving/Save")]
     public void SaveGame()
     {
+#if SAVE_ENABLED
         if (!enabled || !gameObject.activeSelf)
             return;
 
@@ -51,11 +52,13 @@ public class SaveManager : MonoBehaviour
         string saveData = JsonConvert.SerializeObject(saveInstance);
 
         File.WriteAllText(SaveFileName, saveData);
+#endif
     }
 
     [ContextMenu("Loading/Load")]
     public void LoadGame()
     {
+#if SAVE_ENABLED
         if (!enabled || !gameObject.activeSelf)
             return;
 
@@ -76,14 +79,17 @@ public class SaveManager : MonoBehaviour
         ToggleHighlight.SetTutorialProgress(saveInstance.AlreadyCaughtFish, saveInstance.AlreadyCaughtTrash);
         ActiveEncyclopedia.RestoreCatalogue(encyclopediaProgress);
         ActiveEncyclopedia.SetCaughtAmount(saveInstance.CaughtAmount);
+#endif
     }
 
     [ContextMenu("Reseting/Reset")]
     private void ResetProgress()
     {
+#if SAVE_ENABLED
         if (!enabled || !gameObject.activeSelf)
             return;
 
         File.Delete(SaveFileName);
+#endif
     }
 }
