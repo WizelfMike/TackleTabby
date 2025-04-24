@@ -6640,7 +6640,7 @@ PrefabInstance:
       objectReference: {fileID: 550732093338335038, guid: ab3245fa9735e404383e5461984e0faa, type: 2}
     - target: {fileID: 2914905913734703041, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 335544319
       objectReference: {fileID: 0}
     - target: {fileID: 2914905913734703041, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -6787,6 +6787,10 @@ PrefabInstance:
       value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 4543373781636186444, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 1295989806}
+    - target: {fileID: 4543373781636186444, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: CatalogueCanvas
       value: 
       objectReference: {fileID: 1825180734}
@@ -6800,7 +6804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326936491580978505, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6460417337527299433, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_Name
