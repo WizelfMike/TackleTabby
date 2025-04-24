@@ -9,6 +9,8 @@ public class SaveManager : MonoBehaviour
 {
     [SerializeField] 
     private Encyclopedia ActiveEncyclopedia;
+    [SerializeField]
+    private ToggleHighlight ToggleHighlight;
     [SerializeField] 
     private HungerTracking HungerTracker;
 
@@ -41,7 +43,9 @@ public class SaveManager : MonoBehaviour
         {
             SavedSatiationAmount = satiationAmount,
             SavedFishList = toSaveDictionary.ToArray(),
-            CaughtAmount = caughtFishAmount
+            CaughtAmount = caughtFishAmount,
+            AlreadyCaughtFish = ToggleHighlight.AlreadyCaughtFish,
+            AlreadyCaughtTrash = ToggleHighlight.AlreadyCaughtTrash
         };
 
         string saveData = JsonConvert.SerializeObject(saveInstance);
@@ -69,6 +73,7 @@ public class SaveManager : MonoBehaviour
             .Where(fish => fish.FishType.VerifySelf()).AsReadOnlyCollection();
 
         HungerTracker.LoadSatiation(saveInstance.SavedSatiationAmount);
+        ToggleHighlight.SetTutorialProgress(saveInstance.AlreadyCaughtFish, saveInstance.AlreadyCaughtTrash);
         ActiveEncyclopedia.RestoreCatalogue(encyclopediaProgress);
         ActiveEncyclopedia.SetCaughtAmount(saveInstance.CaughtAmount);
     }

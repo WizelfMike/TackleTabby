@@ -28,8 +28,6 @@ public class ComboUI : MonoBehaviour
     {
         ComboTracker.OnComboUpdated.AddListener(UpdateComboUI);
         ComboTracker.OnComboFinished.AddListener(OnComboFinished);
-        
-        ResetComboUI();
     }
 
     private void UpdateComboUI(Match match)
