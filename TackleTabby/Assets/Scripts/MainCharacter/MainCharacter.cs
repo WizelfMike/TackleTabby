@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
@@ -71,7 +70,6 @@ public class MainCharacter : MonoBehaviour
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = fish.FishType.Expand().MouthPivot;
         _animator.SetTrigger(_onCaughtFishTrigger);
-        // _animator.SetBool(_onFirstBaitMatchBool, false);
         StartCoroutine(DisableBaitBool());
         _sleepTimer.Reset();
     }
@@ -86,7 +84,6 @@ public class MainCharacter : MonoBehaviour
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
         _animator.SetTrigger(_onCaughtTrashTrigger);
-        //_animator.SetBool(_onFirstBaitMatchBool, false);
         StartCoroutine(DisableBaitBool());
         _sleepTimer.Reset();
     }
