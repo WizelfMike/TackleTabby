@@ -20,6 +20,11 @@ public class MatchRemover : MonoBehaviour
     [SerializeField]
     private BaitDefinition SimulationBait;
 
+    [SerializeField]
+    private FishDefinition[] SimulationFish;
+    [SerializeField]
+    private float FishSimulationDelay = 0.3f;
+
 #endif 
 
     public UnityEvent<Match> OnMatchDestroyed = new();
@@ -83,6 +88,23 @@ public class MatchRemover : MonoBehaviour
     {
         Match match = new Match { BaitType = SimulationBait, MatchSize = 3 };
         OnMatchDestroyed.Invoke(match);
+    }
+
+    [ContextMenu("Simulate/Fish")]
+    private void SimulateFish()
+    {
+        StartCoroutine(SimulateFishCoroutine());
+    }
+
+    private IEnumerator SimulateFishCoroutine()
+    {
+        foreach (FishDefinition fish in SimulationFish)
+        {
+            foreach (BaitDefinition bait in fish.RequiredBaitCombination)
+                OnMatchDestroyed.Invoke(new Match {BaitType = bait, MatchSize = 3});
+
+            yield return new WaitForSeconds(FishSimulationDelay);
+        }
     }
 
 #endif

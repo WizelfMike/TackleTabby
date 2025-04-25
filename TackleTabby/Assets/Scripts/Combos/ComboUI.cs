@@ -48,11 +48,15 @@ public class ComboUI : MonoBehaviour
 
         yield return new WaitForSeconds(ClearProgressDelay);
         ClearProgress();
-        while (true)
-        {
+        
+        while (_progressQueue.Count > ComboSlots.Count)
+            _ = _progressQueue.Dequeue();
+
+        for (int i = 0; i < ComboSlots.Count; i++)
             if (!HandleProgressQueue())
                 break;
-        }
+
+        _progressQueue.Clear();
     }
 
     private void ClearProgress()
