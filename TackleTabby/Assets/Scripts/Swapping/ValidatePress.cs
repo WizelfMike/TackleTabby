@@ -14,6 +14,9 @@ public class ValidatePress : MonoBehaviour
     
     private bool ValidateSwipe(Vector2 direction)
     {
+        if (MenuCommunicator.Instance.HasMenuOpen)
+            return false;
+        
         return direction.magnitude >= MinSwipeLength;
     }
 

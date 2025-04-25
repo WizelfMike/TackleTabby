@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Salmon
   FishSprite: {fileID: 21300000, guid: 3d854bce0cbe84d4986c0d6970504716, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: f26602330af43c14bb366781254c6714, type: 3}
   MinSizeInches: 27.5
   MaxSizeInches: 59
   MaxSizeDeviationInch: 2.7
   RequiredBaitCombination:
   - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
+  MouthPivot: {x: 0.27, y: 0.47}
+  SatiationAmount: 3

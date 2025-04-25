@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 2156858513058524042}
   - component: {fileID: 6253624737462067451}
   - component: {fileID: 7574904681287063491}
+  - component: {fileID: 5575594162835084037}
   m_Layer: 6
   m_Name: FieldBlock
   m_TagString: FieldPiece
@@ -183,6 +184,9 @@ MonoBehaviour:
   BaitReference: {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   SpriteRenderer: {fileID: 6795579963323379539}
   RaycastDistance: 0.5
+  Animator: {fileID: 5575594162835084037}
+  MatchTriggerName: MatchTrigger
+  ResetTriggerName: ResetTrigger
 --- !u!114 &7574904681287063491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +207,25 @@ MonoBehaviour:
   OnLanded:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &5575594162835084037
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175040567833875743}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 179dd9bbd22be4d468dcd019aa1cf69b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

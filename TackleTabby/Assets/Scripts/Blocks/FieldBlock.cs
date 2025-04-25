@@ -12,6 +12,14 @@ public class FieldBlock : MonoBehaviour
     private SpriteRenderer SpriteRenderer;
     [SerializeField]
     private float RaycastDistance = 1f;
+
+    [Header("Animation")]
+    [SerializeField]
+    private Animator Animator;
+    [SerializeField]
+    private string MatchTriggerName = "MatchTrigger";
+    [SerializeField]
+    private string ResetTriggerName = "ResetTrigger";
     
     public BaitDefinition BaitDefinitionReference
     {
@@ -215,7 +223,16 @@ public class FieldBlock : MonoBehaviour
     {
         return !_inFallingPosition;
     }
-        
+
+    public void PlayMatchAnimation()
+    {
+        Animator.SetTrigger(MatchTriggerName);
+    }
+
+    public void ResetAnimator()
+    {
+        Animator.SetTrigger(ResetTriggerName);
+    }
     
     #if UNITY_EDITOR
 

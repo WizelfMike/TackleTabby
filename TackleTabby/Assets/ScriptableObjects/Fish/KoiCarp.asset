@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Koi Carp
   FishSprite: {fileID: 21300000, guid: 995cfca5eb5d44049853908ca97f2ed1, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: 81b3e94c601fb774ebc55c4ff18e5831, type: 3}
   MinSizeInches: 23.6
   MaxSizeInches: 31.5
   MaxSizeDeviationInch: 4.6
   RequiredBaitCombination:
   - {fileID: 11400000, guid: 8b53020099fc6b3428929eb590fe53cf, type: 2}
   - {fileID: 11400000, guid: 9fe3b75ffa5190248af0318088a1d53e, type: 2}
+  MouthPivot: {x: 0.28, y: 0.47}
+  SatiationAmount: 2

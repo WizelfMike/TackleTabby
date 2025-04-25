@@ -8,6 +8,8 @@ public class FieldMatchValidator : GenericSingleton<FieldMatchValidator>
     [Range(1, 10)]
     private int MinimalRequiredMatchSize = 3;
 
+    public int MinRequiredMatchSize => MinimalRequiredMatchSize;
+
     public bool ValidateMatch(FieldBlock caller, IReadOnlyList<FieldBlock> match)
     {
         int size = match.Count;

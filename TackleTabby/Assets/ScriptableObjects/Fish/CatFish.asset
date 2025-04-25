@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Cat Fish
   FishSprite: {fileID: 21300000, guid: 8ef1b877974dce44e981e91510c403b7, type: 3}
+  ThumbnailSprite: {fileID: 21300000, guid: 7f3c5612e312a3447b2443a549ad8b54, type: 3}
   MinSizeInches: 14.4
   MaxSizeInches: 19.2
   MaxSizeDeviationInch: 1
   RequiredBaitCombination:
   - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
+  MouthPivot: {x: 0.13, y: 0.5}
+  SatiationAmount: 4

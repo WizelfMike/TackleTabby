@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7521269912905618611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7616290389051477568}
+  - component: {fileID: 7418657486359329484}
+  m_Layer: 5
+  m_Name: FishContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7616290389051477568
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521269912905618611}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 280}
+  m_SizeDelta: {x: 0, y: 230}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7418657486359329484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521269912905618611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7f68c472ab4af8819adf355efcf197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundaryBufferSize: 30
+  FishCount: 10
+  SpawnDelay: 0.2
+  EnvironmentFish: {fileID: 129814553634527563, guid: 1f9c0b315551b8f4099329b979f244b9, type: 3}
+  FishAnimationControllers:
+  - {fileID: 9100000, guid: 250029ba56cc5d048a52fe9123904039, type: 2}
+  - {fileID: 9100000, guid: e44c3c99977ba2045aa38284e4defd9e, type: 2}
+  - {fileID: 9100000, guid: 946fb71044b3c824f86117270e8c3293, type: 2}
+  - {fileID: 9100000, guid: db1e4178349b13a42b8b3e99a5552e54, type: 2}
+  - {fileID: 9100000, guid: 2ab85df7a5c70fa409b9f1dee9fe11e1, type: 2}
+  - {fileID: 9100000, guid: 72d5069de9bcde24a97f2c6434d52467, type: 2}
