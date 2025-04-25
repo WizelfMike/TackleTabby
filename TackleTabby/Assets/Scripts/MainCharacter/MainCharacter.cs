@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class MainCharacter : MonoBehaviour
     
     [Header("Animation")]
     [SerializeField]
-    private string OnFirstBaitMatchTriggerName;
+    private string OnFirstBaitMatchBoolName;
     [SerializeField]
     private string OnCaughtFishTriggerName;
     [SerializeField]
@@ -22,7 +23,7 @@ public class MainCharacter : MonoBehaviour
     private float SleepTimeoutSeconds = 2f;
 
     private Animator _animator;
-    private int _onFirstBaitMatchTrigger = -1;
+    private int _onFirstBaitMatchBool = -1;
     private int _onCaughtFishTrigger = -1;
     private int _onCaughtTrashTrigger = -1;
     private bool _hasFirstBait = false;
@@ -39,7 +40,7 @@ public class MainCharacter : MonoBehaviour
             
         _animator = GetComponent<Animator>();
 
-        _onFirstBaitMatchTrigger = Animator.StringToHash(OnFirstBaitMatchTriggerName);
+        _onFirstBaitMatchBool = Animator.StringToHash(OnFirstBaitMatchBoolName);
         _onCaughtFishTrigger = Animator.StringToHash(OnCaughtFishTriggerName);
         _onCaughtTrashTrigger = Animator.StringToHash(OnCaughtTrashTriggerName);
     }
@@ -56,7 +57,7 @@ public class MainCharacter : MonoBehaviour
             return;
         
         _hasFirstBait = true;
-        _animator.SetTrigger(_onFirstBaitMatchTrigger);
+        _animator.SetBool(_onFirstBaitMatchBool, true);
         _sleepTimer.Reset();
     }
     
@@ -70,6 +71,8 @@ public class MainCharacter : MonoBehaviour
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = fish.FishType.Expand().MouthPivot;
         _animator.SetTrigger(_onCaughtFishTrigger);
+        // _animator.SetBool(_onFirstBaitMatchBool, false);
+        StartCoroutine(DisableBaitBool());
         _sleepTimer.Reset();
     }
 
@@ -83,6 +86,8 @@ public class MainCharacter : MonoBehaviour
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
         _animator.SetTrigger(_onCaughtTrashTrigger);
+        //_animator.SetBool(_onFirstBaitMatchBool, false);
+        StartCoroutine(DisableBaitBool());
         _sleepTimer.Reset();
     }
 
@@ -98,5 +103,11 @@ public class MainCharacter : MonoBehaviour
             _animator.ResetTrigger(onSleepTriggerName);
         
         _animator.SetTrigger(OnSleepTriggerNames[Random.Range(0, OnSleepTriggerNames.Length)]);
+    }
+
+    private IEnumerator DisableBaitBool()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _animator.SetBool(_onFirstBaitMatchBool, false);
     }
 }

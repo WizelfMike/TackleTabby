@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class ComboUI : MonoBehaviour
@@ -23,6 +24,7 @@ public class ComboUI : MonoBehaviour
 
     private Queue<Match> _progressQueue = new();
     private List<Match> _progress = new();
+    private Mutex _syncMutex = new Mutex();
 
     private void Start()
     {
@@ -32,8 +34,12 @@ public class ComboUI : MonoBehaviour
 
     private void UpdateComboUI(Match match)
     {
+        _syncMutex.WaitOne();
+        
         _progressQueue.Enqueue(match);
         HandleProgressQueue();
+        
+        _syncMutex.ReleaseMutex();
     }
 
     private void OnComboFinished(Combo combo)
@@ -43,6 +49,8 @@ public class ComboUI : MonoBehaviour
 
     private IEnumerator OnComboFinishedDelayed()
     {
+        _syncMutex.WaitOne();
+        
         yield return new WaitForSeconds(ResetUIDelay);
         ResetComboUI();
 
@@ -50,13 +58,14 @@ public class ComboUI : MonoBehaviour
         ClearProgress();
         
         while (_progressQueue.Count > ComboSlots.Count)
-            _ = _progressQueue.Dequeue();
+            for (int i = 0; i < ComboSlots.Count; i++)
+                _ = _progressQueue.Dequeue();
 
         for (int i = 0; i < ComboSlots.Count; i++)
             if (!HandleProgressQueue())
                 break;
-
-        _progressQueue.Clear();
+        
+        _syncMutex.ReleaseMutex();
     }
 
     private void ClearProgress()

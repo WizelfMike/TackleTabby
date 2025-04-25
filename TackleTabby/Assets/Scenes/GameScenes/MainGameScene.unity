@@ -3759,6 +3759,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: FishSimulationDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -12030,6 +12034,10 @@ PrefabInstance:
     - target: {fileID: 3600936971655777176, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622640709915112149, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
+      propertyPath: OnFirstBaitMatchBoolName
+      value: OnFirstBaitBool
       objectReference: {fileID: 0}
     - target: {fileID: 6075417818069677615, guid: bf53814e9d139df44aa8923fa10d480f, type: 3}
       propertyPath: m_Name
