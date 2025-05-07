@@ -5,39 +5,32 @@ using UnityEngine.UI;
 public class MovingCloud : MonoBehaviour
 {
     public CloudPool ObjectPool { get; set; }
+    
+    public RectTransform ParentRect { private get; set; }
+    
     public float Speed { get; set; }
-
-    public float Lifetime
-    {
-        get => _lifetime;
-        set
-        {
-            _lifetime = value;
-            _lifeTimeTimer = new DeltaTimer(_lifetime)
-            {
-                OnTimerRanOut = OnLifeRanOut
-            };
-        }
-    }
-
+    
     public Sprite Sprite
     {
         set => GetComponent<Image>().sprite = value;
     }
     
-    private float _lifetime;
-    private DeltaTimer _lifeTimeTimer;
+    private RectTransform _ownRect;
+
+    private void Awake()
+    {
+        _ownRect = GetComponent<RectTransform>();
+    }
 
     private void Update()
     {
         transform.position += Vector3.right * (Speed * Time.deltaTime);
-        
-        if (_lifeTimeTimer is not null &&  _lifeTimeTimer.IsRunning)
-            _lifeTimeTimer.Update(Time.deltaTime);
+        PositionalCheck();
     }
 
-    private void OnLifeRanOut()
+    private void PositionalCheck()
     {
-        ObjectPool.Store(this);
+        if (_ownRect.anchoredPosition.x > ParentRect.rect.width + 1 * (transform.localScale.x * _ownRect.rect.width))
+            ObjectPool.Store(this);
     }
 }

@@ -29,9 +29,6 @@ public class CloudContainer : MonoBehaviour
     [Range(0f, 100f)]
     private float SpawnChance;
     [SerializeField]
-    [Range(1f, 120f)]
-    private float CloudLifeTimeSeconds;
-    [SerializeField]
     [Range(0f, 100f)]
     private float SpawnXBuffer = 10f;
 
@@ -75,7 +72,7 @@ public class CloudContainer : MonoBehaviour
         RectTransform cloudTransform = cloudObject.GetComponent<RectTransform>();
         int settingIndex = Random.Range(0, CloudSettings.Length);
         cloudObject.ObjectPool = CloudObjectPool;
-        cloudObject.Lifetime = CloudLifeTimeSeconds;
+        cloudObject.ParentRect = _rectTransform;
         
         cloudTransform.SetParent(transform);
         cloudObject.Speed = GetRandomSpeed(settingIndex);
