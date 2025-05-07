@@ -17,8 +17,6 @@ struct CloudSetting
 
 public class CloudContainer : MonoBehaviour
 {
-
-    
     [Header("Spawning")]
     [SerializeField]
     private CloudPool CloudObjectPool;
