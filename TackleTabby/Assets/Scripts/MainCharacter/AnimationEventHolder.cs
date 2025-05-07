@@ -3,19 +3,19 @@ using UnityEngine;
 public class AnimationEventHolder : MonoBehaviour
 {
     [SerializeField]
-    private CaughtFishPopup fishPopUp;
+    private CaughtFishPopup FishPopUp;
 
     [SerializeField]
-    private AudioHandler audioHandler;
+    private AudioHandler AudioHandler;
 
     public void PopUpFish()
     {
         PlayAnimationAudio("event:/Fish Catch");
-        fishPopUp.OpenOverlay();
+        FishPopUp.OpenOverlay();
     }
 
     public void PlayAnimationAudio(string fmodEvent)
     {
-        audioHandler.PlayFmodOneShot(fmodEvent);
+        AudioHandler.PlayFmodOneShot(fmodEvent);
     }
 }
