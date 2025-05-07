@@ -25,6 +25,8 @@ public class CloudContainer : MonoBehaviour
     private Vector2 CloudSpeedRange;
     [SerializeField]
     private Vector2 CloudScaleRange;
+    [SerializeField]
+    private Sprite[] CloudSprites;
 
     private CancellationTokenSource _cancellationTokenSource;
     private RectTransform _rectTransform;
@@ -70,6 +72,7 @@ public class CloudContainer : MonoBehaviour
             new Vector2(
                 GetStartX(cloudObject.transform.localScale.x * cloudTransform.rect.width),
                 GetRandomY());
+        cloudObject.Sprite = GetRandomSprite();
     }
 
     private bool TestChance(float chance)
@@ -81,6 +84,11 @@ public class CloudContainer : MonoBehaviour
     private float GetRandomSpeed()
     {
         return Random.Range(CloudSpeedRange.x, CloudSpeedRange.y);
+    }
+
+    private Sprite GetRandomSprite()
+    {
+        return CloudSprites[Random.Range(0, CloudSprites.Length)];
     }
 
     private float GetRandomScale()

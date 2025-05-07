@@ -13104,6 +13104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
+      propertyPath: 'CloudSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: -672609918, guid: 7657cb0f49e60e34081ce56424b1c2d4, type: 3}
     - target: {fileID: 7727920025983039678, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

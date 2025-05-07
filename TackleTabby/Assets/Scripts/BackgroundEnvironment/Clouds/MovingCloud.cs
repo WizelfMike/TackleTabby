@@ -19,6 +19,11 @@ public class MovingCloud : MonoBehaviour
             };
         }
     }
+
+    public Sprite Sprite
+    {
+        set => GetComponent<Image>().sprite = value;
+    }
     
     private float _lifetime;
     private DeltaTimer _lifeTimeTimer;

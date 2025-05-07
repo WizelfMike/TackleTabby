@@ -343,6 +343,8 @@ MonoBehaviour:
   SpawnXBuffer: 10
   CloudSpeedRange: {x: 0.2, y: 0.4}
   CloudScaleRange: {x: 1, y: 2}
+  CloudSprites:
+  - {fileID: -1275995124, guid: 7657cb0f49e60e34081ce56424b1c2d4, type: 3}
 --- !u!114 &8582269874872281187
 MonoBehaviour:
   m_ObjectHideFlags: 0
