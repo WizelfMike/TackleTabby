@@ -322,7 +322,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -60}
-  m_SizeDelta: {x: 0, y: 120}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7698397790141760481
 MonoBehaviour:
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CloudObjectPool: {fileID: 8582269874872281187}
   SpawnTimeoutSeconds: 1.5
-  SpawnChance: 8
+  SpawnChance: 25
   CloudLifeTimeSeconds: 45
   SpawnXBuffer: 10
   CloudSettings:
