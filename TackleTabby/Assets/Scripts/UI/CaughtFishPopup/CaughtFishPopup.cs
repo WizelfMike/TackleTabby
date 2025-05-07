@@ -40,8 +40,6 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
 
         if (_isOpen)
             return;
-        
-        OpenOverlay();
     }
 
     private void OnCaughtTrash(TrashDefinition trash)
