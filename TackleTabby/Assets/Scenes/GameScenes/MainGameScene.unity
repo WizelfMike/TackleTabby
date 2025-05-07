@@ -13104,6 +13104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 6672025974885260703, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: SpawnChance
       value: 25
