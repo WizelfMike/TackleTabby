@@ -341,10 +341,19 @@ MonoBehaviour:
   SpawnChance: 8
   CloudLifeTimeSeconds: 45
   SpawnXBuffer: 10
-  CloudSpeedRange: {x: 0.2, y: 0.4}
-  CloudScaleRange: {x: 1, y: 2}
-  CloudSprites:
-  - {fileID: -1275995124, guid: 7657cb0f49e60e34081ce56424b1c2d4, type: 3}
+  CloudSettings:
+  - CloudSprite: {fileID: -1275995124, guid: 7657cb0f49e60e34081ce56424b1c2d4, type: 3}
+    CloudSpeedRange: {x: 0.15, y: 0.3}
+    CloudScaleRange: {x: 1, y: 2}
+  - CloudSprite: {fileID: -145463911, guid: e63d463573a35df4794e0877a8fb1f1e, type: 3}
+    CloudSpeedRange: {x: 0.2, y: 0.4}
+    CloudScaleRange: {x: 0.4, y: 0.8}
+  - CloudSprite: {fileID: 39301997, guid: 50337382645c56e4c93e0fdef4f5ae5d, type: 3}
+    CloudSpeedRange: {x: 0.2, y: 0.4}
+    CloudScaleRange: {x: 0.3, y: 0.6}
+  - CloudSprite: {fileID: 1525514529, guid: 16306d46a3fbaca4aa4e6405928991b0, type: 3}
+    CloudSpeedRange: {x: 0.2, y: 0.4}
+    CloudScaleRange: {x: 0.5, y: 1}
 --- !u!114 &8582269874872281187
 MonoBehaviour:
   m_ObjectHideFlags: 0

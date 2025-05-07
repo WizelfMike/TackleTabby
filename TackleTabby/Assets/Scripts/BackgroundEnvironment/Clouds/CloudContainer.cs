@@ -1,9 +1,24 @@
+using System;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using Random = UnityEngine.Random;
+
+[Serializable]
+struct CloudSetting
+{
+    [SerializeField]
+    public Sprite CloudSprite;
+    [SerializeField]
+    public Vector2 CloudSpeedRange;
+    [SerializeField]
+    public Vector2 CloudScaleRange;
+}
 
 public class CloudContainer : MonoBehaviour
 {
+
+    
     [Header("Spawning")]
     [SerializeField]
     private CloudPool CloudObjectPool;
@@ -22,11 +37,7 @@ public class CloudContainer : MonoBehaviour
 
     [Header("Per cloud settings")]
     [SerializeField]
-    private Vector2 CloudSpeedRange;
-    [SerializeField]
-    private Vector2 CloudScaleRange;
-    [SerializeField]
-    private Sprite[] CloudSprites;
+    private CloudSetting[] CloudSettings;
 
     private CancellationTokenSource _cancellationTokenSource;
     private RectTransform _rectTransform;
@@ -62,17 +73,19 @@ public class CloudContainer : MonoBehaviour
         
         MovingCloud cloudObject = CloudObjectPool.Retrieve();
         RectTransform cloudTransform = cloudObject.GetComponent<RectTransform>();
+        int settingIndex = Random.Range(0, CloudSettings.Length);
         cloudObject.ObjectPool = CloudObjectPool;
         cloudObject.Lifetime = CloudLifeTimeSeconds;
         
         cloudTransform.SetParent(transform);
-        cloudObject.Speed = GetRandomSpeed();
-        cloudTransform.localScale = Vector3.one * GetRandomScale();
+        cloudObject.Speed = GetRandomSpeed(settingIndex);
+        cloudTransform.localScale = Vector3.one * GetRandomScale(settingIndex);
         cloudTransform.anchoredPosition =
             new Vector2(
                 GetStartX(cloudObject.transform.localScale.x * cloudTransform.rect.width),
-                GetRandomY());
-        cloudObject.Sprite = GetRandomSprite();
+                GetRandomY(cloudObject.transform.localScale.y * cloudTransform.rect.height));
+        
+        cloudObject.Sprite = CloudSettings[settingIndex].CloudSprite;
     }
 
     private bool TestChance(float chance)
@@ -81,19 +94,14 @@ public class CloudContainer : MonoBehaviour
         return value <= chance;
     }
 
-    private float GetRandomSpeed()
+    private float GetRandomSpeed(int cloudSetting)
     {
-        return Random.Range(CloudSpeedRange.x, CloudSpeedRange.y);
+        return Random.Range(CloudSettings[cloudSetting].CloudSpeedRange.x, CloudSettings[cloudSetting].CloudSpeedRange.y);
     }
 
-    private Sprite GetRandomSprite()
+    private float GetRandomScale(int cloudSetting)
     {
-        return CloudSprites[Random.Range(0, CloudSprites.Length)];
-    }
-
-    private float GetRandomScale()
-    {
-        return Random.Range(CloudScaleRange.x, CloudScaleRange.y);
+        return Random.Range(CloudSettings[cloudSetting].CloudScaleRange.x, CloudSettings[cloudSetting].CloudScaleRange.y);
     }
 
     private float GetStartX(float xWidth)
@@ -101,9 +109,9 @@ public class CloudContainer : MonoBehaviour
         return -(xWidth/2f) - SpawnXBuffer;
     }
 
-    private float GetRandomY()
+    private float GetRandomY(float height)
     {
-        return Random.Range(_rectTransform.rect.yMin, _rectTransform.rect.yMax);
+        return Random.Range(_rectTransform.rect.yMin + height/2, _rectTransform.rect.yMax - height/2);
     }
     
 #if UNITY_EDITOR

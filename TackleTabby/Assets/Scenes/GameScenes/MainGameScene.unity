@@ -13105,9 +13105,25 @@ PrefabInstance:
       value: Background
       objectReference: {fileID: 0}
     - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
+      propertyPath: SpawnChance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
+      propertyPath: CloudSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: 'CloudSprites.Array.data[1]'
       value: 
-      objectReference: {fileID: -672609918, guid: 7657cb0f49e60e34081ce56424b1c2d4, type: 3}
+      objectReference: {fileID: -145463911, guid: e63d463573a35df4794e0877a8fb1f1e, type: 3}
+    - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
+      propertyPath: 'CloudSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 39301997, guid: 50337382645c56e4c93e0fdef4f5ae5d, type: 3}
+    - target: {fileID: 7698397790141760481, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
+      propertyPath: 'CloudSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1525514529, guid: 16306d46a3fbaca4aa4e6405928991b0, type: 3}
     - target: {fileID: 7727920025983039678, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
