@@ -13413,6 +13413,22 @@ PrefabInstance:
       propertyPath: Encyclopedia
       value: 
       objectReference: {fileID: 849880804}
+    - target: {fileID: 8726648675869306219, guid: bee6951ac6d05294c8410517409ef0ce, type: 3}
+      propertyPath: m_fontSize
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726648675869306219, guid: bee6951ac6d05294c8410517409ef0ce, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726648675869306219, guid: bee6951ac6d05294c8410517409ef0ce, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726648675869306219, guid: bee6951ac6d05294c8410517409ef0ce, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

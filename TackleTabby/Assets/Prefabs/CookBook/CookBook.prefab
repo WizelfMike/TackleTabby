@@ -52,12 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ComboTracker: {fileID: 0}
+  Encyclopedia: {fileID: 0}
   Entries:
   - {fileID: 4408494763397704774}
   - {fileID: 4414334256034647761}
   - {fileID: 5552596651323052356}
-  HideLockedBait: 0
-  HideLockedFish: 0
+  Settings:
+    HideLockedBait: 1
+    HideLockedFish: 1
 --- !u!1001 &2201715616300132348
 PrefabInstance:
   m_ObjectHideFlags: 0

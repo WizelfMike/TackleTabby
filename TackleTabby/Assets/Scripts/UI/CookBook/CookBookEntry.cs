@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,12 +34,8 @@ public class CookBookEntry : MonoBehaviour
 
     public void DisplayWith(FishDefinition fishType, BaitDefinition bait, bool isFishLocked, bool isBaitLocked)
     {
-        _displayingFishSprite = fishType.ThumbnailSprite;
-        _displayingBaitSprite = bait.BaitSprite;
-
-        FishImage.sprite = _displayingFishSprite;
-        BaitImage.sprite = _displayingBaitSprite;
-        
+        DisplayFish(fishType, isFishLocked);
+        DisplayBait(bait, isBaitLocked);
         
         if (!_isOpen)
             Animator.SetTrigger("OpenTrigger");
@@ -55,5 +52,19 @@ public class CookBookEntry : MonoBehaviour
             Animator.SetTrigger("CloseTrigger");
         
         _isOpen = false;
+    }
+
+    private void DisplayFish(FishDefinition fishType, bool isLocked)
+    {
+        _displayingFishSprite = fishType.ThumbnailSprite;
+        FishImage.sprite = _displayingFishSprite;
+        FishImage.color = isLocked && _settings.HideLockedFish ? Color.black : Color.white;
+    }
+
+    private void DisplayBait(BaitDefinition bait, bool isLocked)
+    {
+        _displayingBaitSprite = bait.BaitSprite;
+        BaitImage.sprite = _displayingBaitSprite;
+        BaitImage.color = isLocked && _settings.HideLockedBait ? Color.black : Color.white;
     }
 }
