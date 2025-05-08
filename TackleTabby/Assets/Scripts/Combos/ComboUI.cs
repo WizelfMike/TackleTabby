@@ -12,9 +12,7 @@ public class ComboUI : MonoBehaviour
     private ComboTracker ComboTracker;
     [Header("Animation")]
     [SerializeField]
-    private string OpenTriggerName;
-    [SerializeField]
-    private string CloseTriggerName;
+    private string DisplayBoolName;
     [SerializeField]
     [Range(0f, 2f)]
     private float ResetUIDelay = 0.2f;
@@ -24,7 +22,7 @@ public class ComboUI : MonoBehaviour
 
     private Queue<Match> _progressQueue = new();
     private List<Match> _progress = new();
-    private Mutex _syncMutex = new Mutex();
+    private bool _updatingCombo = false;
 
     private void Start()
     {
@@ -34,12 +32,7 @@ public class ComboUI : MonoBehaviour
 
     private void UpdateComboUI(Match match)
     {
-        _syncMutex.WaitOne();
-        
-        _progressQueue.Enqueue(match);
-        HandleProgressQueue();
-        
-        _syncMutex.ReleaseMutex();
+        StartCoroutine(UpdateComboUICoroutine(match));
     }
 
     private void OnComboFinished(Combo combo)
@@ -47,25 +40,34 @@ public class ComboUI : MonoBehaviour
         StartCoroutine(OnComboFinishedDelayed());
     }
 
+    private IEnumerator UpdateComboUICoroutine(Match match)
+    {
+        Match value = match;
+        
+        yield return new WaitUntil(() => !_updatingCombo);
+        _updatingCombo = true;
+        
+        _progressQueue.Enqueue(value);
+        HandleProgressQueue();
+        
+        _updatingCombo = false;
+    }
+
     private IEnumerator OnComboFinishedDelayed()
     {
-        _syncMutex.WaitOne();
+        yield return new WaitUntil(() => !_updatingCombo);
+        _updatingCombo = true;
         
         yield return new WaitForSeconds(ResetUIDelay);
         ResetComboUI();
+        ClearProgress();
 
         yield return new WaitForSeconds(ClearProgressDelay);
-        ClearProgress();
-        
-        while (_progressQueue.Count > ComboSlots.Count)
-            for (int i = 0; i < ComboSlots.Count; i++)
-                _ = _progressQueue.Dequeue();
-
         for (int i = 0; i < ComboSlots.Count; i++)
             if (!HandleProgressQueue())
                 break;
-        
-        _syncMutex.ReleaseMutex();
+
+        _updatingCombo = false;
     }
 
     private void ClearProgress()
@@ -75,7 +77,7 @@ public class ComboUI : MonoBehaviour
 
     private void EnableSlot(int index, bool enable = true)
     {
-        ComboSlots[index].BaitAnimator.SetTrigger(enable ? OpenTriggerName : CloseTriggerName);
+        ComboSlots[index].BaitAnimator.SetBool(DisplayBoolName, enable);
     }
 
     private bool HandleProgressQueue()

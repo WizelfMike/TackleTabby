@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 7758300779307816802}
   - component: {fileID: 5622640709915112149}
   - component: {fileID: 6189375354355820230}
+  - component: {fileID: 2465050305447053543}
   m_Layer: 5
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -189,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CaughtFishDisplayImage: {fileID: 834999911736510917}
-  OnFirstBaitMatchTriggerName: OnFirstBaitTrigger
+  OnFirstBaitMatchBoolName: OnFirstBaitBool
   OnCaughtFishTriggerName: OnCaughtFishTrigger
   OnCaughtTrashTriggerName: OnCaughtTrashTrigger
   OnSleepTriggerNames:
@@ -227,6 +228,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2465050305447053543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075417818069677615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1830782ff3651a14b90655bfb464ad01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FishPopUp: {fileID: 0}
+  AudioHandler: {fileID: 0}
 --- !u!1 &8842993833571555825
 GameObject:
   m_ObjectHideFlags: 0
