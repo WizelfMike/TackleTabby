@@ -15,6 +15,8 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     [Header("Animation")]
     [SerializeField]
     private Animator OpenCloseAnimator;
+    [SerializeField]
+    private string DisplayBoolName;
 
     [Header("System")]
     [SerializeField]
@@ -24,8 +26,22 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
 
+    private bool IsOpen
+    {
+        get => _isOpen;
+        set
+        {
+            if (value == _isOpen)
+                return;
+
+            _isOpen = value;
+            OpenCloseAnimator.SetBool(DisplayBoolName, _isOpen);
+        }
+    }
+
     private readonly Queue<CaughtFish> _fishCaughtQueue = new();
     private readonly Queue<TrashDefinition> _trashCaughtQueue = new();
+    
     private bool _isOpen = false;
 
     private void Start()
@@ -77,8 +93,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
         if (MenuCommunicator.Instance.HasMenuOpen && MenuCommunicator.Instance.CurrentMenu != this)
             MenuCommunicator.Instance.ForceCloseCurrentMenu();
         
-        OpenCloseAnimator.SetTrigger("OpenTrigger");
-        _isOpen = true;
+        IsOpen = true;
         NextInQueue();
         OnOpened.Invoke(this);
         MenuCommunicator.Instance.OpenedMenu(this);
@@ -86,8 +101,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
 
     public void CloseOverlay()
     {
-        OpenCloseAnimator.SetTrigger("CloseTrigger");
-        _isOpen = false;
+        IsOpen = false;
         OnClosed.Invoke(this);
         MenuCommunicator.Instance.ClosedMenu(this);
     }

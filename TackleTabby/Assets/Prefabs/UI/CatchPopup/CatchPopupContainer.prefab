@@ -129,6 +129,7 @@ MonoBehaviour:
   CaughtDisplay: {fileID: 8636603960950440337}
   TextMessage: {fileID: 2206415252230322065}
   OpenCloseAnimator: {fileID: 1698357078957811857}
+  DisplayBoolName: DisplayBool
   FishManager: {fileID: 0}
   OnOpened:
     m_PersistentCalls:
