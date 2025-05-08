@@ -21,6 +21,21 @@ public class CookBookEntry : MonoBehaviour
     [Header("Animation")]
     [SerializeField]
     private Animator Animator;
+    [SerializeField]
+    private string OpenBoolName = "IsOpenBool";
+
+    private bool IsOpen
+    {
+        get => _isOpen;
+        set
+        {
+            if (value == _isOpen)
+                return;
+            
+            _isOpen = value;
+            Animator.SetBool(OpenBoolName, _isOpen);
+        }
+    }
 
     private Sprite _displayingFishSprite;
     private Sprite _displayingBaitSprite;
@@ -37,10 +52,7 @@ public class CookBookEntry : MonoBehaviour
         DisplayFish(fishType, isFishLocked);
         DisplayBait(bait, isBaitLocked);
         
-        if (!_isOpen)
-            Animator.SetTrigger("OpenTrigger");
-
-        _isOpen = true;
+        IsOpen = true;
     }
 
     public void Close()
@@ -48,10 +60,7 @@ public class CookBookEntry : MonoBehaviour
         _displayingFishSprite = null;
         _displayingBaitSprite = null;
         
-        if (_isOpen)
-            Animator.SetTrigger("CloseTrigger");
-        
-        _isOpen = false;
+        IsOpen = false;
     }
 
     private void DisplayFish(FishDefinition fishType, bool isLocked)
