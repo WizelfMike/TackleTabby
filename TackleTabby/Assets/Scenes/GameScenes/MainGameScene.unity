@@ -12154,6 +12154,10 @@ PrefabInstance:
       propertyPath: ComboTracker
       value: 
       objectReference: {fileID: 629226414}
+    - target: {fileID: 6290035650546136509, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
+      propertyPath: DisplayBoolName
+      value: DisplayBool
+      objectReference: {fileID: 0}
     - target: {fileID: 6657235027999074105, guid: 73feff41f66609c488efbf50ab694d6e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
