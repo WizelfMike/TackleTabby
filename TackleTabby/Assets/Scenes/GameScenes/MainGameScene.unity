@@ -267,8 +267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 25151453}
@@ -478,8 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 79585130}
@@ -632,8 +632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 108718179}
@@ -1022,8 +1022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 128028681}
@@ -1437,8 +1437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 206998508}
@@ -3021,8 +3021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 529069997}
@@ -3175,8 +3175,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 531597789}
@@ -3470,8 +3470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 578019287}
@@ -3924,8 +3924,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 617285920}
@@ -4338,8 +4338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 703724504}
@@ -4567,8 +4567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 828423218}
@@ -5015,8 +5015,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 873878580}
@@ -5737,8 +5737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 990710376}
@@ -6002,8 +6002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1076748792}
@@ -6363,8 +6363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1120876377}
@@ -6702,8 +6702,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1219524961}
@@ -6943,8 +6943,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1266654872}
@@ -7304,8 +7304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1329678788}
@@ -7613,8 +7613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1402224505}
@@ -7767,8 +7767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1410937335}
@@ -7921,8 +7921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1422147407}
@@ -8122,8 +8122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1426325539}
@@ -9546,8 +9546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1679534239}
@@ -9832,8 +9832,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1739029201}
@@ -10356,8 +10356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1885466597}
@@ -12099,8 +12099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1830782ff3651a14b90655bfb464ad01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPopUp: {fileID: 5769010154972043552}
-  audioHandler: {fileID: 1769830538}
+  FishPopUp: {fileID: 5769010154972043552}
+  AudioHandler: {fileID: 1769830538}
 --- !u!1001 &1923481923890966111
 PrefabInstance:
   m_ObjectHideFlags: 0
