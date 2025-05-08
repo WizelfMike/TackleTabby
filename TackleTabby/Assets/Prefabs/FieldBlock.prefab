@@ -199,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
+  GravityStrength: 50
+  TerminalVelocity: 25
   MaxLossyScaleDistance: 0.5
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 2156858513058524042}
