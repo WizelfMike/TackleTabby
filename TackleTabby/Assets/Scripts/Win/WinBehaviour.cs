@@ -14,15 +14,26 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
     public UnityEvent<IOverlayMenu> OnClosed;
 
     private bool _isOpen = false;
+    private bool _hasWinReady = false;
+    private bool _closed = false;
+
+    public void ReadyWin()
+    {
+        _hasWinReady = true;
+    }
 
     [ContextMenu("UI Tests/Open UI")]
     public void OpenOverlay()
     {
+        if (!_hasWinReady || _closed)
+            return;
+        
         if (_isOpen)
             return;
 
         StartCoroutine(OpenOverlayCoroutine());
         _isOpen = true;
+        _hasWinReady = false;
     }
 
     [ContextMenu("UI Tests/Close UI")]
@@ -30,6 +41,7 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
     {
         WinPanelAnimator.SetTrigger("ExitWin");
         _isOpen = false;
+        _closed = true;
 
         OnClosed.Invoke(this);
 
@@ -58,9 +70,7 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
 
     private IEnumerator OpenOverlayCoroutine()
     {
-        yield return new WaitForSeconds(0.5f);
-        while (MenuCommunicator.Instance.HasMenuOpen)
-            yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => !MenuCommunicator.Instance.HasMenuOpen);
 
         WinPanel.SetActive(true);
 
