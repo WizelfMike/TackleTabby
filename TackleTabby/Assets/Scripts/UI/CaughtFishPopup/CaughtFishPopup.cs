@@ -90,7 +90,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     
     public void OpenOverlay()
     {
-        if (MenuCommunicator.Instance.HasMenuOpen && MenuCommunicator.Instance.CurrentMenu != this)
+        if (MenuCommunicator.Instance.HasMenuOpen && !ReferenceEquals(MenuCommunicator.Instance.CurrentMenu, this))
             MenuCommunicator.Instance.ForceCloseCurrentMenu();
         
         IsOpen = true;
