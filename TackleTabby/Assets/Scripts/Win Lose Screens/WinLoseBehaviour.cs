@@ -2,12 +2,12 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WinBehaviour : MonoBehaviour, IOverlayMenu
+public class WinLoseBehaviour : MonoBehaviour, IOverlayMenu
 {
     [SerializeField]
-    private GameObject WinPanel;
+    private GameObject EndPanel;
     [SerializeField]
-    private Animator WinPanelAnimator;
+    private Animator EndPanelAnimator;
 
     [Header("Events")]
     public UnityEvent<IOverlayMenu> OnOpened;
@@ -18,6 +18,9 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
     [ContextMenu("UI Tests/Open UI")]
     public void OpenOverlay()
     {
+        if (!enabled || !gameObject.activeSelf)
+            return;
+        
         if (_isOpen)
             return;
 
@@ -28,7 +31,7 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
     [ContextMenu("UI Tests/Close UI")]
     public void CloseOverlay()
     {
-        WinPanelAnimator.SetTrigger("ExitWin");
+        EndPanelAnimator.SetTrigger("ExitWin");
         _isOpen = false;
 
         OnClosed.Invoke(this);
@@ -62,9 +65,9 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
         while (MenuCommunicator.Instance.HasMenuOpen)
             yield return new WaitForSeconds(0.5f);
 
-        WinPanel.SetActive(true);
+        EndPanel.SetActive(true);
 
-        WinPanelAnimator.SetTrigger("PlayWin");
+        EndPanelAnimator.SetTrigger("PlayWin");
 
         OnOpened.Invoke(this);
 

@@ -83,7 +83,7 @@ public class SaveManager : MonoBehaviour
     }
 
     [ContextMenu("Reseting/Reset")]
-    private void ResetProgress()
+    public void ResetProgress()
     {
 #if SAVE_ENABLED
         if (!enabled || !gameObject.activeSelf)
