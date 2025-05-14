@@ -68,28 +68,43 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
         OpenOverlay();
     }
 
-    public void NextInQueue()
+    private bool TestQueue()
     {
-        if (!_isOpen)
-            return;
+        return _fishCaughtQueue.Count + _trashCaughtQueue.Count > 0;
+    }
+
+    private bool NextInQueue()
+    {
+        if (!_isOpen || !TestQueue())
+            return false;
 
         if (GetFromFishQueue(out CaughtFish fish))
         {
             DisplayFish(fish);
-            return;
+            return true;
         }
 
         if (GetFromTrashQueue(out TrashDefinition trash))
         {
             DisplayTrash(trash);
-            return;
+            return true;
         }
         
-        CloseOverlay();
+        return false;
+    }
+
+    public void ConfirmToNext()
+    {
+        if (!NextInQueue())
+            CloseOverlay();
     }
     
+    [ContextMenu("Overlay/Open")]
     public void OpenOverlay()
     {
+        if (!TestQueue())
+            return;
+        
         if (MenuCommunicator.Instance.HasMenuOpen && !ReferenceEquals(MenuCommunicator.Instance.CurrentMenu, this))
             MenuCommunicator.Instance.ForceCloseCurrentMenu();
 
@@ -106,6 +121,7 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
         MenuCommunicator.Instance.OpenedMenu(this);
     }
 
+    [ContextMenu("Overlay/Close")]
     public void CloseOverlay()
     {
         IsOpen = false;
