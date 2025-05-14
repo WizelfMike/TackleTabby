@@ -495,7 +495,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5181481499435501205}
         m_TargetAssemblyTypeName: CaughtFishPopup, Assembly-CSharp
-        m_MethodName: NextInQueue
+        m_MethodName: ConfirmToNext
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
