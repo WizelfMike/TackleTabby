@@ -92,10 +92,17 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     {
         if (MenuCommunicator.Instance.HasMenuOpen && !ReferenceEquals(MenuCommunicator.Instance.CurrentMenu, this))
             MenuCommunicator.Instance.ForceCloseCurrentMenu();
+
+        bool previousOpen = IsOpen;
         
         IsOpen = true;
-        NextInQueue();
-        OnOpened.Invoke(this);
+        
+        if (!previousOpen)
+        {
+            NextInQueue();
+            OnOpened.Invoke(this);
+        }
+        
         MenuCommunicator.Instance.OpenedMenu(this);
     }
 
