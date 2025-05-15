@@ -15,7 +15,6 @@ public class FieldMatchValidator : GenericSingleton<FieldMatchValidator>
         if (!enabled || !gameObject.activeSelf)
             return false;
 
-
         int size = match.Count;
         
         if (size < MinimalRequiredMatchSize - 1)
