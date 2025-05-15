@@ -335,8 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfdd20ed8f43f74090439c63ada3814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinPanel: {fileID: 6585571956201918704}
-  WinPanelAnimator: {fileID: 4808593636938007170}
+  Animator: {fileID: 4808593636938007170}
   OnOpened:
     m_PersistentCalls:
       m_Calls:

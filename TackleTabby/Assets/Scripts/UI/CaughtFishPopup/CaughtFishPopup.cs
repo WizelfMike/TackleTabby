@@ -102,6 +102,9 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     [ContextMenu("Overlay/Open")]
     public void OpenOverlay()
     {
+        if (!enabled || !gameObject.activeSelf)
+            return;
+        
         if (!TestQueue())
             return;
         
