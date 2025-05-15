@@ -3927,10 +3927,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
-      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -3941,7 +3937,7 @@ PrefabInstance:
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1769830538}
+      objectReference: {fileID: 1935322609}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -3949,14 +3945,6 @@ PrefabInstance:
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
-      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateCombo
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
-      propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayFmodOneShot
       objectReference: {fileID: 0}
     - target: {fileID: 5313948735595842810, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchDestroyed.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
@@ -3980,11 +3968,35 @@ PrefabInstance:
       objectReference: {fileID: 2111521601}
     - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1769830538}
     - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayFmodOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: event:/Bait Sounds/BaitPop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373545152880839615, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
+      propertyPath: OnMatchFound.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6446499897111832942, guid: 9848ff7f7c80aa94daff9628344294f5, type: 3}
       propertyPath: m_Name
@@ -12823,6 +12835,10 @@ PrefabInstance:
       propertyPath: SaveManager
       value: 
       objectReference: {fileID: 1935322609}
+    - target: {fileID: 7067417137796858609, guid: 6be36d41992262447993ef7f49965f3b, type: 3}
+      propertyPath: AudioHandler
+      value: 
+      objectReference: {fileID: 1769830538}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
