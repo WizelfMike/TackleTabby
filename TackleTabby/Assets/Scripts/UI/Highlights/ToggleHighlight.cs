@@ -7,38 +7,45 @@ using UnityEngine.Events;
 using UnityEngine.UIElements;
 public class ToggleHighlight : MonoBehaviour , IOverlayMenu
 {
-    [SerializeField]
-    private Encyclopedia Encyclopedia;
+    [SerializeField] 
+    private PauzeTime PauzeTime;
+    
     [SerializeField]
     private Canvas CatalogueCanvas;
     [SerializeField] 
     private Canvas HungerBarCanvas;
-
     [SerializeField] 
-    private GameObject FieldGrayout;
+    private Canvas CookBookCanvas;
+
+    
     [SerializeField] 
     private GameObject CatalogueHighlight;
     [SerializeField]
     private GameObject HungerBarHighlight;
+    [SerializeField]
+    private GameObject CookBookHighlight;
     
     [SerializeField]
     private float WaitingTime = 0.5f;
 
     [SerializeField] 
     private Animator Animator;
-    
+
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
 
     public bool AlreadyCaughtFish => _alreadyCaughtFish;
     public bool AlreadyCaughtTrash => _alreadyCaughtTrash;
-
+    public bool AlreadyShowedCookBook => _alreadyShowedCookBook;
+    
     private GameObject _currentHighlight;
     private Canvas _currentCanvas;
     private bool _mayCheck = true;
     private bool _alreadyCaughtFish;
     private bool _alreadyCaughtTrash;
+    private bool _alreadyShowedCookBook;
     private bool _isOpen;
+    private string _currentAnimation;
 
     public void SetTutorialProgress(bool alreadyCaughtFish, bool alreadyCaughtTrash)
     {
@@ -51,31 +58,58 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
         _mayCheck = true;
     }
 
-    public void CheckCaught(bool caughtAFish)
+    public void CheckCaught(string tutorialName) 
     {
         if (!_mayCheck)
             return;
-        
-        if (caughtAFish && !_alreadyCaughtFish)
+
+        switch (tutorialName)
         {
-            _mayCheck = false;
-            _alreadyCaughtFish = true;
-            _currentCanvas = CatalogueCanvas;
-            _currentHighlight = CatalogueHighlight;
-            Animator.SetBool("IsCatalogue", true);
-            OpenOverlay();
-            return;
+            case "Fish":
+                if (_alreadyCaughtFish)
+                    break;
+
+                _alreadyCaughtFish = true;
+                _currentAnimation = "IsCatalogue";
+                OpenHighlight(CatalogueCanvas, CatalogueHighlight);
+                break;
+            case "Trash":
+                if (_alreadyCaughtTrash)
+                    break;
+                _alreadyCaughtTrash = true;
+                _currentAnimation = "IsHungerBar";
+                print("Trash");
+                OpenHighlight(HungerBarCanvas, HungerBarHighlight);
+                break;
+            case "CookBook":
+                if (_alreadyShowedCookBook)
+                    break;
+                
+                _currentAnimation = "IsCookBook";
+                OpenHighlight(CookBookCanvas, CookBookHighlight);
+                break;
         }
-        
-        if (_alreadyCaughtTrash || caughtAFish)
-            return;
-        
+    }
+
+    public void CorrectlyClosedCookBook()
+    {
+        _alreadyShowedCookBook = true;
+        CloseOverlay();
+    }
+    
+    private void OpenHighlight(Canvas currentCanvas, GameObject currentHighlight)
+    {
+        print("caught something");
         _mayCheck = false;
-        _alreadyCaughtTrash = true;
-        _currentCanvas = HungerBarCanvas;
-        _currentHighlight = HungerBarHighlight;
-        Animator.SetBool("IsCatalogue", false);
+        _currentCanvas = currentCanvas;
+        _currentHighlight = currentHighlight;
+        Animator.SetBool(_currentAnimation, true);
         OpenOverlay();
+    }
+
+    public void Pauze()
+    {
+        PauzeTime.Pauze();
     }
     
     public void OpenOverlay()
@@ -94,7 +128,8 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
         
         CatalogueCanvas.sortingOrder = -1;
         HungerBarCanvas.sortingOrder = -1;
-        Animator.SetTrigger("CloseTrigger");
+        CookBookCanvas.sortingOrder = -1;
+        Animator.SetBool(_currentAnimation, false);
         _isOpen = false;
         MenuCommunicator.Instance.ClosedMenu(this);
     }
