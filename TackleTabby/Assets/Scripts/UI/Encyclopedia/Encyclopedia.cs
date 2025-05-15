@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -134,7 +135,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         FishDisplayImage.color = Color.black;
         FishSizeDisplay.enabled = false;
         
-        FishNameDisplay.SetText(fishType.DisplayName.Select(x => x == ' ' ? x : '?').ToArray());
+        FishNameDisplay.SetText("???");
         FishDisplayImage.sprite = fishType.FishSprite;
 
         for (int i = 0; i < BaitDisplayImages.Length; i++)
@@ -274,6 +275,11 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
     public IReadOnlyDictionary<FishDefinition, CaughtFish> RetrieveFishProgress()
     {
         return new ReadOnlyDictionary<FishDefinition, CaughtFish>(_fishProgress);
+    }
+
+    public ICollection<BaitDefinition> RetrieveBaitProgress()
+    {
+        return _baitProgress.AsReadOnlyCollection();
     }
 
     public int ReturnCaughtAmount()

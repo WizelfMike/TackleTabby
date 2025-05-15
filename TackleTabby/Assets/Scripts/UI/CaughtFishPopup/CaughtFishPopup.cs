@@ -15,6 +15,8 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     [Header("Animation")]
     [SerializeField]
     private Animator OpenCloseAnimator;
+    [SerializeField]
+    private string DisplayBoolName;
 
     [Header("System")]
     [SerializeField]
@@ -24,8 +26,22 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
 
+    private bool IsOpen
+    {
+        get => _isOpen;
+        set
+        {
+            if (value == _isOpen)
+                return;
+
+            _isOpen = value;
+            OpenCloseAnimator.SetBool(DisplayBoolName, _isOpen);
+        }
+    }
+
     private readonly Queue<CaughtFish> _fishCaughtQueue = new();
     private readonly Queue<TrashDefinition> _trashCaughtQueue = new();
+    
     private bool _isOpen = false;
 
     private void Start()
@@ -52,42 +68,63 @@ public class CaughtFishPopup : MonoBehaviour, IOverlayMenu
         OpenOverlay();
     }
 
-    public void NextInQueue()
+    private bool TestQueue()
     {
-        if (!_isOpen)
-            return;
+        return _fishCaughtQueue.Count + _trashCaughtQueue.Count > 0;
+    }
+
+    private bool NextInQueue()
+    {
+        if (!_isOpen || !TestQueue())
+            return false;
 
         if (GetFromFishQueue(out CaughtFish fish))
         {
             DisplayFish(fish);
-            return;
+            return true;
         }
 
         if (GetFromTrashQueue(out TrashDefinition trash))
         {
             DisplayTrash(trash);
-            return;
+            return true;
         }
         
-        CloseOverlay();
+        return false;
+    }
+
+    public void ConfirmToNext()
+    {
+        if (!NextInQueue())
+            CloseOverlay();
     }
     
+    [ContextMenu("Overlay/Open")]
     public void OpenOverlay()
     {
-        if (MenuCommunicator.Instance.HasMenuOpen && MenuCommunicator.Instance.CurrentMenu != this)
-            MenuCommunicator.Instance.ForceCloseCurrentMenu();
+        if (!TestQueue())
+            return;
         
-        OpenCloseAnimator.SetTrigger("OpenTrigger");
-        _isOpen = true;
-        NextInQueue();
-        OnOpened.Invoke(this);
+        if (MenuCommunicator.Instance.HasMenuOpen && !ReferenceEquals(MenuCommunicator.Instance.CurrentMenu, this))
+            MenuCommunicator.Instance.ForceCloseCurrentMenu();
+
+        bool previousOpen = IsOpen;
+        
+        IsOpen = true;
+        
+        if (!previousOpen)
+        {
+            NextInQueue();
+            OnOpened.Invoke(this);
+        }
+        
         MenuCommunicator.Instance.OpenedMenu(this);
     }
 
+    [ContextMenu("Overlay/Close")]
     public void CloseOverlay()
     {
-        OpenCloseAnimator.SetTrigger("CloseTrigger");
-        _isOpen = false;
+        IsOpen = false;
         OnClosed.Invoke(this);
         MenuCommunicator.Instance.ClosedMenu(this);
     }

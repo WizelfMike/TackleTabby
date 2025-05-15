@@ -14,11 +14,21 @@ public class WinLoseBehaviour : MonoBehaviour, IOverlayMenu
     public UnityEvent<IOverlayMenu> OnClosed;
 
     private bool _isOpen = false;
+    private bool _hasWinReady = false;
+    private bool _closed = false;
+
+    public void ReadyWin()
+    {
+        _hasWinReady = true;
+    }
 
     [ContextMenu("UI Tests/Open UI")]
     public void OpenOverlay()
     {
         if (!enabled || !gameObject.activeSelf)
+            return;
+
+        if (!_hasWinReady || _closed)
             return;
         
         if (_isOpen)
@@ -26,6 +36,7 @@ public class WinLoseBehaviour : MonoBehaviour, IOverlayMenu
 
         StartCoroutine(OpenOverlayCoroutine());
         _isOpen = true;
+        _hasWinReady = false;
     }
 
     [ContextMenu("UI Tests/Close UI")]
@@ -33,6 +44,7 @@ public class WinLoseBehaviour : MonoBehaviour, IOverlayMenu
     {
         EndPanelAnimator.SetTrigger("ExitWin");
         _isOpen = false;
+        _closed = true;
 
         OnClosed.Invoke(this);
 
@@ -61,9 +73,7 @@ public class WinLoseBehaviour : MonoBehaviour, IOverlayMenu
 
     private IEnumerator OpenOverlayCoroutine()
     {
-        yield return new WaitForSeconds(0.5f);
-        while (MenuCommunicator.Instance.HasMenuOpen)
-            yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => !MenuCommunicator.Instance.HasMenuOpen);
 
         EndPanel.SetActive(true);
 

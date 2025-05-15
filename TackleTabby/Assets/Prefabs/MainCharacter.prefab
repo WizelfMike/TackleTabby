@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 7758300779307816802}
   - component: {fileID: 5622640709915112149}
   - component: {fileID: 6189375354355820230}
-  - component: {fileID: 6767920072988161376}
+  - component: {fileID: 2465050305447053543}
   m_Layer: 5
   m_Name: MainCharacter
   m_TagString: Untagged
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CaughtFishDisplayImage: {fileID: 834999911736510917}
-  OnFirstBaitMatchBoolName: 
+  OnFirstBaitMatchBoolName: OnFirstBaitBool
   OnCaughtFishTriggerName: OnCaughtFishTrigger
   OnCaughtTrashTriggerName: OnCaughtTrashTrigger
   OnSleepTriggerNames:
@@ -228,7 +228,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6767920072988161376
+--- !u!114 &2465050305447053543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

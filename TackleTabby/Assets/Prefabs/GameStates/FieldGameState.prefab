@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MatchMediator: {fileID: 6373545152880839615}
   BlockPool: {fileID: 3626944262821222184}
-  RemovalDelaySeconds: 0.5
+  RemovalDelaySeconds: 0.8
   SimulationBait: {fileID: 0}
   SimulationFish: []
   FishSimulationDelay: 0.3
