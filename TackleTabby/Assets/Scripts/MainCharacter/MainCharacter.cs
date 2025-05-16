@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MonoBehaviour
@@ -15,6 +17,10 @@ public class MainCharacter : MonoBehaviour
     private string OnCaughtFishTriggerName;
     [SerializeField]
     private string OnCaughtTrashTriggerName;
+    [SerializeField]
+    private string OnCaughtSpecificFishIntName;
+    [SerializeField]
+    private FishDefinition[] SpecificFishAnimations;
     [SerializeField]
     private string[] OnSleepTriggerNames;
     [SerializeField]
@@ -37,7 +43,7 @@ public class MainCharacter : MonoBehaviour
         {
             if (value < 0)
                 return;
-            
+
             _createdFirstMatchCount = value;
             _animator.SetBool(_onFirstBaitMatchBool, CreatedFirstMatchCount > 0);
         }
@@ -50,7 +56,7 @@ public class MainCharacter : MonoBehaviour
             OnTimerReset = OnSleepTimerReset,
             OnTimerRanOut = OnSleepTimerRanOut
         };
-            
+
         _animator = GetComponent<Animator>();
 
         _onFirstBaitMatchBool = Animator.StringToHash(OnFirstBaitMatchBoolName);
@@ -78,6 +84,11 @@ public class MainCharacter : MonoBehaviour
     {
         if (!_hasFirstBait)
             return;
+
+        _animator.SetInteger(
+            OnCaughtSpecificFishIntName,
+            Array.IndexOf(SpecificFishAnimations, fish.FishType.Expand())
+        );
 
         _hasFirstBait = false;
         _catchDisplaySprite = fish.FishType.Expand().FishSprite;
@@ -110,7 +121,7 @@ public class MainCharacter : MonoBehaviour
     {
         foreach (string onSleepTriggerName in OnSleepTriggerNames)
             _animator.ResetTrigger(onSleepTriggerName);
-        
+
         _animator.SetTrigger(OnSleepTriggerNames[Random.Range(0, OnSleepTriggerNames.Length)]);
     }
     

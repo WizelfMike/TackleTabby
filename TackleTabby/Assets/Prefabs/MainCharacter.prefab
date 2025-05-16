@@ -193,6 +193,9 @@ MonoBehaviour:
   OnFirstBaitMatchBoolName: OnFirstBaitBool
   OnCaughtFishTriggerName: OnCaughtFishTrigger
   OnCaughtTrashTriggerName: OnCaughtTrashTrigger
+  OnCaughtSpecificFishIntName: OnCaughtSpecFish
+  SpecificFishAnimations:
+  - {fileID: 11400000, guid: 5a82f691bae72ba43b80aba9b411f510, type: 2}
   OnSleepTriggerNames:
   - OnSleepOneTrigger
   - OnSleepTwoTrigger
@@ -209,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc8a0541af12fa4cb19a9688ba96791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StomachSize: 10
+  StomachSize: 6
   OnStarving:
     m_PersistentCalls:
       m_Calls: []
