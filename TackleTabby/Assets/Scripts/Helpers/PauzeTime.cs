@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class PauzeTime : MonoBehaviour
+public static class PauzeTime
 {
-    public void Pauze()
+    public static void Pauze()
     {
         Time.timeScale = 0;
     }
 
-    public void Resume()
+    public static void Resume()
     {
         Time.timeScale = 1;
     }

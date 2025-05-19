@@ -7,9 +7,6 @@ using UnityEngine.Events;
 using UnityEngine.UIElements;
 public class ToggleHighlight : MonoBehaviour , IOverlayMenu
 {
-    [SerializeField] 
-    private PauzeTime PauzeTime;
-    
     [SerializeField]
     private Canvas CatalogueCanvas;
     [SerializeField] 
