@@ -9,13 +9,13 @@ public class Bucket : MonoBehaviour
     [SerializeField]
     private string OnWiggleTriggerName;
 
-    private DeltaTimer _WiggleTimer;
+    private DeltaTimer _wiggleTimer;
     private Animator _animator;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _WiggleTimer = new DeltaTimer(WiggleTimeoutSeconds)
+        _wiggleTimer = new DeltaTimer(WiggleTimeoutSeconds)
         {
             OnTimerRanOut = OnWiggleTimerRanOut,
         };
@@ -23,13 +23,13 @@ public class Bucket : MonoBehaviour
 
     private void Update()
     {
-        if (_WiggleTimer.IsRunning)
-            _WiggleTimer.Update(Time.deltaTime);
+        if (_wiggleTimer.IsRunning)
+            _wiggleTimer.Update(Time.deltaTime);
     }
 
     private void OnWiggleTimerRanOut()
     {
         _animator.SetTrigger(OnWiggleTriggerName);
-        _WiggleTimer.Reset();
+        _wiggleTimer.Reset();
     }
 }
