@@ -52,6 +52,7 @@ public class MovingWater : MonoBehaviour
             case NonFlaggedDirections.Right:
                 UpdateToRight(offset);
                 break;
+    
             case NonFlaggedDirections.Left:
                 UpdateToLeft(offset);
                 break;
