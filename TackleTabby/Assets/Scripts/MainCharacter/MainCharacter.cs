@@ -1,6 +1,7 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Animator))]
 public class MainCharacter : MonoBehaviour
@@ -17,6 +18,10 @@ public class MainCharacter : MonoBehaviour
     [SerializeField]
     private string OnCaughtTrashTriggerName;
     [SerializeField]
+    private string OnCaughtSpecificFishIntName;
+    [SerializeField]
+    private FishDefinition[] SpecificFishAnimations;
+    [SerializeField]
     private string[] OnSleepTriggerNames;
     [SerializeField]
     private float SleepTimeoutSeconds = 2f;
@@ -28,6 +33,21 @@ public class MainCharacter : MonoBehaviour
     private bool _hasFirstBait = false;
     private Sprite _catchDisplaySprite = null;
     private DeltaTimer _sleepTimer;
+    private int _createdFirstMatchCount = 0;
+
+
+    private int CreatedFirstMatchCount
+    {
+        get => _createdFirstMatchCount;
+        set
+        {
+            if (value < 0)
+                return;
+
+            _createdFirstMatchCount = value;
+            _animator.SetBool(_onFirstBaitMatchBool, CreatedFirstMatchCount > 0);
+        }
+    }
 
     private void Start()
     {
@@ -36,7 +56,7 @@ public class MainCharacter : MonoBehaviour
             OnTimerReset = OnSleepTimerReset,
             OnTimerRanOut = OnSleepTimerRanOut
         };
-            
+
         _animator = GetComponent<Animator>();
 
         _onFirstBaitMatchBool = Animator.StringToHash(OnFirstBaitMatchBoolName);
@@ -56,7 +76,7 @@ public class MainCharacter : MonoBehaviour
             return;
         
         _hasFirstBait = true;
-        _animator.SetBool(_onFirstBaitMatchBool, true);
+        CreatedFirstMatchCount++;
         _sleepTimer.Reset();
     }
     
@@ -65,12 +85,16 @@ public class MainCharacter : MonoBehaviour
         if (!_hasFirstBait)
             return;
 
+        _animator.SetInteger(
+            OnCaughtSpecificFishIntName,
+            Array.IndexOf(SpecificFishAnimations, fish.FishType.Expand())
+        );
+
         _hasFirstBait = false;
         _catchDisplaySprite = fish.FishType.Expand().FishSprite;
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = fish.FishType.Expand().MouthPivot;
         _animator.SetTrigger(_onCaughtFishTrigger);
-        StartCoroutine(DisableBaitBool());
         _sleepTimer.Reset();
     }
 
@@ -84,7 +108,6 @@ public class MainCharacter : MonoBehaviour
         CaughtFishDisplayImage.sprite = _catchDisplaySprite;
         CaughtFishDisplayImage.rectTransform.pivot = new Vector2(0.5f, 0.5f);
         _animator.SetTrigger(_onCaughtTrashTrigger);
-        StartCoroutine(DisableBaitBool());
         _sleepTimer.Reset();
     }
 
@@ -98,13 +121,12 @@ public class MainCharacter : MonoBehaviour
     {
         foreach (string onSleepTriggerName in OnSleepTriggerNames)
             _animator.ResetTrigger(onSleepTriggerName);
-        
+
         _animator.SetTrigger(OnSleepTriggerNames[Random.Range(0, OnSleepTriggerNames.Length)]);
     }
-
-    private IEnumerator DisableBaitBool()
+    
+    private void DisableBaitBool()
     {
-        yield return new WaitForSeconds(0.1f);
-        _animator.SetBool(_onFirstBaitMatchBool, false);
+        CreatedFirstMatchCount--;
     }
 }
