@@ -68,19 +68,21 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
             case "Fish":
                 if (_alreadyCaughtFish)
                     break;
-
+                
                 _alreadyCaughtFish = true;
                 _currentAnimation = "IsCatalogue";
                 OpenHighlight(CatalogueCanvas, CatalogueHighlight);
                 break;
+            
             case "Trash":
                 if (_alreadyCaughtTrash)
                     break;
+                
                 _alreadyCaughtTrash = true;
                 _currentAnimation = "IsHungerBar";
-                print("Trash");
                 OpenHighlight(HungerBarCanvas, HungerBarHighlight);
                 break;
+            
             case "CookBook":
                 if (_alreadyShowedCookBook)
                     break;
@@ -99,7 +101,6 @@ public class ToggleHighlight : MonoBehaviour , IOverlayMenu
     
     private void OpenHighlight(Canvas currentCanvas, GameObject currentHighlight)
     {
-        print("caught something");
         _mayCheck = false;
         _currentCanvas = currentCanvas;
         _currentHighlight = currentHighlight;
