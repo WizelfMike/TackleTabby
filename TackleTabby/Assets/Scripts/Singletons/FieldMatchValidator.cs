@@ -12,6 +12,9 @@ public class FieldMatchValidator : GenericSingleton<FieldMatchValidator>
 
     public bool ValidateMatch(FieldBlock caller, IReadOnlyList<FieldBlock> match)
     {
+        if (!enabled || !gameObject.activeSelf)
+            return false;
+
         int size = match.Count;
         
         if (size < MinimalRequiredMatchSize - 1)

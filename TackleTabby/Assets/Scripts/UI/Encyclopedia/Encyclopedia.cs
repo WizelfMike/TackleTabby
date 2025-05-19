@@ -135,7 +135,7 @@ public class Encyclopedia : MonoBehaviour, IOverlayMenu
         FishDisplayImage.color = Color.black;
         FishSizeDisplay.enabled = false;
         
-        FishNameDisplay.SetText(fishType.DisplayName.Select(x => x == ' ' ? x : '?').ToArray());
+        FishNameDisplay.SetText("???");
         FishDisplayImage.sprite = fishType.FishSprite;
 
         for (int i = 0; i < BaitDisplayImages.Length; i++)

@@ -41,6 +41,11 @@ public class AudioHandler : MonoBehaviour
         _backgroundMusic.setParameterByName("Catalogue Open", ParameterValue);
     }
 
+    public void EndMusicPlayback()
+    {
+        _backgroundMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
     public void SetMusicVolume(float volume)
     {
         MusicVolume = volume;

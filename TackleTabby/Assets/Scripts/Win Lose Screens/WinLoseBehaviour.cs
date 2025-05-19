@@ -2,30 +2,31 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class WinBehaviour : MonoBehaviour, IOverlayMenu
+public class WinLoseBehaviour : MonoBehaviour, IOverlayMenu
 {
     [SerializeField]
-    private GameObject WinPanel;
-    [SerializeField]
-    private Animator WinPanelAnimator;
+    private Animator Animator;
 
     [Header("Events")]
     public UnityEvent<IOverlayMenu> OnOpened;
     public UnityEvent<IOverlayMenu> OnClosed;
 
     private bool _isOpen = false;
-    private bool _hasWinReady = false;
+    private bool _isPrepared = false;
     private bool _closed = false;
 
-    public void ReadyWin()
+    public void Prepare()
     {
-        _hasWinReady = true;
+        _isPrepared = true;
     }
 
     [ContextMenu("UI Tests/Open UI")]
     public void OpenOverlay()
     {
-        if (!_hasWinReady || _closed)
+        if (!enabled || !gameObject.activeSelf)
+            return;
+
+        if (!_isPrepared || _closed)
             return;
         
         if (_isOpen)
@@ -33,13 +34,13 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
 
         StartCoroutine(OpenOverlayCoroutine());
         _isOpen = true;
-        _hasWinReady = false;
+        _isPrepared = false;
     }
 
     [ContextMenu("UI Tests/Close UI")]
     public void CloseOverlay()
     {
-        WinPanelAnimator.SetTrigger("ExitWin");
+        Animator.SetTrigger("ExitWin");
         _isOpen = false;
         _closed = true;
 
@@ -72,9 +73,7 @@ public class WinBehaviour : MonoBehaviour, IOverlayMenu
     {
         yield return new WaitUntil(() => !MenuCommunicator.Instance.HasMenuOpen);
 
-        WinPanel.SetActive(true);
-
-        WinPanelAnimator.SetTrigger("PlayWin");
+        Animator.SetTrigger("PlayWin");
 
         OnOpened.Invoke(this);
 
