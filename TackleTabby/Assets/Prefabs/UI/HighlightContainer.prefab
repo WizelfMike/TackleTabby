@@ -664,7 +664,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Open the catalogue to find your caught fishes.
+  m_text: 'Open the catalogue to find your caught fishes.
+
+
+    It is your goal to
+    complete the catalogue by catching all fishes.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab3245fa9735e404383e5461984e0faa, type: 2}
   m_sharedMaterial: {fileID: 550732093338335038, guid: ab3245fa9735e404383e5461984e0faa, type: 2}
@@ -699,7 +703,7 @@ MonoBehaviour:
   m_fontSizeMax: 60
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 8192
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -825,7 +829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da42e4e30b9efbd4abb080dc474dde02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauzeTime: {fileID: 0}
   CatalogueCanvas: {fileID: 0}
   HungerBarCanvas: {fileID: 0}
   CookBookCanvas: {fileID: 0}
