@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 25151453}
   OnLanded:
@@ -501,8 +501,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 79585130}
   OnLanded:
@@ -676,8 +676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 108718179}
   OnLanded:
@@ -890,18 +890,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1805164455}
         m_TargetAssemblyTypeName: ToggleHighlight, Assembly-CSharp
-        m_MethodName: HasClosed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1805164455}
-        m_TargetAssemblyTypeName: ToggleHighlight, Assembly-CSharp
         m_MethodName: CloseOverlay
         m_Mode: 1
         m_Arguments:
@@ -915,6 +903,18 @@ MonoBehaviour:
       - m_Target: {fileID: 849880804}
         m_TargetAssemblyTypeName: Encyclopedia, Assembly-CSharp
         m_MethodName: OpenOverlay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1805164455}
+        m_TargetAssemblyTypeName: ToggleHighlight, Assembly-CSharp
+        m_MethodName: HasClosed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1087,8 +1087,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 128028681}
   OnLanded:
@@ -1523,8 +1523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 206998508}
   OnLanded:
@@ -3128,8 +3128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 529069997}
   OnLanded:
@@ -3303,8 +3303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 531597789}
   OnLanded:
@@ -3619,8 +3619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 578019287}
   OnLanded:
@@ -4113,8 +4113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 617285920}
   OnLanded:
@@ -4548,8 +4548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 703724504}
   OnLanded:
@@ -4687,7 +4687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452134452211353607, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -373.057
+      value: -363.63638
       objectReference: {fileID: 0}
     - target: {fileID: 7727920025983039678, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_Pivot.x
@@ -4904,8 +4904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 828423218}
   OnLanded:
@@ -5383,8 +5383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 873878580}
   OnLanded:
@@ -6046,8 +6046,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 990710376}
   OnLanded:
@@ -6332,8 +6332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1076748792}
   OnLanded:
@@ -6714,8 +6714,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1120876377}
   OnLanded:
@@ -7074,8 +7074,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1219524961}
   OnLanded:
@@ -7336,8 +7336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1266654872}
   OnLanded:
@@ -7718,8 +7718,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1329678788}
   OnLanded:
@@ -8048,8 +8048,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1402224505}
   OnLanded:
@@ -8223,8 +8223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1410937335}
   OnLanded:
@@ -8398,8 +8398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1422147407}
   OnLanded:
@@ -8620,8 +8620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1426325539}
   OnLanded:
@@ -10005,8 +10005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1679534239}
   OnLanded:
@@ -10196,8 +10196,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1739029201}
   OnLanded:
@@ -10727,8 +10727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 1885466597}
   OnLanded:
@@ -11983,6 +11983,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1744050164397579971, guid: 7d48cca57d7ea5545b3d3174ce5fa1ba, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 11.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744050164397579971, guid: 7d48cca57d7ea5545b3d3174ce5fa1ba, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744050164397579971, guid: 7d48cca57d7ea5545b3d3174ce5fa1ba, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.125
+      objectReference: {fileID: 0}
     - target: {fileID: 6985685245625638140, guid: 7d48cca57d7ea5545b3d3174ce5fa1ba, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.8
@@ -13555,7 +13567,7 @@ PrefabInstance:
       objectReference: {fileID: 1136517567}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -13563,11 +13575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -13584,7 +13596,7 @@ PrefabInstance:
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1805164455}
+      objectReference: {fileID: 1721996328}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -13611,11 +13623,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: HasClosed
+      value: CheckCaught
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CheckCaught
+      value: OpenOverlay
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
@@ -13631,11 +13643,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: ToggleHighlight, Assembly-CSharp
+      value: WinBehaviour, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: WinBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
@@ -13646,8 +13662,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
-      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Fish
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
+      propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5181481499435501205, guid: bc34db89e4e3fc840a555c1e87229268, type: 3}
       propertyPath: OnClosed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GravityStrength: 50
-  TerminalVelocity: 25
-  MaxLossyScaleDistance: 0.5
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 2156858513058524042}
   OnLanded:
