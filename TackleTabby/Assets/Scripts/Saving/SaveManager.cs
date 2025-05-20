@@ -46,7 +46,8 @@ public class SaveManager : MonoBehaviour
             SavedFishList = toSaveDictionary.ToArray(),
             CaughtAmount = caughtFishAmount,
             AlreadyCaughtFish = ToggleHighlight.AlreadyCaughtFish,
-            AlreadyCaughtTrash = ToggleHighlight.AlreadyCaughtTrash
+            AlreadyCaughtTrash = ToggleHighlight.AlreadyCaughtTrash,
+            AlreadyShowedCookBook = ToggleHighlight.AlreadyShowedCookBook
         };
 
         string saveData = JsonConvert.SerializeObject(saveInstance);
