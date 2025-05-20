@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CookBook : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class CookBook : MonoBehaviour
     [SerializeField]
     private CookBookSetting Settings;
 
+    public UnityEvent OnCookBookOpen = new();
+    public UnityEvent OnCookBookClose = new();
+    
     private List<BaitDefinition> _matchProgress = new();
 
     private void Start()
@@ -30,6 +34,7 @@ public class CookBook : MonoBehaviour
 
     private void OnComboUpdated(Match match)
     {
+        OnCookBookOpen.Invoke();
         FishDefinition[] unlockedFish = Encyclopedia.RetrieveFishProgress().Keys.ToSmartArray();
         BaitDefinition[] unlockedBait = Encyclopedia.RetrieveBaitProgress().ToSmartArray();
         
@@ -56,6 +61,7 @@ public class CookBook : MonoBehaviour
 
     private void OnComboFinished(Combo combo)
     {
+        OnCookBookClose.Invoke();
         _matchProgress.Clear();
         
         foreach (CookBookEntry entry in Entries)
