@@ -4687,7 +4687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452134452211353607, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -363.63638
+      value: -640
       objectReference: {fileID: 0}
     - target: {fileID: 7727920025983039678, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_Pivot.x
@@ -12889,6 +12889,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3049976824533075779}
     m_Modifications:
+    - target: {fileID: 4735942527671314190, guid: 6be36d41992262447993ef7f49965f3b, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735942527671314190, guid: 6be36d41992262447993ef7f49965f3b, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5677868723985608175, guid: 6be36d41992262447993ef7f49965f3b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13392,12 +13400,48 @@ PrefabInstance:
     m_TransformParent: {fileID: 3049976824533075779}
     m_Modifications:
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1769830538}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1769830538}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlayFmodOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayFmodOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: AudioHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: event:/Cat Meows
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: event:/Fish Catch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5582741128346773087, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: m_Pivot.x
