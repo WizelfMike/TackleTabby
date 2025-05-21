@@ -47,6 +47,11 @@ public class ToProgressMover : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        ForceStopMoving();
+    }
+
     private void Update()
     {
         if (_isMoving)
