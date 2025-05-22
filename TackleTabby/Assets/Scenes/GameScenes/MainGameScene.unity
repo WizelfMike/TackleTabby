@@ -5788,6 +5788,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3049976824533075779}
     m_Modifications:
+    - target: {fileID: 45672706652716755, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 45672706652716755, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -240
+      objectReference: {fileID: 0}
     - target: {fileID: 3178877378569325376, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5868,6 +5876,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3525549882030790196, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585454491927455470, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4543373781636186444, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: PauzeTime
       value: 
@@ -5888,6 +5904,14 @@ PrefabInstance:
       propertyPath: HungerBarCanvas
       value: 
       objectReference: {fileID: 1676953256}
+    - target: {fileID: 4987108370973140657, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: m_text
+      value: 'When you have a single bait in your combo queue, you will get some
+        suggestions for valid combinations.
+
+        You can move the bait even without
+        making a match in order to create those valid combinations.'
+      objectReference: {fileID: 0}
     - target: {fileID: 6460417337527299433, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_Name
       value: HighlightContainer
@@ -13065,6 +13089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LosePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6401462467835484992, guid: 6be36d41992262447993ef7f49965f3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7067417137796858609, guid: 6be36d41992262447993ef7f49965f3b, type: 3}
       propertyPath: SaveManager
       value: 
@@ -13610,6 +13638,10 @@ PrefabInstance:
     - target: {fileID: 6585571956201918704, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: m_Name
       value: WinPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585571956201918704, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
