@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -25,6 +26,10 @@ public class MainCharacter : MonoBehaviour
     private string[] OnSleepTriggerNames;
     [SerializeField]
     private float SleepTimeoutSeconds = 2f;
+    [SerializeField]
+    private bool _mayWalkAway;
+
+    public UnityEvent OnLost = new();
 
     private Animator _animator;
     private int _onFirstBaitMatchBool = -1;
@@ -68,6 +73,10 @@ public class MainCharacter : MonoBehaviour
     {
         if (_sleepTimer.IsRunning)
             _sleepTimer.Update(Time.deltaTime);
+        if (_mayWalkAway)
+        {
+            OnWalkAway(Time.deltaTime);
+        }
     }
 
     public void OnCreatedMatch()
@@ -123,6 +132,18 @@ public class MainCharacter : MonoBehaviour
             _animator.ResetTrigger(onSleepTriggerName);
 
         _animator.SetTrigger(OnSleepTriggerNames[Random.Range(0, OnSleepTriggerNames.Length)]);
+    }
+
+    private void OnWalkAway(float time)
+    {
+        OnLost.Invoke();
+        float xPosition = transform.position.x - time * 1.5f;
+        transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
+    }
+
+    public void EnableWalkAway()
+    {
+        _mayWalkAway = true;
     }
     
     private void DisableBaitBool()
