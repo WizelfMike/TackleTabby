@@ -4687,7 +4687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6452134452211353607, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -363.63638
+      value: -640
       objectReference: {fileID: 0}
     - target: {fileID: 7727920025983039678, guid: ca1859f90f7e5f24abe43b99f4d4b57e, type: 3}
       propertyPath: m_Pivot.x
@@ -13489,7 +13489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -13509,7 +13509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: PlayFmodOneShot
+      value: SetMusicVolume
       objectReference: {fileID: 0}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -13517,7 +13517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: event:/Cat Meows
+      value: event:/WinTune
       objectReference: {fileID: 0}
     - target: {fileID: 4758972596746677438, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: OnOpened.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
@@ -13610,6 +13610,58 @@ PrefabInstance:
     - target: {fileID: 6585571956201918704, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
       propertyPath: m_Name
       value: WinPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1769830538}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1721996328}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CloseOverlay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: WinBehaviour, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569924739931453938, guid: 981bdd517f23da446a30a09199213a5d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
