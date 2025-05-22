@@ -72,10 +72,9 @@ public class MainCharacter : MonoBehaviour
     {
         if (_sleepTimer.IsRunning)
             _sleepTimer.Update(Time.deltaTime);
+        
         if (_mayWalkAway)
-        {
             OnWalkAway(Time.deltaTime);
-        }
     }
 
     public void OnCreatedMatch()
@@ -135,13 +134,18 @@ public class MainCharacter : MonoBehaviour
 
     private void OnWalkAway(float time)
     {
-        OnLost.Invoke();
         float xPosition = transform.position.x - time * 1.5f;
         transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
     }
 
+    public void PlayLoseAnimation()
+    {
+        _animator.SetTrigger("OnLoseGame");
+    }
+    
     public void EnableWalkAway()
     {
+        OnLost.Invoke();
         _mayWalkAway = true;
     }
     
