@@ -26,8 +26,6 @@ public class MainCharacter : MonoBehaviour
     private string[] OnSleepTriggerNames;
     [SerializeField]
     private float SleepTimeoutSeconds = 2f;
-    [SerializeField]
-    private bool _mayWalkAway;
 
     public UnityEvent OnLost = new();
 
@@ -36,6 +34,7 @@ public class MainCharacter : MonoBehaviour
     private int _onCaughtFishTrigger = -1;
     private int _onCaughtTrashTrigger = -1;
     private bool _hasFirstBait = false;
+    private bool _mayWalkAway;
     private Sprite _catchDisplaySprite = null;
     private DeltaTimer _sleepTimer;
     private int _createdFirstMatchCount = 0;
