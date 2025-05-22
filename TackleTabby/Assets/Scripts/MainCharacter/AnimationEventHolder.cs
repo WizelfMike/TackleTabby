@@ -4,10 +4,8 @@ public class AnimationEventHolder : MonoBehaviour
 {
     [SerializeField]
     private CaughtFishPopup FishPopUp;
-
     [SerializeField]
     private AudioHandler AudioHandler;
-
     public void PopUpFish()
     {
         PlayAnimationAudio("event:/Fish Catch");
