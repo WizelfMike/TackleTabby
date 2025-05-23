@@ -9,4 +9,5 @@ public class SaveInstance
     public int SavedSatiationAmount;
     public bool AlreadyCaughtFish;
     public bool AlreadyCaughtTrash;
+    public bool AlreadyShowedCookBook;
 }

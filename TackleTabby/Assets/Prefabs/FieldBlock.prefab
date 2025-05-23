@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 2156858513058524042}
   - component: {fileID: 6253624737462067451}
   - component: {fileID: 7574904681287063491}
+  - component: {fileID: 5021432426937584430}
   - component: {fileID: 5575594162835084037}
   m_Layer: 6
   m_Name: FieldBlock
@@ -199,12 +200,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f74aac688704be3b759111e89551f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GravityStrength: 15
-  TerminalVelocity: 10
-  MaxLossyScaleDistance: 0.5
+  GravityStrength: 50
+  TerminalVelocity: 15
+  MaxLossyScaleDistance: 0.25
   GroundDetectionDistance: 100
   ControllingCollider: {fileID: 2156858513058524042}
   OnLanded:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5021432426937584430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175040567833875743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c343b84b60423495f6e83bf7902f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  Duration: 0.4
+  MinStopDistance: 0.1
+  Camera: {fileID: 0}
+  SpriteRenderer: {fileID: 6795579963323379539}
+  OnDoneMoving:
     m_PersistentCalls:
       m_Calls: []
 --- !u!95 &5575594162835084037

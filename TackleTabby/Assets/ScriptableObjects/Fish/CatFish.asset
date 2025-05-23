@@ -21,5 +21,6 @@ MonoBehaviour:
   RequiredBaitCombination:
   - {fileID: 11400000, guid: e93bd98bb24c77041b6cca87e2f3b5c2, type: 2}
   - {fileID: 11400000, guid: 2d0626a7f0994dc4692616377379f154, type: 2}
+  - {fileID: 11400000, guid: a76c41002a421754785e3e494f8ddc1e, type: 2}
   MouthPivot: {x: 0.13, y: 0.5}
   SatiationAmount: 4
