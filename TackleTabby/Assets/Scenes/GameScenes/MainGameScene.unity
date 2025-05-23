@@ -3650,7 +3650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9279b815aa776ff43af992d09db8baf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaitReference: {fileID: 11400000, guid: 9fe3b75ffa5190248af0318088a1d53e, type: 2}
+  BaitReference: {fileID: 11400000, guid: a76c41002a421754785e3e494f8ddc1e, type: 2}
   SpriteRenderer: {fileID: 1577889513}
   RaycastDistance: 1
   Animator: {fileID: 578019288}
@@ -4400,7 +4400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9b292bf5fde0788438a4dc8c422bcc9e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f660f18db58ab348b5a50c9f3354e4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5790,11 +5790,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 45672706652716755, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 450
+      value: 490
       objectReference: {fileID: 0}
     - target: {fileID: 45672706652716755, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -240
+      value: -205
       objectReference: {fileID: 0}
     - target: {fileID: 3178877378569325376, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_Pivot.x
@@ -5909,8 +5909,13 @@ PrefabInstance:
       value: 'When you have a single bait in your combo queue, you will get some
         suggestions for valid combinations.
 
-        You can move the bait even without
-        making a match in order to create those valid combinations.'
+
+        You can move the bait even
+        without making a match in order to create those valid combinations.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987108370973140657, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6460417337527299433, guid: 7dec838b0d7acd3448680ae01af40c15, type: 3}
       propertyPath: m_Name
@@ -6101,7 +6106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9279b815aa776ff43af992d09db8baf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaitReference: {fileID: 11400000, guid: 179bb9294b5abf941801b534707f5bc5, type: 2}
+  BaitReference: {fileID: 11400000, guid: 9fe3b75ffa5190248af0318088a1d53e, type: 2}
   SpriteRenderer: {fileID: 637936128}
   RaycastDistance: 1
   Animator: {fileID: 990710377}
@@ -9702,7 +9707,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f660f18db58ab348b5a50c9f3354e4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c47b48bb63f19547a935b211efea00f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
